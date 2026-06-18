@@ -177,21 +177,32 @@ func queryServiceInstance(instance, testURL string, canSkipCheck bool) bool {
 	return true
 }
 
-// isBlockPage reports whether a 200 response body is actually a Cloudflare
-// challenge or block page rather than a working frontend. Kept conservative
-// to avoid pruning legitimate instances.
+// isBlockPage reports whether a 200 response body is actually an anti-bot
+// challenge or block page rather than a working frontend. Markers are matched
+// against the lowercased body and chosen to be specific enough not to prune
+// legitimate instances. Markers must be HTML-entity-safe (e.g. match the text
+// before an apostrophe, since bodies contain &#39; not ').
 func isBlockPage(body []byte) bool {
 	lower := strings.ToLower(string(body))
-	markers := []string{
-		"error code: 1003",        // Cloudflare direct-IP / proxy block
-		"just a moment...",        // Cloudflare JS challenge
-		"attention required!",     // Cloudflare WAF block
-		"cf-browser-verification", // Cloudflare challenge asset
-	}
-	for _, m := range markers {
+	for _, m := range blockPageMarkers {
 		if strings.Contains(lower, m) {
 			return true
 		}
 	}
 	return false
+}
+
+// blockPageMarkers identifies anti-bot challenge/block pages served with a 200
+// status. Keep this list in sync with tools/probe.
+var blockPageMarkers = []string{
+	"error code: 1003",            // Cloudflare direct-IP / proxy block
+	"just a moment...",            // Cloudflare JS challenge
+	"attention required!",         // Cloudflare WAF block
+	"cf-browser-verification",     // Cloudflare challenge asset
+	"enable javascript and cookies", // Cloudflare interstitial
+	"checking your browser",       // DDoS-Guard / generic interstitial
+	"ddos-guard",                  // DDoS-Guard
+	"making sure you",             // Anubis proof-of-work wall ("Making sure you're not a bot!")
+	"tollbat",                     // Tollbat challenge
+	"<title>gandalf</title>",      // Gandalf auth portal
 }

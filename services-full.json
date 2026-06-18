@@ -2,7 +2,7 @@
   {
     "type": "libreddit",
     "test_url": "/r/popular",
-    "fallback": "https://redlib.freedit.eu",
+    "fallback": "https://redlib.catsarch.com",
     "instances": [
       "https://reddit.rtrace.io",
       "https://redlib.catsarch.com",
@@ -17,7 +17,7 @@
   {
     "type": "redlib",
     "test_url": "/r/popular",
-    "fallback": "https://redlib.freedit.eu",
+    "fallback": "https://redlib.catsarch.com",
     "instances": [
       "https://reddit.rtrace.io",
       "https://redlib.catsarch.com",
@@ -32,7 +32,7 @@
   {
     "type": "teddit",
     "test_url": "/r/popular",
-    "fallback": "https://i.opnxng.com",
+    "fallback": "https://teddit.no-logs.com",
     "instances": [
       "https://i.opnxng.com",
       "https://rdt.trom.tf",
@@ -78,7 +78,7 @@
   {
     "type": "invidious",
     "test_url": "/watch?v=eBGIQ7ZuuiU",
-    "fallback": "https://inv-ygg.nadeko.net",
+    "fallback": "https://invidious.nerdvpn.de",
     "instances": [
       "https://inv-ygg.nadeko.net",
       "https://inv.nadeko.net",
@@ -118,7 +118,7 @@
   {
     "type": "nitter",
     "test_url": "/jack/status/20",
-    "fallback": "https://lightbrd.com",
+    "fallback": "https://nitter.catsarch.com",
     "instances": [
       "https://lightbrd.com",
       "https://nitter.catsarch.com",
@@ -136,7 +136,7 @@
   {
     "type": "scribe",
     "test_url": "/@ftrain/big-data-small-effort-b62607a43a8c",
-    "fallback": "https://scribe.rip",
+    "fallback": "https://m.opnxng.com",
     "instances": [
       "https://scribe.nixnet.services",
       "https://scribe.rawbit.ninja",
@@ -172,7 +172,7 @@
   {
     "type": "lingva",
     "test_url": "/auto/en/hola",
-    "fallback": "https://lingva.ml",
+    "fallback": "https://lingva.lunar.icu",
     "instances": [
       "https://lingva.ml",
       "https://lingva.garudalinux.org",
@@ -191,7 +191,7 @@
   {
     "type": "rimgo",
     "test_url": "/a/H8M4rcp",
-    "fallback": "https://rimgo.projectsegfau.lt",
+    "fallback": "https://rimgo.catsarch.com",
     "instances": [
       "https://anaimg.starbeamrainbowlabs.com",
       "https://imgur.artemislena.eu",
@@ -251,7 +251,7 @@
   {
     "type": "searxng",
     "test_url": "/search?q=<%=query%>",
-    "fallback": "https://searx.be",
+    "fallback": "https://searxng.shreven.org",
     "instances": [
       "https://baresearch.org",
       "https://copp.gg",
@@ -302,7 +302,7 @@
   {
     "type": "wikiless",
     "test_url": "/wiki/Wikipedia?lang=en",
-    "fallback": "https://wikiless.org",
+    "fallback": "https://wikiless.tiekoetter.com",
     "instances": [
       "https://wiki.owo.si",
       "https://wiki.adminforge.de",
@@ -354,7 +354,7 @@
   {
     "type": "quetre",
     "test_url": "/How-does-the-Z-boson-decay",
-    "fallback": "https://quetre.iket.me",
+    "fallback": "https://quetre.tokhmi.xyz",
     "instances": [
       "https://quetre.iket.me",
       "https://quora.vern.cc",
@@ -400,7 +400,7 @@
   {
     "type": "dumb",
     "test_url": "/Naughty-boy-la-la-la-lyrics",
-    "fallback": "https://dumb.privacydev.net",
+    "fallback": "https://dumb.ducks.party",
     "instances": [
       "https://dumb.privacydev.net",
       "https://dm.vern.cc",
@@ -450,7 +450,7 @@
   {
     "type": "anonymousoverflow",
     "test_url": "/questions/6591213/how-do-i-rename-a-local-git-branch",
-    "fallback": "https://code.whatever.social",
+    "fallback": "https://anonymousoverflow.catsarch.com",
     "instances": [
       "https://ao.owo.si",
       "https://code.whatever.social",
@@ -498,7 +498,7 @@
   {
     "type": "librey",
     "test_url": "/search.php?q=<%=query%>",
-    "fallback": "https://search.ahwx.org",
+    "fallback": "https://librex.nohost.network",
     "instances": [
       "https://librex.nohost.network",
       "https://librey.4o1x5.dev",
