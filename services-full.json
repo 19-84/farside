@@ -404,13 +404,15 @@
     "test_url": "/Naughty-boy-la-la-la-lyrics",
     "fallback": "https://dumb.ducks.party",
     "instances": [
-      "https://dumb.privacydev.net",
       "https://dm.vern.cc",
-      "https://sing.whatever.social",
-      "https://dumb.nunosempere.com",
-      "https://dumb.lunar.icu",
+      "https://dumb.bloat.cat",
+      "https://dumb.ducks.party",
       "https://dumb.esmailelbob.xyz",
-      "https://dumb.ducks.party"
+      "https://dumb.lunar.icu",
+      "https://dumb.nunosempere.com",
+      "https://dumb.privacydev.net",
+      "https://genius.fsky.io",
+      "https://sing.whatever.social"
     ]
   },
   {
@@ -475,26 +477,38 @@
     "test_url": "/ami4get",
     "fallback": "https://4get.ca",
     "instances": [
+      "https://4.nboeck.de",
       "https://4g.ggtyler.dev",
+      "https://4g.moonscape.nexus",
       "https://4g.opnxng.com",
+      "https://4get.aishiteiru.moe",
       "https://4get.ca",
+      "https://4get.canine.tools",
       "https://4get.dcs0.hu",
+      "https://4get.ducks.party",
+      "https://4get.edmateo.site",
       "https://4get.etenie.pl",
       "https://4get.hbubli.cc",
       "https://4get.kizuki.lol",
       "https://4get.konakona.moe",
       "https://4get.lunar.icu",
       "https://4get.lvkaszus.pl",
+      "https://4get.neco.lol",
+      "https://4get.nigga.pt",
       "https://4get.perennialte.ch",
       "https://4get.plunked.party",
+      "https://4get.privadency.com",
       "https://4get.psily.garden",
       "https://4get.seitan-ayoub.lol",
       "https://4get.sijh.net",
       "https://4get.silly.computer",
+      "https://4get.sny.sh",
+      "https://4get.sudovanilla.org",
       "https://4get.zzls.xyz",
       "https://4getus.zzls.xyz",
-      "https://4get.ducks.party",
-      "https://s.futureofthe.tech"
+      "https://s.futureofthe.tech",
+      "https://search.fischbytes.de",
+      "https://search.yonderly.org"
     ]
   },
   {
