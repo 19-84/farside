@@ -54,6 +54,9 @@ SERVICES = {
     "4get": {
         "sources": ["https://4get.ca/instances"],
         "test_url": "/ami4get", "markers": ["4get"]},
+    "biblioreads": {
+        "sources": ["https://raw.githubusercontent.com/nesaku/BiblioReads/main/README.md"],
+        "test_url": "/search?q=dune", "markers": ["biblioreads"]},
 }
 
 BAD = ("github.com", "githubusercontent", "shields.io", "gitlab.com", "codeberg.org",

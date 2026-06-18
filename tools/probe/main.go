@@ -60,6 +60,7 @@ var contentMarkers = map[string][]string{
 	"breezewiki":        {"breezewiki"},
 	"gothub":            {"gothub"},
 	"anonymousoverflow": {"anonymousoverflow", "anonymous overflow"},
+	"biblioreads":       {"biblioreads"},
 	"4get":              {"4get"},
 	"librey":            {"librey", "librex"},
 	"tent":              {"tent"},

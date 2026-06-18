@@ -531,5 +531,19 @@
       "https://tn.maid.zone",
       "https://tn.vern.cc"
     ]
+  },
+  {
+    "type": "biblioreads",
+    "test_url": "/search?q=dune",
+    "fallback": "https://biblioreads.lunar.icu",
+    "instances": [
+      "https://biblioreads.ducks.party",
+      "https://biblioreads.eu.org",
+      "https://biblioreads.lunar.icu",
+      "https://biblioreads.mooo.com",
+      "https://biblioreads.privacyredirect.com",
+      "https://br.bloat.cat",
+      "https://read.freedit.eu"
+    ]
   }
 ]

@@ -79,6 +79,11 @@ var regexMap = []RegexMapping{
 		Targets: []string{"libremdb"},
 	},
 	{
+		// Goodreads
+		Pattern: regexp.MustCompile(`goodreads\.com|biblioreads`),
+		Targets: []string{"biblioreads"},
+	},
+	{
 		// Quora
 		Pattern: regexp.MustCompile(`quora\.com|quetre`),
 		Targets: []string{"quetre"},
