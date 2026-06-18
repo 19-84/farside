@@ -291,6 +291,37 @@ jobs:
           apply_update
 
         # ==============================================================
+        # Verify-first discovery for services that only publish their
+        # instances in a README/wiki/HTML page (no machine-readable
+        # registry). discover.py confirms each candidate is live AND is
+        # genuinely that frontend (home-page identity marker) before
+        # accepting it, so badge/dependency links are rejected. It prints
+        # {type: [instances]} as its last stdout line.
+        #
+        # The merge is additive (union): the runtime health check prunes
+        # dead entries, so a transient discovery failure here never shrinks
+        # a list.
+        # ==============================================================
+        python3 tools/discover.py > discover.log 2>&1 || true
+        cat discover.log
+        tail -1 discover.log > discovered-tmp.json
+        if ! jq -e . discovered-tmp.json >/dev/null 2>&1; then echo '{}' > discovered-tmp.json; fi
+        jq --slurpfile disc discovered-tmp.json '
+          ($disc[0] // {}) as $d
+          | map(.instances = ((.instances + ($d[.type] // [])) | unique))
+        ' services-full.json > services-tmp.json
+        apply_update
+        rm -f discover.log
+
+        # ==============================================================
+        # Validate discovery registries (non-blocking). Surfaces a dead or
+        # changed upstream registry (e.g. scribe) in the job log instead of
+        # silently shipping stale lists. Does not fail the job, since some
+        # breakage (scribe) is permanent and should not block all updates.
+        # ==============================================================
+        python3 tools/check-registries.py || echo "[WARN] one or more registries are dead/broken (see above)"
+
+        # ==============================================================
         # TODO: Update instances for other services
         # ==============================================================
 
