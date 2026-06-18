@@ -291,6 +291,16 @@ jobs:
           apply_update
 
         # ==============================================================
+        # Mozhi update (translate frontend; clean JSON registry)
+        # ==============================================================
+        curl -s https://codeberg.org/aryak/mozhi/raw/branch/master/instances.json | \
+          jq '[.[] | .link]' > mozhi-tmp.json
+        jq --slurpfile mozhi mozhi-tmp.json \
+          '( .[] | select(.type == "mozhi") )
+          .instances |= $mozhi[0]' services-full.json > services-tmp.json
+        apply_update
+
+        # ==============================================================
         # Verify-first discovery for services that only publish their
         # instances in a README/wiki/HTML page (no machine-readable
         # registry). discover.py confirms each candidate is live AND is

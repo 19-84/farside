@@ -60,8 +60,8 @@ var regexMap = []RegexMapping{
 	},
 	{
 		// Google Translate
-		Pattern: regexp.MustCompile(`translate\.google\.com|lingva|simplytranslate`),
-		Targets: []string{"lingva", "simplytranslate"},
+		Pattern: regexp.MustCompile(`translate\.google\.com|lingva|simplytranslate|mozhi`),
+		Targets: []string{"lingva", "simplytranslate", "mozhi"},
 	},
 	{
 		// TikTok

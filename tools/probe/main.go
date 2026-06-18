@@ -46,6 +46,7 @@ var contentMarkers = map[string][]string{
 	"scribe":            {"scribe"},
 	"simplytranslate":   {"simplytranslate", "simply translate"},
 	"lingva":            {"lingva"},
+	"mozhi":             {"mozhi"},
 	"rimgo":             {"rimgo"},
 	"whoogle":           {"whoogle"},
 	"searx":             {"searx"},

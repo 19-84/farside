@@ -189,6 +189,22 @@
     ]
   },
   {
+    "type": "mozhi",
+    "test_url": "/?engine=google",
+    "fallback": "https://mozhi.aryak.me",
+    "instances": [
+      "https://mozhi.adminforge.de",
+      "https://mozhi.aryak.me",
+      "https://mozhi.bloat.cat",
+      "https://mozhi.canine.tools",
+      "https://mozhi.catsarch.com",
+      "https://mozhi.ducks.party",
+      "https://mozhi.pussthecat.org",
+      "https://translate.privacyredirect.com",
+      "https://translate.projectsegfau.lt"
+    ]
+  },
+  {
     "type": "rimgo",
     "test_url": "/a/H8M4rcp",
     "fallback": "https://rimgo.catsarch.com",
