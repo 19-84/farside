@@ -314,6 +314,15 @@ jobs:
         rm -f discover.log
 
         # ==============================================================
+        # Prune instances dead for >= 3 consecutive runs. Non-flaky:
+        # in-run retries plus a persisted per-instance strike counter
+        # (instance-strikes.json) -- a transient outage costs a strike, not
+        # an immediate removal, and a live probe resets it to 0. Runs after
+        # discovery so freshly added (live) instances start at zero strikes.
+        # ==============================================================
+        python3 tools/prune.py --file services-full.json --state instance-strikes.json --threshold 3
+
+        # ==============================================================
         # Validate discovery registries (non-blocking). Surfaces a dead or
         # changed upstream registry (e.g. scribe) in the job log instead of
         # silently shipping stale lists. Does not fail the job, since some
@@ -334,6 +343,6 @@ jobs:
         # ==============================================================
         # Push changes
         # ==============================================================
-        git add services.json services-full.json
+        git add services.json services-full.json instance-strikes.json
         git commit -m '[CI] Auto update instances' || exit 0
         git push
