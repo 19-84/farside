@@ -32,7 +32,7 @@
   {
     "type": "teddit",
     "test_url": "/r/popular",
-    "fallback": "https://teddit.net",
+    "fallback": "https://i.opnxng.com",
     "instances": [
       "https://i.opnxng.com",
       "https://rdt.trom.tf",
@@ -78,7 +78,7 @@
   {
     "type": "invidious",
     "test_url": "/watch?v=eBGIQ7ZuuiU",
-    "fallback": "https://invidious.snopyta.org",
+    "fallback": "https://inv-ygg.nadeko.net",
     "instances": [
       "https://inv-ygg.nadeko.net",
       "https://inv.nadeko.net",
@@ -118,7 +118,7 @@
   {
     "type": "nitter",
     "test_url": "/jack/status/20",
-    "fallback": "https://nitter.net",
+    "fallback": "https://lightbrd.com",
     "instances": [
       "https://lightbrd.com",
       "https://nitter.catsarch.com",
@@ -378,7 +378,7 @@
   {
     "type": "libremdb",
     "test_url": "/title/tt0133093",
-    "fallback": "https://libremdb.herokuapp.com",
+    "fallback": "https://libremdb.pussthecat.org",
     "instances": [
       "https://libremdb.herokuapp.com",
       "https://libremdb.pussthecat.org",

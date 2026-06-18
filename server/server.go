@@ -81,7 +81,8 @@ func routing(w http.ResponseWriter, r *http.Request, jsEnabled bool, query strin
 	segments := strings.Split(path, "/")
 
 	if len(segments[0]) == 0 {
-		http.Redirect(w, r, "", http.StatusTemporaryRedirect)
+		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
+		return
 	}
 
 	target, err := services.MatchRequest(segments[0])
@@ -121,7 +122,9 @@ func routing(w http.ResponseWriter, r *http.Request, jsEnabled bool, query strin
 	w.Header().Set("Pragma", "no-cache")
 	w.Header().Set("Expires", "0")
 
-	instance += fmt.Sprintf("?%s", query)
+	if len(query) > 0 {
+		instance += "?" + query
+	}
 	if jsEnabled {
 		data := routeData{
 			InstanceURL: instance,

@@ -4,6 +4,7 @@ import (
 	"log"
 	"os"
 	"slices"
+	"sync"
 	"testing"
 )
 
@@ -55,6 +56,43 @@ func TestDatabase(t *testing.T) {
 	} else if firstInstance == secondInstance {
 		t.Fatalf("Same instance was selected twice")
 	}
+	// Note: do not CloseDB here; TestMain owns the DB lifecycle and other
+	// tests run against the same handle.
+}
 
-	_ = CloseDB()
+// TestConcurrentGetInstance exercises GetInstance and GetServiceList from many
+// goroutines at once. Without the mutexes guarding selectionMap and the service
+// cache this panics with "concurrent map writes" (or trips -race); it is the
+// regression test for that fix.
+func TestConcurrentGetInstance(t *testing.T) {
+	service := "concurrent"
+	instances := []string{
+		"https://a.example",
+		"https://b.example",
+		"https://c.example",
+		"https://d.example",
+	}
+	if err := SetInstances(service, instances); err != nil {
+		t.Fatalf("Failed to set instances: %v", err)
+	}
+
+	const (
+		workers    = 50
+		iterations = 100
+	)
+	var wg sync.WaitGroup
+	wg.Add(workers)
+	for i := 0; i < workers; i++ {
+		go func() {
+			defer wg.Done()
+			for j := 0; j < iterations; j++ {
+				if _, err := GetInstance(service, ""); err != nil {
+					t.Errorf("GetInstance failed: %v", err)
+					return
+				}
+				_ = GetServiceList()
+			}
+		}()
+	}
+	wg.Wait()
 }
