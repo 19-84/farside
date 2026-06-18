@@ -155,13 +155,15 @@
     "fallback": "https://lingva.lunar.icu",
     "instances": [
       "https://lingva.frontendfriendly.xyz",
-      "https://lingva.retiolus.net",
       "https://lingva.lunar.icu",
-      "https://translate.dr460nf1r3.org",
-      "https://translate.whateveritworks.org",
-      "https://translate.sapti.me",
+      "https://lingva.ml",
+      "https://lingva.retiolus.net",
+      "https://translate.catswords.net",
       "https://translate.colinslegacy.com",
-      "https://translate.catswords.net"
+      "https://translate.dr460nf1r3.org",
+      "https://translate.plausibility.cloud",
+      "https://translate.sapti.me",
+      "https://translate.whateveritworks.org"
     ]
   },
   {
@@ -326,22 +328,23 @@
     "test_url": "/How-does-the-Z-boson-decay",
     "fallback": "https://quetre.tokhmi.xyz",
     "instances": [
-      "https://quetre.iket.me",
-      "https://quora.vern.cc",
-      "https://quetre.pussthecat.org",
-      "https://quetre.tokhmi.xyz",
-      "https://quetre.projectsegfau.lt",
-      "https://quetre.esmailelbob.xyz",
-      "https://quetre.privacydev.net",
       "https://ask.habedieeh.re",
-      "https://quetre.marcopisco.com",
-      "https://quetre.blackdrgn.nl",
-      "https://quetre.pufe.org",
-      "https://quetre.lunar.icu",
+      "https://q.opnxng.com",
       "https://que.wilbvr.me",
       "https://questions.whateveritworks.org",
+      "https://quetre.blackdrgn.nl",
+      "https://quetre.ducks.party",
+      "https://quetre.esmailelbob.xyz",
       "https://quetre.frontendfriendly.xyz",
-      "https://quetre.ducks.party"
+      "https://quetre.iket.me",
+      "https://quetre.lunar.icu",
+      "https://quetre.marcopisco.com",
+      "https://quetre.privacydev.net",
+      "https://quetre.projectsegfau.lt",
+      "https://quetre.pufe.org",
+      "https://quetre.pussthecat.org",
+      "https://quetre.tokhmi.xyz",
+      "https://quora.vern.cc"
     ]
   },
   {
@@ -349,19 +352,20 @@
     "test_url": "/title/tt0133093",
     "fallback": "https://libremdb.pussthecat.org",
     "instances": [
-      "https://libremdb.herokuapp.com",
-      "https://libremdb.pussthecat.org",
-      "https://libremdbeu.herokuapp.com",
-      "https://libremdb.esmailelbob.xyz",
-      "https://libremdb.iket.me",
-      "https://ld.vern.cc",
       "https://binge.whatever.social",
       "https://binge.whateveritworks.social",
-      "https://libremdb.lunar.icu",
-      "https://lmdb.hostux.net",
+      "https://d.opnxng.com",
+      "https://ld.vern.cc",
       "https://libremdb.catsarch.com",
+      "https://libremdb.ducks.party",
+      "https://libremdb.esmailelbob.xyz",
       "https://libremdb.frontendfriendly.xyz",
-      "https://libremdb.ducks.party"
+      "https://libremdb.herokuapp.com",
+      "https://libremdb.iket.me",
+      "https://libremdb.lunar.icu",
+      "https://libremdb.pussthecat.org",
+      "https://libremdbeu.herokuapp.com",
+      "https://lmdb.hostux.net"
     ]
   },
   {
