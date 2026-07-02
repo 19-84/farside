@@ -63,34 +63,39 @@ var contentMarkers = map[string][]string{
 	"tent":              {"tent"},
 }
 
-// blockMarkers identify an anti-bot challenge/block page served with 200.
-// Kept in sync with db.blockPageMarkers in the server. HTML-entity-safe.
-var blockMarkers = []string{
-	"error code: 1003",              // Cloudflare direct-IP / proxy block
-	"just a moment...",              // Cloudflare JS challenge
-	"attention required!",           // Cloudflare WAF block
-	"cf-browser-verification",       // Cloudflare challenge asset
-	"enable javascript and cookies", // Cloudflare interstitial
-	"checking your browser",         // DDoS-Guard / generic interstitial
-	"ddos-guard",                    // DDoS-Guard
-	"making sure you",               // Anubis proof-of-work wall
-	"tollbat",                       // Tollbat challenge
-	"<title>gandalf</title>",        // Gandalf auth portal
+// blockMarkers identify an anti-bot challenge/block page served with 200,
+// mapping each marker to the wall software it belongs to. The marker set is
+// kept in sync with db.blockPageMarkers in the server. HTML-entity-safe.
+var blockMarkers = []struct {
+	marker string
+	wall   string
+}{
+	{"error code: 1003", "cloudflare"},              // direct-IP / proxy block
+	{"just a moment...", "cloudflare"},              // JS challenge
+	{"attention required!", "cloudflare"},           // WAF block
+	{"cf-browser-verification", "cloudflare"},       // challenge asset
+	{"enable javascript and cookies", "cloudflare"}, // interstitial
+	{"checking your browser", "ddos-guard"},         // DDoS-Guard / generic interstitial
+	{"ddos-guard", "ddos-guard"},
+	{"making sure you", "anubis"}, // Anubis proof-of-work wall
+	{"tollbat", "tollbat"},
+	{"<title>gandalf</title>", "gandalf"}, // auth portal
 }
 
 const userAgent = "Mozilla/5.0 (compatible; Farside/1.0.0; +https://farside.link)"
 
 type result struct {
-	svcType    string
-	instance   string
-	isFallback bool
-	status     int
-	elapsed    time.Duration
-	reachable  bool
-	blocked    bool
+	svcType     string
+	instance    string
+	isFallback  bool
+	status      int
+	elapsed     time.Duration
+	reachable   bool
+	blocked     bool
+	wall        string
 	markerKnown bool
-	markerOK   bool
-	reason     string
+	markerOK    bool
+	reason      string
 }
 
 // pass reports whether the instance is healthy by the server's criteria
@@ -134,9 +139,10 @@ func probe(client *http.Client, svc service, instance string, isFallback bool) r
 	low := strings.ToLower(string(body))
 
 	for _, m := range blockMarkers {
-		if strings.Contains(low, m) {
+		if strings.Contains(low, m.marker) {
 			r.blocked = true
-			r.reason = "block/challenge page"
+			r.wall = m.wall
+			r.reason = "block/challenge page (" + m.wall + ")"
 			return r
 		}
 	}
@@ -172,6 +178,7 @@ func main() {
 	file := flag.String("file", "services.json", "services JSON file to probe")
 	conc := flag.Int("c", 25, "max concurrent probes")
 	timeout := flag.Duration("timeout", 10*time.Second, "per-request timeout")
+	jsonOut := flag.String("json", "", "also write a machine-readable report to this path")
 	flag.Parse()
 
 	raw, err := os.ReadFile(*file)
@@ -216,7 +223,90 @@ func main() {
 	}
 	wg.Wait()
 
+	if *jsonOut != "" {
+		if err := writeJSON(*jsonOut, *file, results); err != nil {
+			fmt.Fprintln(os.Stderr, "write json report:", err)
+			os.Exit(2)
+		}
+	}
 	report(services, results)
+}
+
+type jsonInstance struct {
+	URL      string `json:"url"`
+	Fallback bool   `json:"fallback"`
+	Status   int    `json:"status"`
+	Ms       int64  `json:"ms"`
+	State    string `json:"state"` // ok | walled | suspect | dead
+	Wall     string `json:"wall,omitempty"`
+	Reason   string `json:"reason"`
+}
+
+type jsonService struct {
+	Type      string         `json:"type"`
+	Healthy   int            `json:"healthy"`
+	Total     int            `json:"total"`
+	Instances []jsonInstance `json:"instances"`
+}
+
+func state(r result) string {
+	switch {
+	case r.blocked:
+		return "walled"
+	case !r.pass():
+		return "dead"
+	case r.markerKnown && !r.markerOK:
+		return "suspect"
+	default:
+		return "ok"
+	}
+}
+
+func writeJSON(path, srcFile string, results []result) error {
+	byType := map[string]*jsonService{}
+	var order []string
+	for _, r := range results {
+		js, seen := byType[r.svcType]
+		if !seen {
+			js = &jsonService{Type: r.svcType}
+			byType[r.svcType] = js
+			order = append(order, r.svcType)
+		}
+		if !r.isFallback {
+			js.Total++
+			if r.pass() {
+				js.Healthy++
+			}
+		}
+		js.Instances = append(js.Instances, jsonInstance{
+			URL:      r.instance,
+			Fallback: r.isFallback,
+			Status:   r.status,
+			Ms:       r.elapsed.Milliseconds(),
+			State:    state(r),
+			Wall:     r.wall,
+			Reason:   r.reason,
+		})
+	}
+	sort.Strings(order)
+
+	out := struct {
+		Generated string        `json:"generated"`
+		File      string        `json:"file"`
+		Services  []jsonService `json:"services"`
+	}{
+		Generated: time.Now().UTC().Format(time.RFC3339),
+		File:      srcFile,
+	}
+	for _, t := range order {
+		out.Services = append(out.Services, *byType[t])
+	}
+
+	data, err := json.MarshalIndent(out, "", "  ")
+	if err != nil {
+		return err
+	}
+	return os.WriteFile(path, append(data, '\n'), 0o644)
 }
 
 func report(services []service, results []result) {
