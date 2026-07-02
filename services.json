@@ -53,19 +53,6 @@
     ]
   },
   {
-    "type": "proxigram",
-    "test_url": "/p/Ch2WRmiLMjj",
-    "fallback": "https://ig.opnxng.com",
-    "instances": [
-      "https://ig.opnxng.com",
-      "https://proxigram.lunar.icu",
-      "https://gram.whatever.social",
-      "https://ig.snine.nl",
-      "https://ig.floppa.one",
-      "https://proxigram.kyun.li"
-    ]
-  },
-  {
     "type": "invidious",
     "test_url": "/watch?v=eBGIQ7ZuuiU",
     "fallback": "https://invidious.nerdvpn.de",
@@ -288,36 +275,6 @@
       "https://searxng.site",
       "https://searxng.website",
       "https://xka.cz"
-    ]
-  },
-  {
-    "type": "wikiless",
-    "test_url": "/wiki/Wikipedia?lang=en",
-    "fallback": "https://wikiless.tiekoetter.com",
-    "instances": [
-      "https://wiki.adminforge.de",
-      "https://wiki.froth.zone",
-      "https://wikiless.esmailelbob.xyz",
-      "https://wikiless.funami.tech",
-      "https://wikiless.lunar.icu",
-      "https://wikiless.northboot.xyz",
-      "https://wikiless.org",
-      "https://wikiless.sethforprivacy.com",
-      "https://wikiless.tiekoetter.com",
-      "https://wl.vern.cc"
-    ]
-  },
-  {
-    "type": "librarian",
-    "test_url": "",
-    "fallback": "https://lbry.bcow.xyz",
-    "instances": [
-      "https://lbry.bcow.xyz",
-      "https://odysee.076.ne.jp",
-      "https://librarian.pussthecat.org",
-      "https://lbry.mutahar.rocks",
-      "https://librarian.esmailelbob.xyz",
-      "https://lbry.vern.cc"
     ]
   },
   {

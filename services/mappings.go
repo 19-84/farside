@@ -34,24 +34,9 @@ var regexMap = []RegexMapping{
 		Targets: []string{"whoogle", "searxng"},
 	},
 	{
-		// Instagram
-		Pattern: regexp.MustCompile(`instagram\.com|proxigram`),
-		Targets: []string{"proxigram"},
-	},
-	{
-		// Wikipedia
-		Pattern: regexp.MustCompile(`wikipedia\.org|wikiless`),
-		Targets: []string{"wikiless"},
-	},
-	{
 		// Medium
 		Pattern: regexp.MustCompile(`medium\.com|scribe`),
 		Targets: []string{"scribe"},
-	},
-	{
-		// Odysee
-		Pattern: regexp.MustCompile(`odysee\.com|librarian`),
-		Targets: []string{"librarian"},
 	},
 	{
 		// Imgur
