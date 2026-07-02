@@ -150,8 +150,8 @@ instance will now take the place of `nitter.net` as the "reserved" instance, and
 This "reserving" of previously chosen instances is performed in an attempt to
 ensure better distribution of traffic to available instances for each service.
 
-Farside also has built-in IP ratelimiting for all requests, enforcing only one
-request per second per IP.
+Farside does not perform any application-level ratelimiting itself; run it
+behind a reverse proxy (e.g. nginx, Caddy) if you need per-IP request limits.
 
 ## Regarding Cloudflare
 Instances for each supported service that are deployed behind Cloudflare are
@@ -198,6 +198,14 @@ goes against what Farside is trying to solve. Use at your own discretion.
     <tr>
         <td>FARSIDE_CRON</td>
         <td>Set to 0 to deactivate the periodic instance availability check</td>
+    </tr>
+    <tr>
+        <td>FARSIDE_PRIMARY</td>
+        <td>Set to 1 to act as a primary node that health-checks instances directly, instead of mirroring state from farside.link</td>
+    </tr>
+    <tr>
+        <td>FARSIDE_AUTO_UPDATE</td>
+        <td>Set to 1 to re-fetch the services definition file from the upstream repo on startup and daily (off by default, so local edits are preserved)</td>
     </tr>
 </table>
 

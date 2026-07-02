@@ -1,0 +1,52 @@
+name: Instance status page
+
+on:
+  schedule:
+    # An hour after update-instances.yml (00:00) so we probe fresh lists
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - tools/probe/**
+      - tools/status-page/**
+      - .github/workflows/status-page.yml
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+
+      - name: Probe all instances
+        # The probe exits 1 when a fallback is dead; still publish the page.
+        run: |
+          mkdir -p _site
+          go run ./tools/probe -file services-full.json -timeout 8s \
+            -json _site/status.json || echo "::warning::probe reported dead fallbacks"
+          cp tools/status-page/index.html _site/
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

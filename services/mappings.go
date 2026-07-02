@@ -34,24 +34,9 @@ var regexMap = []RegexMapping{
 		Targets: []string{"whoogle", "searxng"},
 	},
 	{
-		// Instagram
-		Pattern: regexp.MustCompile(`instagram\.com|proxigram`),
-		Targets: []string{"proxigram"},
-	},
-	{
-		// Wikipedia
-		Pattern: regexp.MustCompile(`wikipedia\.org|wikiless`),
-		Targets: []string{"wikiless"},
-	},
-	{
 		// Medium
 		Pattern: regexp.MustCompile(`medium\.com|scribe`),
 		Targets: []string{"scribe"},
-	},
-	{
-		// Odysee
-		Pattern: regexp.MustCompile(`odysee\.com|librarian`),
-		Targets: []string{"librarian"},
 	},
 	{
 		// Imgur
@@ -60,8 +45,8 @@ var regexMap = []RegexMapping{
 	},
 	{
 		// Google Translate
-		Pattern: regexp.MustCompile(`translate\.google\.com|lingva|simplytranslate`),
-		Targets: []string{"lingva", "simplytranslate"},
+		Pattern: regexp.MustCompile(`translate\.google\.com|lingva|simplytranslate|mozhi`),
+		Targets: []string{"lingva", "simplytranslate", "mozhi"},
 	},
 	{
 		// TikTok
@@ -77,6 +62,11 @@ var regexMap = []RegexMapping{
 		// IMDB
 		Pattern: regexp.MustCompile(`imdb\.com|libremdb`),
 		Targets: []string{"libremdb"},
+	},
+	{
+		// Goodreads
+		Pattern: regexp.MustCompile(`goodreads\.com|biblioreads`),
+		Targets: []string{"biblioreads"},
 	},
 	{
 		// Quora

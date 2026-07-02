@@ -5,12 +5,30 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"sync"
 )
 
 var (
-	ServiceList []Service
-	FallbackMap map[string]string
+	listMu      sync.RWMutex
+	serviceList []Service
+	fallbackMap map[string]string
 )
+
+// Services returns a snapshot of the current service list. The returned
+// slice shares its backing array with the package and must not be mutated.
+func Services() []Service {
+	listMu.RLock()
+	defer listMu.RUnlock()
+	return serviceList
+}
+
+// Fallback returns the fallback URL for a service type, if one is defined.
+func Fallback(service string) (string, bool) {
+	listMu.RLock()
+	defer listMu.RUnlock()
+	link, ok := fallbackMap[service]
+	return link, ok
+}
 
 const (
 	baseRepoLink = "https://raw.githubusercontent.com/benbusby/farside/refs/heads/main/"
@@ -73,15 +91,21 @@ func InitializeServices() error {
 		}
 	}
 
-	err = json.Unmarshal(fileBytes, &ServiceList)
+	var parsed []Service
+	err = json.Unmarshal(fileBytes, &parsed)
 	if err != nil {
 		return err
 	}
 
-	FallbackMap = make(map[string]string)
-	for _, serviceElement := range ServiceList {
-		FallbackMap[serviceElement.Type] = serviceElement.Fallback
+	fallbacks := make(map[string]string)
+	for _, serviceElement := range parsed {
+		fallbacks[serviceElement.Type] = serviceElement.Fallback
 	}
+
+	listMu.Lock()
+	serviceList = parsed
+	fallbackMap = fallbacks
+	listMu.Unlock()
 
 	return nil
 }

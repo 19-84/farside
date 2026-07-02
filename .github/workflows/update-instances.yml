@@ -181,22 +181,6 @@ jobs:
         #apply_update
 
         # ==============================================================
-        # Wikiless update
-        # NOTE: Codeberg has removed the Wikiless repo until the maintainer
-        # makes changes. See https://orenom.fi for updates.
-        # ==============================================================
-        #curl -s https://codeberg.org/orenom/Wikiless/raw/branch/main/instances.json | \
-          #jq '[
-            #.[] |
-            #select((.url | contains(".onion") | not) and (.url | contains("https"))).url ] |
-            #sort' > wikiless-tmp.json
-        #jq --slurpfile wikiless wikiless-tmp.json \
-          #'( .[] | select(.type == "wikiless") )
-          #.instances |= $wikiless[0]' services-full.json > services-tmp.json
-
-        #apply_update
-
-        # ==============================================================
         # libreddit + redlib update
         # ==============================================================
         curl -s https://raw.githubusercontent.com/redlib-org/redlib-instances/main/instances.json | \
@@ -291,6 +275,56 @@ jobs:
           apply_update
 
         # ==============================================================
+        # Mozhi update (translate frontend; clean JSON registry)
+        # ==============================================================
+        curl -s https://codeberg.org/aryak/mozhi/raw/branch/master/instances.json | \
+          jq '[.[] | .link]' > mozhi-tmp.json
+        jq --slurpfile mozhi mozhi-tmp.json \
+          '( .[] | select(.type == "mozhi") )
+          .instances |= $mozhi[0]' services-full.json > services-tmp.json
+        apply_update
+
+        # ==============================================================
+        # Verify-first discovery for services that only publish their
+        # instances in a README/wiki/HTML page (no machine-readable
+        # registry). discover.py confirms each candidate is live AND is
+        # genuinely that frontend (home-page identity marker) before
+        # accepting it, so badge/dependency links are rejected. It prints
+        # {type: [instances]} as its last stdout line.
+        #
+        # The merge is additive (union): the runtime health check prunes
+        # dead entries, so a transient discovery failure here never shrinks
+        # a list.
+        # ==============================================================
+        python3 tools/discover.py > discover.log 2>&1 || true
+        cat discover.log
+        tail -1 discover.log > discovered-tmp.json
+        if ! jq -e . discovered-tmp.json >/dev/null 2>&1; then echo '{}' > discovered-tmp.json; fi
+        jq --slurpfile disc discovered-tmp.json '
+          ($disc[0] // {}) as $d
+          | map(.instances = ((.instances + ($d[.type] // [])) | unique))
+        ' services-full.json > services-tmp.json
+        apply_update
+        rm -f discover.log
+
+        # ==============================================================
+        # Prune instances dead for >= 3 consecutive runs. Non-flaky:
+        # in-run retries plus a persisted per-instance strike counter
+        # (instance-strikes.json) -- a transient outage costs a strike, not
+        # an immediate removal, and a live probe resets it to 0. Runs after
+        # discovery so freshly added (live) instances start at zero strikes.
+        # ==============================================================
+        python3 tools/prune.py --file services-full.json --state instance-strikes.json --threshold 3
+
+        # ==============================================================
+        # Validate discovery registries (non-blocking). Surfaces a dead or
+        # changed upstream registry (e.g. scribe) in the job log instead of
+        # silently shipping stale lists. Does not fail the job, since some
+        # breakage (scribe) is permanent and should not block all updates.
+        # ==============================================================
+        python3 tools/check-registries.py || echo "[WARN] one or more registries are dead/broken (see above)"
+
+        # ==============================================================
         # TODO: Update instances for other services
         # ==============================================================
 
@@ -303,6 +337,6 @@ jobs:
         # ==============================================================
         # Push changes
         # ==============================================================
-        git add services.json services-full.json
+        git add services.json services-full.json instance-strikes.json
         git commit -m '[CI] Auto update instances' || exit 0
         git push

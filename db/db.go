@@ -9,6 +9,7 @@ import (
 	"os"
 	"slices"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/benbusby/farside/services"
@@ -18,9 +19,11 @@ import (
 var (
 	badgerDB     *badger.DB
 	selectionMap map[string]string
+	selectionMu  sync.Mutex
 
 	cachedServiceList []services.Service
 	cacheUpdated      time.Time
+	cacheMu           sync.Mutex
 )
 
 func InitializeDB() error {
@@ -64,7 +67,7 @@ func GetInstance(service, path string) (string, error) {
 			log.Println("DB err:", err)
 		}
 
-		link, ok := services.FallbackMap[service]
+		link, ok := services.Fallback(service)
 		if !ok {
 			return "", errors.New("invalid service")
 		}
@@ -72,6 +75,7 @@ func GetInstance(service, path string) (string, error) {
 		return link, nil
 	}
 
+	selectionMu.Lock()
 	previous, ok := selectionMap[service]
 	if ok && len(instances) > 2 {
 		instances = slices.DeleteFunc(instances, func(i string) bool {
@@ -82,6 +86,7 @@ func GetInstance(service, path string) (string, error) {
 	index := rand.Intn(len(instances))
 	value := instances[index]
 	selectionMap[service] = value
+	selectionMu.Unlock()
 
 	if len(path) > 0 {
 		value = strings.TrimSuffix(value, "/")
@@ -111,6 +116,9 @@ func GetAllInstances(service string) ([]string, error) {
 }
 
 func GetServiceList() []services.Service {
+	cacheMu.Lock()
+	defer cacheMu.Unlock()
+
 	if cacheUpdated.Add(5 * time.Minute).After(time.Now().UTC()) {
 		return cachedServiceList
 	}
@@ -118,7 +126,7 @@ func GetServiceList() []services.Service {
 	canCache := true
 
 	var serviceList []services.Service
-	for _, service := range services.ServiceList {
+	for _, service := range services.Services() {
 		instances, err := GetAllInstances(service.Type)
 		if err != nil {
 			canCache = false
