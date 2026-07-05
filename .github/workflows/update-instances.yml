@@ -273,9 +273,10 @@ jobs:
 
         # ==============================================================
         # Mozhi update (translate frontend; clean JSON registry)
+        # Tor/I2P-only entries have no "link" key -> skip them
         # ==============================================================
         curl -s https://codeberg.org/aryak/mozhi/raw/branch/master/instances.json | \
-          jq '[.[] | .link]' > mozhi-tmp.json
+          jq '[.[] | .link // empty]' > mozhi-tmp.json
         jq --slurpfile mozhi mozhi-tmp.json \
           '( .[] | select(.type == "mozhi") )
           .instances |= $mozhi[0]' services-full.json > services-tmp.json

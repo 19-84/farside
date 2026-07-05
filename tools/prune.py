@@ -65,6 +65,11 @@ def main():
     services = json.load(open(args.file))
     strikes = json.load(open(args.state)) if os.path.exists(args.state) else {}
 
+    # registries can leak non-URL entries (e.g. mozhi's Tor-only instances
+    # have no "link", which jq turns into null) -- drop them up front
+    for s in services:
+        s["instances"] = [i for i in s["instances"] if isinstance(i, str) and i]
+
     # one test_url per instance (services sharing an instance share the path)
     inst_test = {}
     for s in services:
