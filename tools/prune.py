@@ -11,9 +11,13 @@ that with two layers of hysteresis:
             is only removed once it has been dead for >= THRESHOLD consecutive
             runs (default 3, i.e. ~3 days for a daily job).
 
-"Dead" = the same liveness test the server uses: not HTTP 200, or a 200 that is
-actually an anti-bot wall. Identity/content markers are NOT used here -- they
-are unreliable for some frontends and would prune real instances.
+"Dead" = a hard failure only: DNS/connection errors, timeouts, 404/410, or
+persistent 5xx. Bot-defense responses (429/403/418, anti-bot wall pages) do
+NOT count -- they mean the instance blocks CI's datacenter IP, not real users
+(searxng instances rate-limit every automated query, mirroring the server's
+skipInstanceChecks). The runtime health check still gates what gets served.
+Identity/content markers are NOT used here -- they are unreliable for some
+frontends and would prune real instances.
 
     python3 tools/prune.py --file services-full.json --state instance-strikes.json
 
@@ -35,8 +39,12 @@ BLOCK = ["error code: 1003", "just a moment...", "attention required!",
          "checking your browser", "ddos-guard", "making sure you",
          "tollbat", "<title>gandalf</title>"]
 
+# "the instance is refusing bots, not down" -- no strike for these
+BOT_STATUS = {401, 403, 406, 418, 429}
 
-def is_live(base, test_url, retries, timeout):
+
+def probe(base, test_url, retries, timeout):
+    """Returns 'live', 'blocked' (bot defense; alive for real users) or 'dead'."""
     url = base.rstrip("/") + test_url.replace("<%=query%>", "current+weather")
     for _ in range(retries):
         try:
@@ -45,11 +53,17 @@ def is_live(base, test_url, retries, timeout):
             if r.status != 200:
                 continue  # transient 5xx etc. -> retry
             body = r.read(262144).decode("utf-8", "replace").lower()
-            # an anti-bot wall is a consistent state, not transient: dead, no retry
-            return not any(m in body for m in BLOCK)
+            # an anti-bot wall is a consistent state, no point retrying
+            if any(m in body for m in BLOCK):
+                return "blocked"
+            return "live"
+        except urllib.error.HTTPError as e:
+            if e.code in BOT_STATUS:
+                return "blocked"
+            continue  # 404/410/5xx -> retry, dead if persistent
         except Exception:
             continue  # network blip -> retry
-    return False
+    return "dead"
 
 
 def main():
@@ -77,13 +91,15 @@ def main():
             inst_test.setdefault(inst, s.get("test_url", ""))
 
     with cf.ThreadPoolExecutor(max_workers=args.concurrency) as ex:
-        live = dict(zip(inst_test, ex.map(
-            lambda it: is_live(it[0], it[1], args.retries, args.timeout),
+        verdict = dict(zip(inst_test, ex.map(
+            lambda it: probe(it[0], it[1], args.retries, args.timeout),
             inst_test.items())))
 
     # strike count per unique instance computed once (avoid double-counting
-    # an instance that appears under multiple service types)
-    nstrike = {i: (0 if live[i] else strikes.get(i, 0) + 1) for i in inst_test}
+    # an instance that appears under multiple service types); only a hard-dead
+    # probe strikes -- 'blocked' resets, same as 'live'
+    nstrike = {i: (strikes.get(i, 0) + 1 if verdict[i] == "dead" else 0)
+               for i in inst_test}
 
     pruned, brink = {}, []
     for s in services:
@@ -105,8 +121,10 @@ def main():
     json.dump(dict(sorted(new_state.items())), open(args.state, "w"), indent=2)
     open(args.state, "a").write("\n")
 
-    live_n = sum(1 for v in live.values() if v)
-    print(f"probed {len(inst_test)} instances: {live_n} live, {len(inst_test)-live_n} failing")
+    counts = {v: sum(1 for x in verdict.values() if x == v)
+              for v in ("live", "blocked", "dead")}
+    print(f"probed {len(inst_test)} instances: {counts['live']} live, "
+          f"{counts['blocked']} bot-blocked (no strike), {counts['dead']} dead")
     npruned = sum(len(v) for v in pruned.values())
     print(f"pruned {npruned} instance(s) dead >= {args.threshold} consecutive runs:")
     for t, urls in sorted(pruned.items()):
