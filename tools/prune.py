@@ -19,6 +19,12 @@ skipInstanceChecks). The runtime health check still gates what gets served.
 Identity/content markers are NOT used here -- they are unreliable for some
 frontends and would prune real instances.
 
+Fallback URLs get the same probe + strike treatment but are never pruned:
+once one has been dead >= THRESHOLD runs, a ::warning:: annotation is
+emitted so it shows up on the Actions run (a fallback is what users get
+when a service's whole instance list is empty, so rot there is invisible
+until someone follows a redirect to a dead site).
+
     python3 tools/prune.py --file services-full.json --state instance-strikes.json
 
 Writes the pruned services file and the updated state file in place.
@@ -95,11 +101,22 @@ def main():
             lambda it: probe(it[0], it[1], args.retries, args.timeout),
             inst_test.items())))
 
+    # fallbacks are the last line of defense (served whenever a service's
+    # instance list is empty) and rot silently -- probe them too, with the
+    # same strike hysteresis. They are never pruned, only warned about.
+    fb_test = {s["fallback"]: s.get("test_url", "")
+               for s in services if s.get("fallback")}
+    fb_only = {u: t for u, t in fb_test.items() if u not in inst_test}
+    with cf.ThreadPoolExecutor(max_workers=args.concurrency) as ex:
+        verdict.update(dict(zip(fb_only, ex.map(
+            lambda it: probe(it[0], it[1], args.retries, args.timeout),
+            fb_only.items()))))
+
     # strike count per unique instance computed once (avoid double-counting
     # an instance that appears under multiple service types); only a hard-dead
     # probe strikes -- 'blocked' resets, same as 'live'
     nstrike = {i: (strikes.get(i, 0) + 1 if verdict[i] == "dead" else 0)
-               for i in inst_test}
+               for i in list(inst_test) + list(fb_only)}
 
     pruned, brink = {}, []
     for s in services:
@@ -113,7 +130,7 @@ def main():
                     brink.append((s["type"], inst, nstrike[inst]))
         s["instances"] = sorted(kept)
 
-    still = {i for s in services for i in s["instances"]}
+    still = {i for s in services for i in s["instances"]} | set(fb_test)
     new_state = {i: nstrike[i] for i in still if nstrike[i] > 0}
 
     json.dump(services, open(args.file, "w"), indent=2, ensure_ascii=False)
@@ -123,8 +140,9 @@ def main():
 
     counts = {v: sum(1 for x in verdict.values() if x == v)
               for v in ("live", "blocked", "dead")}
-    print(f"probed {len(inst_test)} instances: {counts['live']} live, "
-          f"{counts['blocked']} bot-blocked (no strike), {counts['dead']} dead")
+    print(f"probed {len(inst_test)} instances + {len(fb_only)} fallbacks: "
+          f"{counts['live']} live, {counts['blocked']} bot-blocked (no strike), "
+          f"{counts['dead']} dead")
     npruned = sum(len(v) for v in pruned.values())
     print(f"pruned {npruned} instance(s) dead >= {args.threshold} consecutive runs:")
     for t, urls in sorted(pruned.items()):
@@ -134,6 +152,13 @@ def main():
         print(f"on brink ({args.threshold-1} strikes, pruned next run if still dead):")
         for t, u, n in sorted(brink):
             print(f"    ! {t}: {u}")
+
+    # ::warning:: makes these show up as annotations on the Actions run
+    for s in services:
+        fb = s.get("fallback")
+        if fb and nstrike.get(fb, 0) >= args.threshold:
+            print(f"::warning::fallback for '{s['type']}' has been dead for "
+                  f"{nstrike[fb]} consecutive runs, replace it: {fb}")
 
 
 if __name__ == "__main__":
