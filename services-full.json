@@ -4,9 +4,7 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.catsarch.com",
     "instances": [
-      "https://reddit.rtrace.io",
       "https://redlib.catsarch.com",
-      "https://redlib.nadeko.net",
       "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
       "https://safereddit.com"
@@ -17,9 +15,7 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.catsarch.com",
     "instances": [
-      "https://reddit.rtrace.io",
       "https://redlib.catsarch.com",
-      "https://redlib.nadeko.net",
       "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
       "https://safereddit.com"
@@ -30,32 +26,10 @@
     "test_url": "/r/popular",
     "fallback": "https://teddit.no-logs.com",
     "instances": [
-      "https://i.opnxng.com",
-      "https://rdt.trom.tf",
-      "https://reddit.lol",
-      "https://snoo.ioens.is",
-      "https://t.sneed.network",
-      "https://td.vern.cc",
-      "https://teddit.adminforge.de",
-      "https://teddit.bus-hit.me",
       "https://teddit.domain.glass",
-      "https://teddit.froth.zone",
-      "https://teddit.garudalinux.org",
-      "https://teddit.ggc-project.de",
-      "https://teddit.hostux.net",
-      "https://teddit.httpjames.space",
-      "https://teddit.laserdisc.tokyo",
-      "https://teddit.net",
       "https://teddit.no-logs.com",
       "https://teddit.privacytools.io",
-      "https://teddit.projectsegfau.lt",
-      "https://teddit.pussthecat.org",
-      "https://teddit.rawbit.ninja",
-      "https://teddit.sethforprivacy.com",
-      "https://teddit.tinfoil-hat.net",
-      "https://teddit.tokhmi.xyz",
-      "https://teddit.xbdm.fun",
-      "https://teddit.zaggy.nl"
+      "https://teddit.projectsegfau.lt"
     ]
   },
   {
@@ -63,9 +37,7 @@
     "test_url": "/watch?v=eBGIQ7ZuuiU",
     "fallback": "https://invidious.nerdvpn.de",
     "instances": [
-      "https://inv-ygg.nadeko.net",
       "https://inv.nadeko.net",
-      "https://inv.nadeko.ygg",
       "https://inv.zoomerville.com",
       "https://invidious.f5.si",
       "https://invidious.nerdvpn.de",
@@ -77,41 +49,22 @@
     "type": "piped",
     "test_url": "/watch?v=dQw4w9WgXcQ|/streams/dQw4w9WgXcQ",
     "fallback": "https://piped.video",
-    "instances": [
-      "https://efy.piped.pages.dev|https://pipedapi.aeong.one",
-      "https://pd.vern.cc|https://pdapi.vern.cc",
-      "https://piped.adminforge.de|https://pipedapi.adminforge.de",
-      "https://piped.colinslegacy.com|https://pipedapi.colinslegacy.com",
-      "https://piped.ducks.party|https://pipedapi.ducks.party",
-      "https://piped.garudalinux.org|https://piped-api.garudalinux.org",
-      "https://piped.hostux.net|https://piped-api.hostux.net",
-      "https://piped.lunar.icu|https://piped-api.lunar.icu",
-      "https://piped.mha.fi|https://api-piped.mha.fi",
-      "https://piped.moomoo.me|https://pipedapi.moomoo.me",
-      "https://piped.privacydev.net|https://api.piped.privacydev.net",
-      "https://piped.projectsegfau.lt|https://api.piped.projectsegfau.lt",
-      "https://piped.qdi.fi|https://pipedapi.qdi.fi",
-      "https://piped.smnz.de|https://pipedapi.smnz.de",
-      "https://piped.tokhmi.xyz|https://pipedapi.tokhmi.xyz",
-      "https://piped.video|https://pipedapi.kavin.rocks",
-      "https://watch.leptons.xyz|https://pipedapi.leptons.xyz",
-      "https://watch.whatever.social|https://watchapi.whatever.social"
-    ]
+    "instances": []
   },
   {
     "type": "nitter",
     "test_url": "/jack/status/20",
     "fallback": "https://nitter.catsarch.com",
     "instances": [
+      "https://lightbrd.com",
       "https://nitter.catsarch.com",
       "https://nitter.kareem.one",
       "https://nitter.net",
       "https://nitter.poast.org",
+      "https://nitter.privacyredirect.com",
       "https://nitter.space",
       "https://nitter.tiekoetter.com",
-      "https://nt.vern.cc",
-      "https://nuku.trabun.org",
-      "https://xcancel.com"
+      "https://nuku.trabun.org"
     ]
   },
   {
@@ -119,9 +72,6 @@
     "test_url": "/@ftrain/big-data-small-effort-b62607a43a8c",
     "fallback": "https://m.opnxng.com",
     "instances": [
-      "https://m.opnxng.com",
-      "https://sc.vern.cc",
-      "https://scribe.nixnet.services",
       "https://scribe.privacyredirect.com",
       "https://scribe.r4fo.com",
       "https://scribe.rawbit.ninja"
@@ -132,20 +82,9 @@
     "test_url": "/?engine=google&text=simplicado",
     "fallback": "https://simplytranslate.org",
     "instances": [
-      "https://simplytranslate.esmailelbob.xyz",
       "https://simplytranslate.leemoon.network",
-      "https://simplytranslate.manerakai.com",
       "https://simplytranslate.org",
-      "https://simplytranslate.pussthecat.org",
       "https://st.odyssey346.dev",
-      "https://st.privacydev.net",
-      "https://st.tokhmi.xyz",
-      "https://tl.vern.cc",
-      "https://translate.bus-hit.me",
-      "https://translate.josias.dev",
-      "https://translate.northboot.xyz",
-      "https://translate.priv.pw",
-      "https://translate.riverside.rocks",
       "https://translate.slipfox.xyz",
       "https://translate.tiekoetter.com"
     ]
@@ -155,18 +94,9 @@
     "test_url": "/auto/en/hola",
     "fallback": "https://lingva.lunar.icu",
     "instances": [
-      "https://lingva.frontendfriendly.xyz",
-      "https://lingva.fuk.world",
       "https://lingva.garudalinux.org",
-      "https://lingva.lunar.icu",
       "https://lingva.ml",
-      "https://lingva.retiolus.net",
-      "https://translate.catswords.net",
-      "https://translate.colinslegacy.com",
-      "https://translate.dr460nf1r3.org",
-      "https://translate.plausibility.cloud",
-      "https://translate.sapti.me",
-      "https://translate.whateveritworks.org"
+      "https://translate.plausibility.cloud"
     ]
   },
   {
@@ -181,8 +111,6 @@
       "https://mozhi.catsarch.com",
       "https://mozhi.ducks.party",
       "https://mozhi.pussthecat.org",
-      "https://mzh.dc09.xyz",
-      "https://translate.nerdvpn.de",
       "https://translate.privacyredirect.com",
       "https://translate.projectsegfau.lt"
     ]
@@ -193,25 +121,17 @@
     "fallback": "https://rimgo.catsarch.com",
     "instances": [
       "https://anaimg.starbeamrainbowlabs.com",
-      "https://imgur.artemislena.eu",
       "https://imgur.nerdvpn.de",
-      "https://r.opnxng.com",
-      "https://rg.kuuro.net",
       "https://ri.bcow.xyz",
       "https://ri.nadeko.net",
-      "https://rimgo.4o1x5.dev",
       "https://rimgo.aketawi.space",
-      "https://rimgo.astrial.org",
       "https://rimgo.bloat.cat",
       "https://rimgo.canine.tools",
       "https://rimgo.catsarch.com",
-      "https://rimgo.darkness.services",
       "https://rimgo.ducks.party",
-      "https://rimgo.hostux.net",
       "https://rimgo.manerakai.com",
       "https://rimgo.nohost.network",
       "https://rimgo.privacyredirect.com",
-      "https://rimgo.proxik.cloud",
       "https://rimgo.pussthecat.org",
       "https://rimgo.reallyaweso.me",
       "https://rimgo.wuemeli.com",
@@ -224,11 +144,7 @@
     "fallback": "https://search.sethforprivacy.com",
     "instances": [
       "https://search.garudalinux.org",
-      "https://search.sethforprivacy.com",
-      "https://wg.vern.cc",
-      "https://whoogle.4040940.xyz",
-      "https://whoogle.lunar.icu",
-      "https://whoogle.privacydev.net"
+      "https://search.sethforprivacy.com"
     ]
   },
   {
@@ -236,15 +152,10 @@
     "test_url": "/search?q=<%=query%>",
     "fallback": "https://searx.be",
     "instances": [
-      "https://search.stinpriza.org",
       "https://searx.dresden.network",
-      "https://searx.gnu.style",
       "https://searx.mastodontech.de",
       "https://searx.mxchange.org",
-      "https://searx.nixnet.services",
-      "https://searx.roflcopter.fr",
-      "https://searx.ru",
-      "https://searx.zapashcanon.fr"
+      "https://searx.ru"
     ]
   },
   {
@@ -258,6 +169,7 @@
       "https://grep.vim.wtf",
       "https://opnxng.com",
       "https://paulgo.io",
+      "https://priv.au",
       "https://search.2b9t.xyz",
       "https://search.anoni.net",
       "https://search.bladerunn.in",
@@ -279,7 +191,6 @@
       "https://searx.ankha.ac",
       "https://searx.linxx.net",
       "https://searx.namejeff.xyz",
-      "https://searx.oloke.xyz",
       "https://searx.ononoki.org",
       "https://searx.party",
       "https://searx.perennialte.ch",
@@ -300,44 +211,15 @@
     "type": "proxitok",
     "test_url": "/discover",
     "fallback": "https://proxitok.pabloferreiro.es",
-    "instances": [
-      "https://cringe.whateveritworks.org",
-      "https://proxitok.esmailelbob.xyz",
-      "https://proxitok.lunar.icu",
-      "https://proxitok.pabloferreiro.es",
-      "https://proxitok.privacy.com.de",
-      "https://proxitok.privacydev.net",
-      "https://proxitok.pussthecat.org",
-      "https://tik.hostux.net",
-      "https://tiktok.chauvet.pro",
-      "https://tok.adminforge.de",
-      "https://tok.artemislena.eu",
-      "https://tok.habedieeh.re"
-    ]
+    "instances": []
   },
   {
     "type": "quetre",
     "test_url": "/How-does-the-Z-boson-decay",
     "fallback": "https://quetre.tokhmi.xyz",
     "instances": [
-      "https://ask.habedieeh.re",
       "https://q.opnxng.com",
-      "https://que.wilbvr.me",
-      "https://questions.whateveritworks.org",
-      "https://quetre.blackdrgn.nl",
-      "https://quetre.ducks.party",
-      "https://quetre.esmailelbob.xyz",
-      "https://quetre.fascinated.cc",
-      "https://quetre.frontendfriendly.xyz",
-      "https://quetre.iket.me",
-      "https://quetre.lunar.icu",
-      "https://quetre.marcopisco.com",
-      "https://quetre.privacydev.net",
-      "https://quetre.projectsegfau.lt",
-      "https://quetre.pufe.org",
-      "https://quetre.pussthecat.org",
-      "https://quetre.tokhmi.xyz",
-      "https://quora.vern.cc"
+      "https://quetre.pufe.org"
     ]
   },
   {
@@ -345,22 +227,9 @@
     "test_url": "/title/tt0133093",
     "fallback": "https://libremdb.pussthecat.org",
     "instances": [
-      "https://binge.whatever.social",
-      "https://binge.whateveritworks.social",
       "https://d.opnxng.com",
-      "https://ld.vern.cc",
-      "https://libremdb.catsarch.com",
-      "https://libremdb.ducks.party",
-      "https://libremdb.esmailelbob.xyz",
-      "https://libremdb.fascinated.cc",
-      "https://libremdb.frontendfriendly.xyz",
-      "https://libremdb.herokuapp.com",
-      "https://libremdb.iket.me",
-      "https://libremdb.lunar.icu",
       "https://libremdb.nerdyfam.tech",
-      "https://libremdb.pussthecat.org",
-      "https://libremdbeu.herokuapp.com",
-      "https://lmdb.hostux.net"
+      "https://libremdb.pussthecat.org"
     ]
   },
   {
@@ -368,15 +237,9 @@
     "test_url": "/Naughty-boy-la-la-la-lyrics",
     "fallback": "https://dumb.ducks.party",
     "instances": [
-      "https://dm.vern.cc",
       "https://dumb.bloat.cat",
       "https://dumb.ducks.party",
-      "https://dumb.esmailelbob.xyz",
-      "https://dumb.lunar.icu",
-      "https://dumb.nunosempere.com",
-      "https://dumb.privacydev.net",
-      "https://genius.fsky.io",
-      "https://sing.whatever.social"
+      "https://genius.fsky.io"
     ]
   },
   {
@@ -384,9 +247,6 @@
     "test_url": "/balatrogame/wiki/Abandoned_Deck",
     "fallback": "https://breezewiki.com",
     "instances": [
-      "http://breezewiki.coffee2m3bjsrrqqycx6ghkxrnejl2q6nl7pjw2j4clchjj6uk5zozad.onion",
-      "http://breezewiki.nadekonfkhwlxwwk4ycbvq42zvcjmvo5iakl4tajojjwxd4a5dcetuyd.onion",
-      "http://breezewiki.r4focoma7gu2zdwwcjjad47ysxt634lg73sxmdbkdozanwqslho5ohyd.onion",
       "https://antifandom.com",
       "https://breeze.hostux.net",
       "https://breeze.mint.lgbt",
@@ -397,9 +257,7 @@
       "https://breezewiki.pussthecat.org",
       "https://breezewiki.r4fo.com",
       "https://breezewiki.woodland.cafe",
-      "https://bw.artemislena.eu",
-      "https://fandom.reallyaweso.me",
-      "https://z.opnxng.com"
+      "https://fandom.reallyaweso.me"
     ]
   },
   {
@@ -408,8 +266,6 @@
     "fallback": "https://gothub.projectsegfau.lt",
     "instances": [
       "https://gothub.dev.projectsegfau.lt",
-      "https://gothub.libre.tw",
-      "https://gothub.lunar.icu",
       "https://gothub.projectsegfau.lt",
       "https://gothub.r4fo.com",
       "https://gothub.wuemeli.com"
@@ -420,20 +276,11 @@
     "test_url": "/questions/6591213/how-do-i-rename-a-local-git-branch",
     "fallback": "https://anonymousoverflow.catsarch.com",
     "instances": [
-      "https://anonoverflow.frontendfriendly.xyz",
       "https://anonymousoverflow.catsarch.com",
-      "https://ao.bloatcat.tk",
       "https://ao.owo.si",
-      "https://ao.vern.cc",
-      "https://code.whatever.social",
-      "https://code.xbdm.fun",
-      "https://overflow.adminforge.de",
       "https://overflow.ducks.party",
-      "https://overflow.fascinated.cc",
       "https://overflow.hostux.net",
-      "https://overflow.lunar.icu",
-      "https://overflow.projectsegfau.lt",
-      "https://overflow.smnz.de"
+      "https://overflow.projectsegfau.lt"
     ]
   },
   {
@@ -442,35 +289,22 @@
     "fallback": "https://4get.ca",
     "instances": [
       "https://4.nboeck.de",
-      "https://4g.ggtyler.dev",
       "https://4g.moonscape.nexus",
       "https://4g.opnxng.com",
       "https://4get.aishiteiru.moe",
       "https://4get.ca",
       "https://4get.canine.tools",
       "https://4get.dcs0.hu",
-      "https://4get.ducks.party",
       "https://4get.edmateo.site",
-      "https://4get.etenie.pl",
       "https://4get.hbubli.cc",
-      "https://4get.kizuki.lol",
-      "https://4get.konakona.moe",
-      "https://4get.lunar.icu",
-      "https://4get.lvkaszus.pl",
       "https://4get.neco.lol",
       "https://4get.nigga.pt",
-      "https://4get.perennialte.ch",
-      "https://4get.plunked.party",
       "https://4get.privadency.com",
-      "https://4get.psily.garden",
-      "https://4get.seitan-ayoub.lol",
       "https://4get.sijh.net",
       "https://4get.silly.computer",
       "https://4get.sny.sh",
       "https://4get.sudovanilla.org",
       "https://4get.zzls.xyz",
-      "https://4getus.zzls.xyz",
-      "https://s.futureofthe.tech",
       "https://search.fischbytes.de",
       "https://search.yonderly.org"
     ]
@@ -481,20 +315,10 @@
     "fallback": "https://librex.nohost.network",
     "instances": [
       "https://librex.nohost.network",
-      "https://librey.4o1x5.dev",
-      "https://librey.baczek.me",
       "https://librey.darkness.services",
-      "https://librey.nube-gran.de",
-      "https://librey.org",
       "https://ly.owo.si",
-      "https://search.blitzw.in",
       "https://search.davidovski.xyz",
-      "https://search.funami.tech",
-      "https://search.liv.town",
-      "https://search.revvy.de",
-      "https://search.technicalvoid.dev",
-      "https://search.uwabaki.party",
-      "https://serp.catswords.net"
+      "https://search.uwabaki.party"
     ]
   },
   {
@@ -506,13 +330,10 @@
       "https://tent.bloat.cat",
       "https://tent.canine.tools",
       "https://tent.deep-swarm.xyz",
-      "https://tent.lab8.cz",
       "https://tent.nbh.ax",
       "https://tent.private.coffee",
       "https://tent.sny.sh",
-      "https://tn.dc09.ru",
-      "https://tn.maid.zone",
-      "https://tn.vern.cc"
+      "https://tn.maid.zone"
     ]
   },
   {
@@ -522,7 +343,6 @@
     "instances": [
       "https://biblioreads.ducks.party",
       "https://biblioreads.eu.org",
-      "https://biblioreads.lunar.icu",
       "https://biblioreads.mooo.com",
       "https://biblioreads.privacyredirect.com",
       "https://br.bloat.cat",
