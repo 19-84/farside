@@ -124,7 +124,7 @@ Farside's routing is very minimal, with only the following routes:
   - Ex: `/libreddit/r/popular` would navigate to `<libreddit instance
     URL>/r/popular`
     - If the service provided is actually a URL to a "parent" service
-      (i.e. "youtube.com" instead of "piped" or "invidious"), Farside
+      (i.e. "youtube.com" instead of "invidious"), Farside
       will determine the correct frontend to use for the specified URL.
   - Note that a path is not required. `/libreddit` for example will still
     redirect the user to a working libreddit instance
