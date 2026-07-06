@@ -14,9 +14,10 @@ type RegexMapping struct {
 
 var regexMap = []RegexMapping{
 	{
-		// YouTube
+		// YouTube ("piped" kept in the pattern so old Piped links still
+		// route somewhere useful; the service itself was removed)
 		Pattern: regexp.MustCompile(`youtu(\.be|be\.com)|invidious|piped`),
-		Targets: []string{"piped", "invidious"},
+		Targets: []string{"invidious"},
 	},
 	{
 		// Twitter / X
@@ -47,11 +48,6 @@ var regexMap = []RegexMapping{
 		// Google Translate
 		Pattern: regexp.MustCompile(`translate\.google\.com|lingva|simplytranslate|mozhi`),
 		Targets: []string{"lingva", "simplytranslate", "mozhi"},
-	},
-	{
-		// TikTok
-		Pattern: regexp.MustCompile(`tiktok\.com|proxitok`),
-		Targets: []string{"proxitok"},
 	},
 	{
 		// Fandom

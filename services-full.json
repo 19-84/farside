@@ -46,12 +46,6 @@
     ]
   },
   {
-    "type": "piped",
-    "test_url": "/watch?v=dQw4w9WgXcQ|/streams/dQw4w9WgXcQ",
-    "fallback": "https://piped.video",
-    "instances": []
-  },
-  {
     "type": "nitter",
     "test_url": "/jack/status/20",
     "fallback": "https://nitter.catsarch.com",
@@ -206,12 +200,6 @@
       "https://searxng.website",
       "https://xka.cz"
     ]
-  },
-  {
-    "type": "proxitok",
-    "test_url": "/discover",
-    "fallback": "https://proxitok.pabloferreiro.es",
-    "instances": []
   },
   {
     "type": "quetre",
