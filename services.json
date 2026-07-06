@@ -57,7 +57,7 @@
   {
     "type": "scribe",
     "test_url": "/@ftrain/big-data-small-effort-b62607a43a8c",
-    "fallback": "https://m.opnxng.com",
+    "fallback": "https://scribe.r4fo.com",
     "instances": [
       "https://scribe.privacyredirect.com",
       "https://scribe.r4fo.com"
@@ -78,7 +78,7 @@
   {
     "type": "lingva",
     "test_url": "/auto/en/hola",
-    "fallback": "https://lingva.lunar.icu",
+    "fallback": "https://lingva.ml",
     "instances": []
   },
   {
@@ -190,7 +190,7 @@
   {
     "type": "quetre",
     "test_url": "/How-does-the-Z-boson-decay",
-    "fallback": "https://quetre.tokhmi.xyz",
+    "fallback": "https://q.opnxng.com",
     "instances": [
       "https://q.opnxng.com",
       "https://quetre.pufe.org"
@@ -309,7 +309,7 @@
   {
     "type": "biblioreads",
     "test_url": "/search?q=dune",
-    "fallback": "https://biblioreads.lunar.icu",
+    "fallback": "https://biblioreads.ducks.party",
     "instances": [
       "https://biblioreads.ducks.party",
       "https://biblioreads.privacyredirect.com",
