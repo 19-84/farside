@@ -32,8 +32,6 @@ def _hosts(body):
 
 # (service, registry url, extractor -> instance count). Mirrors update-instances.yml.
 REGISTRIES = [
-    ("searx", "https://raw.githubusercontent.com/searx/searx-instances/master/searxinstances/instances.yml",
-     lambda b: sum(1 for l in b.splitlines() if l.startswith("https://"))),
     ("searxng", "https://searx.space/data/instances.json",
      lambda b: len(json.loads(b).get("instances", {}))),
     ("nitter", "https://status.d420.de/api/v1/instances",
