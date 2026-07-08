@@ -4,7 +4,6 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.catsarch.com",
     "instances": [
-      "https://reddit.rtrace.io",
       "https://redlib.catsarch.com",
       "https://redlib.nadeko.net",
       "https://redlib.privacyredirect.com",
@@ -17,7 +16,6 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.catsarch.com",
     "instances": [
-      "https://reddit.rtrace.io",
       "https://redlib.catsarch.com",
       "https://redlib.nadeko.net",
       "https://redlib.privacyredirect.com",
@@ -146,6 +144,7 @@
       "https://rimgo.privacyredirect.com",
       "https://rimgo.pussthecat.org",
       "https://rimgo.reallyaweso.me",
+      "https://rimgo.wuemeli.com",
       "https://rmgur.com"
     ]
   },
