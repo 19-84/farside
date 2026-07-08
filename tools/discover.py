@@ -32,23 +32,33 @@ BLOCK = ["error code: 1003", "just a moment...", "attention required!",
          "checking your browser", "ddos-guard", "making sure you",
          "tollbat", "<title>gandalf</title>"]
 
+# LibRedirect's curated instance registry covers most frontends; entries are
+# candidates only -- each still has to pass the live + identity checks.
+LIBREDIRECT = "https://raw.githubusercontent.com/libredirect/instances/main/data.json"
+
 # service -> {sources, test_url, markers}. markers are matched (lowercased,
 # HTML-entity-safe) against the instance home page to confirm identity.
+# "lr" is the service's key in the LibRedirect data.json, if it has one.
 SERVICES = {
     "lingva": {
         "sources": ["https://raw.githubusercontent.com/thedaviddelta/lingva-translate/main/README.md"],
+        "lr": "lingva",
         "test_url": "/auto/en/hola", "markers": ["lingva"]},
     "quetre": {
         "sources": ["https://raw.githubusercontent.com/zyachel/quetre/main/README.md"],
+        "lr": "quetre",
         "test_url": "/How-does-the-Z-boson-decay", "markers": ["quetre"]},
     "libremdb": {
         "sources": ["https://raw.githubusercontent.com/zyachel/libremdb/main/README.md"],
+        "lr": "libremdb",
         "test_url": "/title/tt0133093", "markers": ["libremdb"]},
     "dumb": {
         "sources": ["https://raw.githubusercontent.com/rramiachraf/dumb/main/README.md"],
+        "lr": "dumb",
         "test_url": "/Naughty-boy-la-la-la-lyrics", "markers": ["dumb", "genius"]},
     "anonymousoverflow": {
         "sources": ["https://raw.githubusercontent.com/httpjamesm/AnonymousOverflow/main/README.md"],
+        "lr": "anonymousOverflow",
         "test_url": "/questions/6591213/how-do-i-rename-a-local-git-branch",
         "markers": ["anonymousoverflow", "anonymous overflow"]},
     "4get": {
@@ -56,7 +66,19 @@ SERVICES = {
         "test_url": "/ami4get", "markers": ["4get"]},
     "biblioreads": {
         "sources": ["https://raw.githubusercontent.com/nesaku/BiblioReads/main/README.md"],
+        "lr": "biblioReads",
         "test_url": "/search?q=dune", "markers": ["biblioreads"]},
+    # whoogle's own instances.txt is tiny these days; LibRedirect finds more
+    "whoogle": {
+        "sources": [], "lr": "whoogle",
+        "test_url": "/search?cookies_disabled=1&q=current+weather",
+        "markers": ["whoogle"]},
+    # scribe's sourcehut registry is dead (HTTP 418); LibRedirect is the only
+    # living source of scribe instances
+    "scribe": {
+        "sources": [], "lr": "scribe",
+        "test_url": "/@ftrain/big-data-small-effort-b62607a43a8c",
+        "markers": ["scribe"]},
 }
 
 BAD = ("github.com", "githubusercontent", "shields.io", "gitlab.com", "codeberg.org",
@@ -74,6 +96,23 @@ def candidates(source):
     _, body = fetch(source)
     urls = set(re.findall(r"https://[a-z0-9][a-z0-9.-]+\.[a-z]{2,}", body.lower()))
     return sorted(u.rstrip("/") for u in urls if not any(b in u for b in BAD))
+
+
+_lr_data = None
+
+
+def lr_candidates(key):
+    global _lr_data
+    if _lr_data is None:
+        try:
+            _lr_data = json.loads(fetch(LIBREDIRECT, limit=4 * 1024 * 1024)[1])
+        except Exception as e:
+            print(f"  [libredirect] registry fetch failed ({type(e).__name__})",
+                  file=sys.stderr)
+            _lr_data = {}
+    urls = _lr_data.get(key, {}).get("clearnet", [])
+    return [u.rstrip("/") for u in urls
+            if isinstance(u, str) and u.startswith("https://")]
 
 
 def verify(base, test_url, markers):
@@ -104,6 +143,8 @@ def discover(svc):
             cands.update(candidates(s))
         except Exception as e:
             print(f"  [{svc}] source failed: {s} ({type(e).__name__})", file=sys.stderr)
+    if cfg.get("lr"):
+        cands.update(lr_candidates(cfg["lr"]))
     cands = sorted(cands)
     good = []
     with cf.ThreadPoolExecutor(max_workers=12) as ex:
