@@ -6,6 +6,7 @@
     "instances": [
       "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
+      "https://redlib.ducks.party",
       "https://redlib.nadeko.net",
       "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
@@ -20,6 +21,7 @@
     "instances": [
       "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
+      "https://redlib.ducks.party",
       "https://redlib.nadeko.net",
       "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
@@ -148,18 +150,19 @@
       "https://ri.nadeko.net",
       "https://rimgo.4o1x5.dev",
       "https://rimgo.aketawi.space",
-      "https://rimgo.astrial.org",
       "https://rimgo.bloat.cat",
       "https://rimgo.canine.tools",
       "https://rimgo.catsarch.com",
       "https://rimgo.darkness.services",
       "https://rimgo.ducks.party",
       "https://rimgo.hostux.net",
+      "https://rimgo.manerakai.com",
       "https://rimgo.nohost.network",
       "https://rimgo.privacyredirect.com",
       "https://rimgo.proxik.cloud",
       "https://rimgo.pussthecat.org",
       "https://rimgo.reallyaweso.me",
+      "https://rimgo.wuemeli.com",
       "https://rmgur.com"
     ]
   },
@@ -218,7 +221,6 @@
       "https://searx.rhscz.eu",
       "https://searx.tiekoetter.com",
       "https://searx.tsmdt.de",
-      "https://searx.tuxcloud.net",
       "https://searxng.gdebest.net",
       "https://searxng.moonshadow.dev",
       "https://searxng.shreven.org",
@@ -283,7 +285,6 @@
     "test_url": "/benbusby/farside",
     "fallback": "https://gothub.projectsegfau.lt",
     "instances": [
-      "https://gothub.dev.projectsegfau.lt",
       "https://gothub.libre.tw",
       "https://gothub.lunar.icu",
       "https://gothub.r4fo.com",
