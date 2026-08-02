@@ -39,7 +39,6 @@
     "fallback": "https://invidious.nerdvpn.de",
     "instances": [
       "https://inv-ygg.nadeko.net",
-      "https://inv.nadeko.net",
       "https://inv.nadeko.ygg",
       "https://inv.zoomerville.com",
       "https://invidious.nerdvpn.de",
@@ -131,7 +130,7 @@
       "https://rg.kuuro.net",
       "https://ri.bcow.xyz",
       "https://ri.nadeko.net",
-      "https://rimgo.astrial.org",
+      "https://rimgo.4o1x5.dev",
       "https://rimgo.bloat.cat",
       "https://rimgo.canine.tools",
       "https://rimgo.catsarch.com",
@@ -143,6 +142,7 @@
       "https://rimgo.privacyredirect.com",
       "https://rimgo.pussthecat.org",
       "https://rimgo.reallyaweso.me",
+      "https://rimgo.wuemeli.com",
       "https://rmgur.com"
     ]
   },
@@ -221,7 +221,6 @@
     "test_url": "/benbusby/farside",
     "fallback": "https://gothub.projectsegfau.lt",
     "instances": [
-      "https://gothub.dev.projectsegfau.lt",
       "https://gothub.libre.tw",
       "https://gothub.lunar.icu",
       "https://gothub.r4fo.com",
@@ -233,7 +232,6 @@
     "test_url": "/questions/6591213/how-do-i-rename-a-local-git-branch",
     "fallback": "https://anonymousoverflow.catsarch.com",
     "instances": [
-      "https://anonoverflow.moonshadow.dev",
       "https://anonymousoverflow.catsarch.com",
       "https://anonymousoverflow.privacyredirect.com",
       "https://overflow.darkness.services",
@@ -281,11 +279,11 @@
       "https://librey.org",
       "https://ly.owo.si",
       "https://search.blitzw.in",
+      "https://search.davidovski.xyz",
       "https://search.funami.tech",
       "https://search.liv.town",
       "https://search.revvy.de",
       "https://search.technicalvoid.dev",
-      "https://search.uwabaki.party",
       "https://serp.catswords.net"
     ]
   },
@@ -298,13 +296,10 @@
       "https://tent.bloat.cat",
       "https://tent.canine.tools",
       "https://tent.deep-swarm.xyz",
-      "https://tent.lab8.cz",
       "https://tent.nbh.ax",
       "https://tent.private.coffee",
       "https://tent.sny.sh",
-      "https://tn.dc09.ru",
-      "https://tn.maid.zone",
-      "https://tn.vern.cc"
+      "https://tn.maid.zone"
     ]
   },
   {
@@ -313,7 +308,8 @@
     "fallback": "https://biblioreads.ducks.party",
     "instances": [
       "https://biblioreads.ducks.party",
-      "https://biblioreads.privacyredirect.com"
+      "https://biblioreads.privacyredirect.com",
+      "https://br.bloat.cat"
     ]
   }
 ]
