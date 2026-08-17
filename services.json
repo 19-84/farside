@@ -37,7 +37,6 @@
     "fallback": "https://invidious.nerdvpn.de",
     "instances": [
       "https://inv-ygg.nadeko.net",
-      "https://inv.nadeko.net",
       "https://inv.nadeko.ygg",
       "https://invidious.nerdvpn.de",
       "https://invidious.tiekoetter.com",
@@ -65,6 +64,7 @@
       "https://m.opnxng.com",
       "https://sc.vern.cc",
       "https://scribe.nixnet.services",
+      "https://scribe.privacyredirect.com",
       "https://scribe.r4fo.com"
     ]
   },
@@ -128,7 +128,6 @@
       "https://ri.bcow.xyz",
       "https://ri.nadeko.net",
       "https://rimgo.4o1x5.dev",
-      "https://rimgo.astrial.org",
       "https://rimgo.bloat.cat",
       "https://rimgo.canine.tools",
       "https://rimgo.catsarch.com",
@@ -141,6 +140,7 @@
       "https://rimgo.proxik.cloud",
       "https://rimgo.pussthecat.org",
       "https://rimgo.reallyaweso.me",
+      "https://rimgo.wuemeli.com",
       "https://rmgur.com"
     ]
   },
@@ -223,8 +223,7 @@
       "https://gothub.libre.tw",
       "https://gothub.lunar.icu",
       "https://gothub.projectsegfau.lt",
-      "https://gothub.r4fo.com",
-      "https://gothub.wuemeli.com"
+      "https://gothub.r4fo.com"
     ]
   },
   {
@@ -274,11 +273,11 @@
       "https://librey.org",
       "https://ly.owo.si",
       "https://search.blitzw.in",
+      "https://search.davidovski.xyz",
       "https://search.funami.tech",
       "https://search.liv.town",
       "https://search.revvy.de",
       "https://search.technicalvoid.dev",
-      "https://search.uwabaki.party",
       "https://serp.catswords.net"
     ]
   },
@@ -291,13 +290,10 @@
       "https://tent.bloat.cat",
       "https://tent.canine.tools",
       "https://tent.deep-swarm.xyz",
-      "https://tent.lab8.cz",
       "https://tent.nbh.ax",
       "https://tent.private.coffee",
       "https://tent.sny.sh",
-      "https://tn.dc09.ru",
-      "https://tn.maid.zone",
-      "https://tn.vern.cc"
+      "https://tn.maid.zone"
     ]
   },
   {
