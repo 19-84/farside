@@ -36,8 +36,7 @@
     "test_url": "/watch?v=eBGIQ7ZuuiU",
     "fallback": "https://invidious.nerdvpn.de",
     "instances": [
-      "https://inv-ygg.nadeko.net",
-      "https://inv.nadeko.ygg",
+      "https://inv.nadeko.net",
       "https://invidious.nerdvpn.de",
       "https://invidious.tiekoetter.com",
       "https://yt.chocolatemoo53.com"
@@ -62,8 +61,6 @@
     "fallback": "https://scribe.r4fo.com",
     "instances": [
       "https://m.opnxng.com",
-      "https://sc.vern.cc",
-      "https://scribe.nixnet.services",
       "https://scribe.privacyredirect.com",
       "https://scribe.r4fo.com"
     ]
@@ -73,20 +70,10 @@
     "test_url": "/?engine=google&text=simplicado",
     "fallback": "https://simplytranslate.org",
     "instances": [
-      "https://simplytranslate.esmailelbob.xyz",
       "https://simplytranslate.leemoon.network",
-      "https://simplytranslate.manerakai.com",
       "https://simplytranslate.org",
-      "https://simplytranslate.pussthecat.org",
       "https://st.odyssey346.dev",
       "https://st.privacydev.net",
-      "https://st.tokhmi.xyz",
-      "https://tl.vern.cc",
-      "https://translate.bus-hit.me",
-      "https://translate.josias.dev",
-      "https://translate.northboot.xyz",
-      "https://translate.priv.pw",
-      "https://translate.riverside.rocks",
       "https://translate.slipfox.xyz",
       "https://translate.tiekoetter.com"
     ]
@@ -109,8 +96,6 @@
       "https://mozhi.catsarch.com",
       "https://mozhi.ducks.party",
       "https://mozhi.pussthecat.org",
-      "https://mzh.dc09.xyz",
-      "https://translate.nerdvpn.de",
       "https://translate.privacyredirect.com",
       "https://translate.projectsegfau.lt"
     ]
@@ -124,20 +109,16 @@
       "https://imgur.artemislena.eu",
       "https://imgur.nerdvpn.de",
       "https://r.opnxng.com",
-      "https://rg.kuuro.net",
       "https://ri.bcow.xyz",
       "https://ri.nadeko.net",
       "https://rimgo.4o1x5.dev",
+      "https://rimgo.astrial.org",
       "https://rimgo.bloat.cat",
       "https://rimgo.canine.tools",
       "https://rimgo.catsarch.com",
-      "https://rimgo.darkness.services",
       "https://rimgo.ducks.party",
-      "https://rimgo.hostux.net",
-      "https://rimgo.manerakai.com",
       "https://rimgo.nohost.network",
       "https://rimgo.privacyredirect.com",
-      "https://rimgo.proxik.cloud",
       "https://rimgo.pussthecat.org",
       "https://rimgo.reallyaweso.me",
       "https://rimgo.wuemeli.com",
@@ -148,13 +129,7 @@
     "type": "whoogle",
     "test_url": "/search?cookies_disabled=1&q=<%=query%>",
     "fallback": "https://search.sethforprivacy.com",
-    "instances": [
-      "https://search.sethforprivacy.com",
-      "https://wg.vern.cc",
-      "https://whoogle.4040940.xyz",
-      "https://whoogle.lunar.icu",
-      "https://whoogle.privacydev.net"
-    ]
+    "instances": []
   },
   {
     "type": "searxng",
@@ -196,14 +171,10 @@
     "test_url": "/balatrogame/wiki/Abandoned_Deck",
     "fallback": "https://breezewiki.com",
     "instances": [
-      "http://breezewiki.coffee2m3bjsrrqqycx6ghkxrnejl2q6nl7pjw2j4clchjj6uk5zozad.onion",
-      "http://breezewiki.nadekonfkhwlxwwk4ycbvq42zvcjmvo5iakl4tajojjwxd4a5dcetuyd.onion",
-      "http://breezewiki.r4focoma7gu2zdwwcjjad47ysxt634lg73sxmdbkdozanwqslho5ohyd.onion",
       "https://antifandom.com",
       "https://breeze.hostux.net",
       "https://breeze.mint.lgbt",
       "https://breezewiki.com",
-      "https://breezewiki.moonshadow.dev",
       "https://breezewiki.nadeko.net",
       "https://breezewiki.private.coffee",
       "https://breezewiki.pussthecat.org",
@@ -220,10 +191,9 @@
     "fallback": "https://gothub.projectsegfau.lt",
     "instances": [
       "https://gothub.dev.projectsegfau.lt",
-      "https://gothub.libre.tw",
-      "https://gothub.lunar.icu",
       "https://gothub.projectsegfau.lt",
-      "https://gothub.r4fo.com"
+      "https://gothub.r4fo.com",
+      "https://gothub.wuemeli.com"
     ]
   },
   {
@@ -266,19 +236,9 @@
     "fallback": "https://librex.nohost.network",
     "instances": [
       "https://librex.nohost.network",
-      "https://librey.4o1x5.dev",
-      "https://librey.baczek.me",
       "https://librey.darkness.services",
-      "https://librey.nube-gran.de",
-      "https://librey.org",
-      "https://ly.owo.si",
-      "https://search.blitzw.in",
       "https://search.davidovski.xyz",
-      "https://search.funami.tech",
-      "https://search.liv.town",
-      "https://search.revvy.de",
-      "https://search.technicalvoid.dev",
-      "https://serp.catswords.net"
+      "https://search.uwabaki.party"
     ]
   },
   {
@@ -290,10 +250,13 @@
       "https://tent.bloat.cat",
       "https://tent.canine.tools",
       "https://tent.deep-swarm.xyz",
+      "https://tent.lab8.cz",
       "https://tent.nbh.ax",
       "https://tent.private.coffee",
       "https://tent.sny.sh",
-      "https://tn.maid.zone"
+      "https://tn.dc09.ru",
+      "https://tn.maid.zone",
+      "https://tn.vern.cc"
     ]
   },
   {
