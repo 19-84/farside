@@ -229,14 +229,14 @@ func isBlockPage(body []byte) bool {
 // blockPageMarkers identifies anti-bot challenge/block pages served with a 200
 // status. Keep this list in sync with tools/probe.
 var blockPageMarkers = []string{
-	"error code: 1003",            // Cloudflare direct-IP / proxy block
-	"just a moment...",            // Cloudflare JS challenge
-	"attention required!",         // Cloudflare WAF block
-	"cf-browser-verification",     // Cloudflare challenge asset
+	"error code: 1003",              // Cloudflare direct-IP / proxy block
+	"just a moment...",              // Cloudflare JS challenge
+	"attention required!",           // Cloudflare WAF block
+	"cf-browser-verification",       // Cloudflare challenge asset
 	"enable javascript and cookies", // Cloudflare interstitial
-	"checking your browser",       // DDoS-Guard / generic interstitial
-	"ddos-guard",                  // DDoS-Guard
-	"making sure you",             // Anubis proof-of-work wall ("Making sure you're not a bot!")
-	"tollbat",                     // Tollbat challenge
-	"<title>gandalf</title>",      // Gandalf auth portal
+	"checking your browser",         // DDoS-Guard / generic interstitial
+	"ddos-guard",                    // DDoS-Guard
+	"making sure you",               // Anubis proof-of-work wall ("Making sure you're not a bot!")
+	"tollbat",                       // Tollbat challenge
+	"<title>gandalf</title>",        // Gandalf auth portal
 }
