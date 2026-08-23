@@ -20,8 +20,8 @@ FARSIDE_TEST=1 ./farside      # run with all instances added to the pool (skips 
 ```
 
 Tests open a real BadgerDB on disk (`./badger-db` unless `FARSIDE_DB_DIR` is set), so run them
-in a writable directory. CI (`.github/workflows/tests.yml`) runs `go test ./...` on Go 1.21–1.23
-across Linux/macOS/Windows.
+in a writable directory. CI (`.github/workflows/tests.yml`) runs `go test ./...` on Go 1.23 and
+`stable` across Linux/macOS/Windows (go.mod requires >= 1.23.4).
 
 ## Architecture
 
