@@ -134,7 +134,7 @@
   },
   {
     "type": "searxng",
-    "test_url": "/search?q=<%=query%>",
+    "test_url": "/",
     "fallback": "https://searxng.shreven.org",
     "instances": [
       "https://baresearch.org",
