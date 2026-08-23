@@ -31,7 +31,10 @@ func Fallback(service string) (string, bool) {
 }
 
 const (
-	baseRepoLink = "https://raw.githubusercontent.com/benbusby/farside/refs/heads/main/"
+	// This fork's own service lists. The upstream benbusby/farside repo was
+	// archived in August 2026, so its copies are frozen and no longer track
+	// live instances; this repo's CI refreshes these files daily.
+	baseRepoLink = "https://raw.githubusercontent.com/19-84/farside/refs/heads/main/"
 
 	noCFServicesJSON = "services.json"
 	fullServicesJSON = "services-full.json"

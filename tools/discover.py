@@ -23,7 +23,7 @@ import ssl
 import sys
 import urllib.request
 
-UA = {"User-Agent": "Mozilla/5.0 (compatible; Farside-discover/1.0; +https://farside.link)"}
+UA = {"User-Agent": "Mozilla/5.0 (compatible; Farside-discover/1.0; +https://github.com/19-84/farside)"}
 CTX = ssl.create_default_context()
 
 # kept in sync with tools/probe and db.blockPageMarkers
