@@ -39,7 +39,6 @@
     "fallback": "https://invidious.nerdvpn.de",
     "instances": [
       "https://inv-ygg.nadeko.net",
-      "https://inv.nadeko.net",
       "https://inv.nadeko.ygg",
       "https://invidious.f5.si",
       "https://invidious.nerdvpn.de",
@@ -70,6 +69,7 @@
       "https://m.opnxng.com",
       "https://sc.vern.cc",
       "https://scribe.nixnet.services",
+      "https://scribe.privacyredirect.com",
       "https://scribe.r4fo.com",
       "https://scribe.rawbit.ninja"
     ]
@@ -144,6 +144,7 @@
       "https://rimgo.canine.tools",
       "https://rimgo.catsarch.com",
       "https://rimgo.darkness.services",
+      "https://rimgo.ducks.party",
       "https://rimgo.hostux.net",
       "https://rimgo.manerakai.com",
       "https://rimgo.nohost.network",
@@ -151,6 +152,7 @@
       "https://rimgo.proxik.cloud",
       "https://rimgo.pussthecat.org",
       "https://rimgo.reallyaweso.me",
+      "https://rimgo.wuemeli.com",
       "https://rmgur.com"
     ]
   },
@@ -230,11 +232,9 @@
     "test_url": "/benbusby/farside",
     "fallback": "https://gothub.projectsegfau.lt",
     "instances": [
-      "https://gothub.dev.projectsegfau.lt",
       "https://gothub.libre.tw",
       "https://gothub.lunar.icu",
-      "https://gothub.r4fo.com",
-      "https://gothub.wuemeli.com"
+      "https://gothub.r4fo.com"
     ]
   },
   {
@@ -264,7 +264,6 @@
       "https://4get.nigga.pt",
       "https://4get.privadency.com",
       "https://4get.sijh.net",
-      "https://4get.sny.sh",
       "https://4get.sudovanilla.org",
       "https://4get.zzls.xyz",
       "https://search.fischbytes.de",
@@ -284,11 +283,11 @@
       "https://librey.org",
       "https://ly.owo.si",
       "https://search.blitzw.in",
+      "https://search.davidovski.xyz",
       "https://search.funami.tech",
       "https://search.liv.town",
       "https://search.revvy.de",
       "https://search.technicalvoid.dev",
-      "https://search.uwabaki.party",
       "https://serp.catswords.net"
     ]
   },
