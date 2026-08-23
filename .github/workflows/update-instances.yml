@@ -21,7 +21,32 @@ jobs:
     - name: Fetch instances
       run: |
         function apply_update() {
-          mv services-tmp.json services-full.json
+          # Never let an empty upstream list wipe a service that currently has
+          # instances. searx.space stopped populating .generator, which made the
+          # SearXNG filter select nothing and silently zeroed the service until
+          # someone noticed. A source that changes schema or goes down should
+          # leave the previous list in place -- dead entries get pruned by the
+          # runtime health check anyway, whereas an empty list takes the whole
+          # service offline.
+          jq -s '
+            (.[0] | map({key: .type, value: (.instances // [])}) | from_entries) as $old |
+            .[1] | map(
+              if ((.instances // []) | length) == 0
+                 and (($old[.type] // []) | length) > 0
+              then . + {instances: $old[.type]}
+              else . end
+            )
+          ' services-full.json services-tmp.json > services-guarded.json
+
+          jq -s -r '
+            (.[1] | map({key: .type, value: ((.instances // []) | length)}) | from_entries) as $kept |
+            .[0][]
+            | select(((.instances // []) | length) == 0)
+            | select(($kept[.type] // 0) > 0)
+            | "::warning::\(.type): upstream list came back empty; kept \($kept[.type]) existing instances"
+          ' services-tmp.json services-guarded.json
+
+          mv services-guarded.json services-full.json
           rm -f *-tmp.json
 
           # Ensure no trailing slashes for any instance
@@ -62,8 +87,10 @@ jobs:
             .instances |
             to_entries[] |
             select(.value.network_type == "normal") |
-            select(.value.generator | . != null) |
-            select(.value.generator | contains("searxng")) |
+            # searx.space stopped populating .generator in Aug 2026 (it is now
+            # null for every instance), so filtering on it selected nothing and
+            # silently zeroed this service. searx.space only tracks SearXNG
+            # these days, so .version being present is the check that matters.
             select(.value.version | . != null) |
             select(.value.network.asn_privacy == 0) |
             select(.value.http.error == null) |
