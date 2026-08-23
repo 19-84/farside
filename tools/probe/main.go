@@ -82,7 +82,7 @@ var blockMarkers = []struct {
 	{"<title>gandalf</title>", "gandalf"}, // auth portal
 }
 
-const userAgent = "Mozilla/5.0 (compatible; Farside/1.0.0; +https://farside.link)"
+const userAgent = "Mozilla/5.0 (compatible; Farside/1.0.0; +https://github.com/19-84/farside)"
 
 type result struct {
 	svcType     string

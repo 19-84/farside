@@ -35,7 +35,8 @@ Three internal packages, wired together in `main.go` (which starts the DB, servi
   - `cron.go`: periodic health-checking. See the primary/replica split below.
 - **`services/`** — service definitions and URL matching.
   - `services.go`: loads `services.json` / `services-full.json` into `ServiceList` and builds
-    `FallbackMap`. Files are read from disk, or fetched from the GitHub raw repo if absent.
+    `FallbackMap`. Files are read from disk, or fetched from this fork's GitHub raw repo
+    (`baseRepoLink`, `19-84/farside`) if absent.
   - `mappings.go`: `regexMap` maps a requested "parent" service or URL (e.g. `reddit.com`,
     `youtube.com`) to candidate frontend types. `MatchRequest` returns the frontend to use — a bare
     service name (no `.`) passes through unchanged; a real domain picks a random matching target.
@@ -44,16 +45,21 @@ Three internal packages, wired together in `main.go` (which starts the DB, servi
     endpoint (302), `/_/{routing...}` same redirect but renders `route.html` to keep a history entry
     for back-navigation between instances. `index.html` and `route.html` are `//go:embed`-ed.
 
-## Primary/replica model (important)
+## Health-check model (important)
 
-Only the **primary** node actually probes instances. `cron.go` branches on `FARSIDE_PRIMARY`:
+Upstream (`benbusby/farside`) was **archived in August 2026** and `farside.link` was shut down —
+`/state` now 404s and `cf.farside.link` no longer has a valid certificate. This repo is the
+maintained fork, so it no longer mirrors anything by default. `cron.go` branches on
+`FARSIDE_REPLICA_URL`:
 
-- `FARSIDE_PRIMARY=1`: queries every instance in `ServiceList` (5–10s timeout, expects HTTP 200) and
-  writes the live set to the DB. `searx`/`searxng` are in `skipInstanceChecks` and added unconditionally.
-- otherwise (default): fetches already-vetted state from `https://farside.link/state` (or
-  `cf.farside.link/state` when `FARSIDE_CF_ENABLED=1`) instead of probing itself.
+- unset (**default**): queries every instance in `ServiceList` (10s timeout, expects HTTP 200 whose
+  body isn't an anti-bot challenge page — see `isBlockPage`/`blockPageMarkers`) and writes the live
+  set to the DB. `skipInstanceChecks` is intentionally empty, so nothing bypasses the check.
+- set to another Farside node's `/state` URL: fetches that already-vetted state instead of probing.
+  On fetch failure the existing instance data and `LastUpdate` are kept rather than being clobbered.
 
-So a self-hosted instance is a replica of the official one unless you set `FARSIDE_PRIMARY=1`.
+`FARSIDE_PRIMARY` is obsolete — kept only so old configs don't break. `warnLegacyPrimaryVar` logs a
+pointer to `FARSIDE_REPLICA_URL` once at startup if it's set.
 
 ## Service lists & the CI updater
 
@@ -71,5 +77,7 @@ update block in `update-instances.yml` so the instance list stays fresh.
 
 ## Environment variables
 
-`FARSIDE_PORT` (default 4001) · `FARSIDE_DB_DIR` (default `./badger-db`) · `FARSIDE_PRIMARY` ·
-`FARSIDE_CF_ENABLED` · `FARSIDE_CRON` (set `0` to disable the periodic checks) · `FARSIDE_TEST`.
+`FARSIDE_PORT` (default 4001) · `FARSIDE_DB_DIR` (default `./badger-db`) · `FARSIDE_REPLICA_URL`
+(mirror another node's `/state` instead of probing) · `FARSIDE_CF_ENABLED` · `FARSIDE_CRON` (set `0`
+to disable the periodic checks) · `FARSIDE_AUTO_UPDATE` (set `1` to re-fetch the services file from
+this repo on startup/daily) · `FARSIDE_TEST` · `FARSIDE_PRIMARY` (obsolete, no effect).

@@ -1,25 +1,40 @@
+> [!NOTE]
+> This is a maintained fork of [benbusby/farside](https://github.com/benbusby/farside),
+> which was archived in August 2026 and whose official instance (farside.link) has been
+> shut down.
+>
+> Upstream cited anti-bot challenge systems making instance health checks unreliable.
+> This fork addresses that directly: health checks detect and prune instances serving
+> Cloudflare/DDoS-Guard/Anubis challenge pages behind a 200 status, and a daily CI job
+> refreshes the instance lists and publishes a
+> [status page](https://19-84.github.io/farside/).
+>
+> Because farside.link/state no longer exists, **every node now health-checks instances
+> itself by default**. See [`FARSIDE_REPLICA_URL`](#environment-variables) if you want to
+> mirror another node instead.
+
+___
+
 <div align="center" style="margin-bottom: 10px;">
-<img src="https://raw.githubusercontent.com/benbusby/farside/refs/heads/main/img/farside.svg" alt="Farside">
+<img src="https://raw.githubusercontent.com/19-84/farside/refs/heads/main/img/farside.svg" alt="Farside">
 </div>
 <br>
 
 <div align="center">
 
-[![Latest Release](https://img.shields.io/github/v/release/benbusby/farside?label=Release)](https://github.com/benbusby/farside/releases)
-[![MIT License](https://img.shields.io/github/license/benbusby/earthbound-themes.svg)](http://opensource.org/licenses/MIT)
-[![Tests](https://github.com/benbusby/farside/actions/workflows/tests.yml/badge.svg)](https://github.com/benbusby/farside/actions/workflows/tests.yml)
+[![MIT License](https://img.shields.io/github/license/19-84/farside.svg)](http://opensource.org/licenses/MIT)
+[![Tests](https://github.com/19-84/farside/actions/workflows/tests.yml/badge.svg)](https://github.com/19-84/farside/actions/workflows/tests.yml)
+[![Instances](https://github.com/19-84/farside/actions/workflows/update-instances.yml/badge.svg)](https://github.com/19-84/farside/actions/workflows/update-instances.yml)
 
 <table>
   <tr>
-    <td><a href="https://sr.ht/~benbusby/farside">SourceHut</a></td>
-    <td><a href="https://github.com/benbusby/farside">GitHub</a></td>
+    <td><a href="https://github.com/19-84/farside">GitHub</a></td>
+    <td><a href="https://19-84.github.io/farside/">Instance status</a></td>
   </tr>
 </table>
 
 </div>
 
-___
-Thank you to [Miget](https://miget.com) for generously hosting Farside's official instance ([farside.link](https://farside.link))!
 ___
 
 Contents
@@ -37,12 +52,16 @@ Contents
 
 A redirecting service for FOSS alternative frontends.
 
-[Farside](https://farside.link) provides links that automatically redirect to
+Farside provides links that automatically redirect to
 working instances of privacy-oriented alternative frontends, such as Nitter,
 Libreddit, etc. This allows for users to have more reliable access to the
 available public instances for a particular service, while also helping to
 distribute traffic more evenly across all instances and avoid performance
 bottlenecks and rate-limiting.
+
+The original public instance, `farside.link`, has been shut down. Run your own
+(see [Development](#development)) and substitute your own host wherever the
+examples below use `farside.link`.
 
 Farside also integrates smoothly with basic redirector extensions in most
 browsers. For a simple example setup,
@@ -50,7 +69,9 @@ browsers. For a simple example setup,
 
 ## Demo
 
-Farside's links work with the following structure: `farside.link/<service>/<path>`
+Farside's links work with the following structure: `<your-host>/<service>/<path>`.
+The examples below use the original `farside.link` host for illustration; those
+URLs no longer resolve.
 
 For example:
 
@@ -97,7 +118,7 @@ For example:
     </tr>
 </table>
 
-<sup>Note: This table doesn't include all available services. For a complete list of supported frontends, see: https://farside.link</sup>
+<sup>Note: This table doesn't include all available services. For a complete list of supported frontends, see the <a href="https://19-84.github.io/farside/">instance status page</a>, <a href="services.json">services.json</a>, or the <code>/state</code> endpoint of your own deployment.</sup>
 
 Farside also accepts URLs to "parent" services, and will redirect to an appropriate front end service, for example:
 
@@ -154,18 +175,18 @@ Farside does not perform any application-level ratelimiting itself; run it
 behind a reverse proxy (e.g. nginx, Caddy) if you need per-IP request limits.
 
 ## Regarding Cloudflare
-Instances for each supported service that are deployed behind Cloudflare are
-not included when using [farside.link](https://farside.link). If you would like
-to also access instances that use Cloudflare (in addition to instances that do
-not), you can either use [cf.farside.link](https://cf.farside.link) instead, or
-deploy your own instance of Farside and set
-`FARSIDE_SERVICES_JSON=services-full.json` when running.
+Instances deployed behind Cloudflare are kept in a separate list. By default
+Farside uses `services.json`, which excludes them. To also serve instances that
+use Cloudflare, set `FARSIDE_CF_ENABLED=1`, which switches to the full instance
+list in `services-full.json`.
 
-If you do decide to use [cf.farside.link](https://cf.farside.link) or use the
-full instance list provided by `services-full.json`, please be aware that
-Cloudflare takes steps to block site visitors using Tor (and some VPNs), and
-that their mission to centralize the entire web behind their service ultimately
-goes against what Farside is trying to solve. Use at your own discretion.
+(The original deployment offered this as a separate `cf.farside.link` host; that
+host has been shut down along with the rest of the original service.)
+
+If you do use the full instance list, please be aware that Cloudflare takes
+steps to block site visitors using Tor (and some VPNs), and that their mission
+to centralize the entire web behind their service ultimately goes against what
+Farside is trying to solve. Use at your own discretion.
 
 ## Development
 
@@ -200,8 +221,12 @@ goes against what Farside is trying to solve. Use at your own discretion.
         <td>Set to 0 to deactivate the periodic instance availability check</td>
     </tr>
     <tr>
+        <td>FARSIDE_REPLICA_URL</td>
+        <td>Mirror instance state from another Farside node's <code>/state</code> endpoint instead of health-checking instances directly. Unset (the default) means this node probes instances itself</td>
+    </tr>
+    <tr>
         <td>FARSIDE_PRIMARY</td>
-        <td>Set to 1 to act as a primary node that health-checks instances directly, instead of mirroring state from farside.link</td>
+        <td>Obsolete, kept only so existing configs don't break. Direct health-checking is now the default, so this has no effect; a startup log message points at <code>FARSIDE_REPLICA_URL</code> if it is set</td>
     </tr>
     <tr>
         <td>FARSIDE_AUTO_UPDATE</td>

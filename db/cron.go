@@ -15,8 +15,16 @@ import (
 	"github.com/robfig/cron/v3"
 )
 
-const defaultPrimary = "https://farside.link/state"
-const defaultCFPrimary = "https://cf.farside.link/state"
+// replicaURLVar names the environment variable holding the URL of a Farside
+// /state endpoint to mirror instead of probing instances directly.
+//
+// Replica mode used to be the default, pointing at https://farside.link/state.
+// The upstream project was archived in August 2026 and farside.link now serves
+// a static shutdown notice, so that endpoint returns 404 (and cf.farside.link
+// no longer presents a valid certificate). There is no default state source
+// any more: a node probes instances itself unless it is explicitly pointed at
+// a replica source it controls.
+const replicaURLVar = "FARSIDE_REPLICA_URL"
 
 var LastUpdate time.Time
 
@@ -28,6 +36,7 @@ var skipInstanceChecks = []string{}
 
 func InitCronTasks() {
 	log.Println("Initializing cron tasks...")
+	warnLegacyPrimaryVar()
 	updateServiceList()
 
 	cronDisabled := os.Getenv("FARSIDE_CRON")
@@ -58,9 +67,8 @@ func updateServiceList() {
 func queryServiceInstances() {
 	log.Println("Starting instance queries...")
 
-	isPrimary := os.Getenv("FARSIDE_PRIMARY")
-	if len(isPrimary) == 0 || isPrimary != "1" {
-		remoteServices, err := fetchInstancesFromPrimary()
+	if replicaURL := replicaSource(); len(replicaURL) > 0 {
+		remoteServices, err := fetchInstancesFromPrimary(replicaURL)
 		if err != nil {
 			// Keep the existing instance data (and the real LastUpdate
 			// timestamp) rather than marking a failed refresh as fresh.
@@ -102,13 +110,39 @@ func queryServiceInstances() {
 	LastUpdate = time.Now().UTC()
 }
 
-func fetchInstancesFromPrimary() ([]services.Service, error) {
-	primaryURL := defaultPrimary
-	useCF := os.Getenv("FARSIDE_CF_ENABLED")
-	if len(useCF) > 0 && useCF == "1" {
-		primaryURL = defaultCFPrimary
+// replicaSource returns the configured /state URL to mirror, or an empty
+// string when this node should probe instances itself.
+func replicaSource() string {
+	return strings.TrimSpace(os.Getenv(replicaURLVar))
+}
+
+// warnLegacyPrimaryVar flags the now-obsolete FARSIDE_PRIMARY variable. Nodes
+// probe instances directly by default, so FARSIDE_PRIMARY=1 is redundant and
+// any other value no longer selects replica mode -- that needs a
+// FARSIDE_REPLICA_URL pointing at a /state endpoint. Logged once at startup
+// rather than on every cron tick.
+func warnLegacyPrimaryVar() {
+	isPrimary, set := os.LookupEnv("FARSIDE_PRIMARY")
+	if !set {
+		return
 	}
 
+	if isPrimary == "1" {
+		log.Printf("FARSIDE_PRIMARY is obsolete and can be removed; "+
+			"instances are probed directly unless %s is set", replicaURLVar)
+		return
+	}
+
+	if len(replicaSource()) == 0 {
+		log.Printf("FARSIDE_PRIMARY=%q no longer selects replica mode: "+
+			"farside.link was shut down when the upstream project was "+
+			"archived. Set %s to mirror a /state endpoint you control, "+
+			"otherwise this node probes instances directly",
+			isPrimary, replicaURLVar)
+	}
+}
+
+func fetchInstancesFromPrimary(primaryURL string) ([]services.Service, error) {
 	resp, err := http.Get(primaryURL)
 	if err != nil {
 		return nil, err
@@ -137,7 +171,7 @@ func queryServiceInstance(instance, testURL string, canSkipCheck bool) bool {
 		return true
 	}
 
-	ua := "Mozilla/5.0 (compatible; Farside/1.0.0; +https://farside.link)"
+	ua := "Mozilla/5.0 (compatible; Farside/1.0.0; +https://github.com/19-84/farside)"
 	url := instance + testURL
 
 	req, err := http.NewRequest(http.MethodGet, url, nil)
