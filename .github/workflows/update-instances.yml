@@ -150,18 +150,6 @@ jobs:
         apply_update
 
         # ==============================================================
-        # Whoogle update
-        # ==============================================================
-        curl -s https://raw.githubusercontent.com/benbusby/whoogle-search/main/misc/instances.txt > whoogle-out
-        jq -ncR '[inputs]' <<< "$(cat whoogle-out | sort)" > whoogle-tmp.json
-
-        jq --slurpfile whoogle whoogle-tmp.json \
-          '( .[] | select(.type == "whoogle") )
-          .instances |= $whoogle[0]' services-full.json > services-tmp.json
-
-        apply_update
-
-        # ==============================================================
         # Invidious update
         # ==============================================================
         curl -s https://api.invidious.io/instances.json | \

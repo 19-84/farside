@@ -68,11 +68,6 @@ SERVICES = {
         "sources": ["https://raw.githubusercontent.com/nesaku/BiblioReads/main/README.md"],
         "lr": "biblioReads",
         "test_url": "/search?q=dune", "markers": ["biblioreads"]},
-    # whoogle's own instances.txt is tiny these days; LibRedirect finds more
-    "whoogle": {
-        "sources": [], "lr": "whoogle",
-        "test_url": "/search?cookies_disabled=1&q=current+weather",
-        "markers": ["whoogle"]},
     # scribe's sourcehut registry is dead (HTTP 418); LibRedirect is the only
     # living source of scribe instances
     "scribe": {

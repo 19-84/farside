@@ -46,7 +46,6 @@ Contents
     1. [Environment Variables](#environment-variables)
 6. [Search Integration](#search-integration)
     1. [Kagi](#kagi)
-    2. [Whoogle Search](#whoogle-search)
 
 ## About
 
@@ -255,9 +254,3 @@ For example:
 
 `^https://([^/]+).fandom.com/(.*)|https://farside.link/breezewiki/$1/$2`
 
-### Whoogle Search
-
-https://github.com/benbusby/whoogle-search
-
-Whoogle automatically routes eligible links through Farside when the `Replace
-Social Media Links` option in the home page settings menu is enabled.
