@@ -6,7 +6,6 @@
     "instances": [
       "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
-      "https://redlib.nadeko.net",
       "https://redlib.privadency.com",
       "https://safereddit.com"
     ]
@@ -18,7 +17,6 @@
     "instances": [
       "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
-      "https://redlib.nadeko.net",
       "https://redlib.privadency.com",
       "https://safereddit.com"
     ]
@@ -37,7 +35,6 @@
     "fallback": "https://invidious.nerdvpn.de",
     "instances": [
       "https://inv-ygg.nadeko.net",
-      "https://inv.nadeko.net",
       "https://inv.nadeko.ygg",
       "https://invidious.nerdvpn.de",
       "https://invidious.tiekoetter.com",
@@ -64,6 +61,7 @@
       "https://m.opnxng.com",
       "https://sc.vern.cc",
       "https://scribe.nixnet.services",
+      "https://scribe.privacyredirect.com",
       "https://scribe.r4fo.com"
     ]
   },
@@ -112,6 +110,7 @@
       "https://mozhi.pussthecat.org",
       "https://mzh.dc09.xyz",
       "https://translate.nerdvpn.de",
+      "https://translate.privacyredirect.com",
       "https://translate.projectsegfau.lt"
     ]
   },
@@ -128,16 +127,20 @@
       "https://ri.bcow.xyz",
       "https://ri.nadeko.net",
       "https://rimgo.4o1x5.dev",
+      "https://rimgo.astrial.org",
       "https://rimgo.bloat.cat",
       "https://rimgo.canine.tools",
       "https://rimgo.catsarch.com",
       "https://rimgo.darkness.services",
+      "https://rimgo.ducks.party",
       "https://rimgo.hostux.net",
       "https://rimgo.manerakai.com",
       "https://rimgo.nohost.network",
+      "https://rimgo.privacyredirect.com",
       "https://rimgo.proxik.cloud",
       "https://rimgo.pussthecat.org",
       "https://rimgo.reallyaweso.me",
+      "https://rimgo.wuemeli.com",
       "https://rmgur.com"
     ]
   },
@@ -244,11 +247,9 @@
     "test_url": "/benbusby/farside",
     "fallback": "https://gothub.projectsegfau.lt",
     "instances": [
-      "https://gothub.dev.projectsegfau.lt",
       "https://gothub.libre.tw",
       "https://gothub.lunar.icu",
-      "https://gothub.r4fo.com",
-      "https://gothub.wuemeli.com"
+      "https://gothub.r4fo.com"
     ]
   },
   {
@@ -296,11 +297,11 @@
       "https://librey.org",
       "https://ly.owo.si",
       "https://search.blitzw.in",
+      "https://search.davidovski.xyz",
       "https://search.funami.tech",
       "https://search.liv.town",
       "https://search.revvy.de",
       "https://search.technicalvoid.dev",
-      "https://search.uwabaki.party",
       "https://serp.catswords.net"
     ]
   },
@@ -316,6 +317,7 @@
       "https://tent.lab8.cz",
       "https://tent.nbh.ax",
       "https://tent.private.coffee",
+      "https://tent.sny.sh",
       "https://tn.dc09.ru",
       "https://tn.maid.zone",
       "https://tn.vern.cc"
