@@ -38,8 +38,6 @@ REGISTRIES = [
      lambda b: sum(1 for v in _hosts(b) if v.get("healthy"))),
     ("simplytranslate", "https://codeberg.org/SimpleWeb/Website/raw/branch/master/config.json",
      lambda b: len(next(p for p in json.loads(b)["projects"] if p["id"] == "simplytranslate")["instances"])),
-    ("whoogle", "https://raw.githubusercontent.com/benbusby/whoogle-search/main/misc/instances.txt",
-     lambda b: sum(1 for l in b.splitlines() if l.strip().startswith("http"))),
     ("invidious", "https://api.invidious.io/instances.json",
      lambda b: sum(1 for e in json.loads(b) if e[1].get("type") == "https")),
     ("scribe", "https://git.sr.ht/~edwardloveall/scribe/blob/main/docs/instances.json",

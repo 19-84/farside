@@ -141,14 +141,6 @@
     ]
   },
   {
-    "type": "whoogle",
-    "test_url": "/search?cookies_disabled=1&q=<%=query%>",
-    "fallback": "https://search.sethforprivacy.com",
-    "instances": [
-      "https://search.garudalinux.org"
-    ]
-  },
-  {
     "type": "searxng",
     "test_url": "/",
     "fallback": "https://searxng.shreven.org",

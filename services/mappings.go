@@ -31,8 +31,11 @@ var regexMap = []RegexMapping{
 	},
 	{
 		// Google Search
+		// whoogle stays in the pattern so existing Whoogle links keep
+		// routing, but it is no longer a target: the project was archived
+		// in Aug 2026 and every known instance is dead.
 		Pattern: regexp.MustCompile(`google\.com|whoogle|searx|searxng`),
-		Targets: []string{"whoogle", "searxng"},
+		Targets: []string{"searxng"},
 	},
 	{
 		// Medium
@@ -108,7 +111,23 @@ var regexMap = []RegexMapping{
 	},
 }
 
+// retiredAliases maps a retired frontend onto a living equivalent. A bare
+// service name (no ".") otherwise passes through MatchRequest unchanged, so
+// without this a link minted before the service was retired -- /whoogle/...,
+// /searx/... -- resolves to a service that no longer exists and errors out.
+// URL-form requests are unaffected: those still go through regexMap.
+var retiredAliases = map[string]string{
+	"whoogle": "searxng", // archived Aug 2026, every known instance dead
+	"searx":   "searxng", // discontinued upstream; SearXNG is the successor
+	"piped":   "invidious",
+}
+
 func MatchRequest(service string) (string, error) {
+	if !strings.Contains(service, ".") {
+		if alias, ok := retiredAliases[strings.ToLower(service)]; ok {
+			return alias, nil
+		}
+	}
 
 	for _, mapping := range regexMap {
 		hasMatch := mapping.Pattern.MatchString(service)
