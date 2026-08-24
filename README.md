@@ -63,8 +63,8 @@ The original public instance, `farside.link`, has been shut down. Run your own
 examples below use `farside.link`.
 
 Farside also integrates smoothly with basic redirector extensions in most
-browsers. For a simple example setup,
-[refer to the wiki](https://github.com/benbusby/farside/wiki/Browser-Extension).
+browsers. See [docs/browser-extension.md](docs/browser-extension.md) for a
+worked setup.
 
 ## Demo
 
