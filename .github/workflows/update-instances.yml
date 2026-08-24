@@ -62,6 +62,27 @@ jobs:
           mv services-slashes.json services-full.json
         }
 
+        # LibRedirect keeps a curated, actively-maintained registry covering
+        # most of the frontends farside redirects to. Several services have no
+        # upstream registry of their own (or theirs has died, as Tent's did),
+        # so this is their instance source. Fetched once and reused.
+        #   libredirect_update <farside type> <libredirect key>
+        function libredirect_update() {
+          local type="$1" key="$2"
+
+          jq --arg k "$key" '[.[$k].clearnet[]] | sort' libredirect.json \
+            > "$type-tmp.json"
+
+          jq --slurpfile new "$type-tmp.json" --arg t "$type" \
+            '(.[] | select(.type == $t)).instances |= $new[0]' \
+            services-full.json > services-tmp.json
+
+          apply_update
+        }
+
+        curl -s https://raw.githubusercontent.com/libredirect/instances/main/data.json \
+          > libredirect.json
+
         # ==============================================================
         # Git config
         # ==============================================================
@@ -273,18 +294,8 @@ jobs:
 
         # Tent's own registry lived on forgejo.sny.sh, which is gone (the host
         # does not resolve/connect at all), so that source silently produced an
-        # empty list. LibRedirect tracks Tent and is already the discovery
-        # source tools/discover.py uses for other services.
-        curl -s https://raw.githubusercontent.com/libredirect/instances/main/data.json | \
-          jq '[
-            .tent.clearnet[]
-          ] | sort' > tent-tmp.json
-
-        jq --slurpfile tent tent-tmp.json \
-          '(.[] | select(.type == "tent") )
-          .instances |= $tent[0]' services-full.json > services-tmp.json
-
-        apply_update
+        # empty list.
+        libredirect_update tent tent
 
         # ==============================================================
         # Mozhi update (translate frontend; clean JSON registry)
@@ -338,8 +349,19 @@ jobs:
         python3 tools/check-registries.py || echo "[WARN] one or more registries are dead/broken (see above)"
 
         # ==============================================================
-        # TODO: Update instances for other services
+        # Services with no registry of their own. These were static lists that
+        # nothing refreshed, and had drifted far below what LibRedirect tracks
+        # (e.g. quetre 2 vs 22, anonymousoverflow 4 vs 34). Dead and walled
+        # entries among them are pruned by the runtime health check.
         # ==============================================================
+        libredirect_update lingva            lingva
+        libredirect_update quetre            quetre
+        libredirect_update libremdb          libremdb
+        libredirect_update dumb              dumb
+        libredirect_update biblioreads       biblioReads
+        libredirect_update anonymousoverflow anonymousOverflow
+
+        rm -f libredirect.json
 
         # ==============================================================
         # Filter out Cloudflared instances from services-full.json into
