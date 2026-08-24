@@ -303,7 +303,7 @@
   {
     "type": "tent",
     "test_url": "/search.php?query=<%=query%>",
-    "fallback": "https://tent.sny.sh",
+    "fallback": "https://tent.canine.tools",
     "instances": []
   },
   {

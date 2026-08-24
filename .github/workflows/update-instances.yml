@@ -49,8 +49,17 @@ jobs:
           mv services-guarded.json services-full.json
           rm -f *-tmp.json
 
-          # Ensure no trailing slashes for any instance
-          sed -i 's/\/"/"/g' services-full.json
+          # Ensure no trailing slashes on instance and fallback URLs.
+          # This was 'sed -i s|/"|"|g', which rewrote a / before ANY quote in
+          # the file -- including "test_url": "/" (SearXNG's), silently turning
+          # it into "". Target the URL fields explicitly instead.
+          jq '
+            map(
+              .instances = ((.instances // []) | map(sub("/+$"; "")))
+              | if has("fallback") then .fallback = (.fallback | sub("/+$"; "")) else . end
+            )
+          ' services-full.json > services-slashes.json
+          mv services-slashes.json services-full.json
         }
 
         # ==============================================================
@@ -274,18 +283,20 @@ jobs:
         # Tent update
         # ==============================================================
 
-        curl -s https://forgejo.sny.sh/sun/Tent/raw/branch/main/instances.json | \
+        # Tent's own registry lived on forgejo.sny.sh, which is gone (the host
+        # does not resolve/connect at all), so that source silently produced an
+        # empty list. LibRedirect tracks Tent and is already the discovery
+        # source tools/discover.py uses for other services.
+        curl -s https://raw.githubusercontent.com/libredirect/instances/main/data.json | \
           jq '[
-            .[] |
-            select(.type == "http") |
-            .url] |
-            sort' > tent-tmp.json
+            .tent.clearnet[]
+          ] | sort' > tent-tmp.json
 
         jq --slurpfile tent tent-tmp.json \
           '(.[] | select(.type == "tent") )
           .instances |= $tent[0]' services-full.json > services-tmp.json
 
-          apply_update
+        apply_update
 
         # ==============================================================
         # Mozhi update (translate frontend; clean JSON registry)
