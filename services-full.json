@@ -7,6 +7,7 @@
       "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
       "https://redlib.cow.rip",
+      "https://redlib.nadeko.net",
       "https://redlib.privadency.com",
       "https://safereddit.com"
     ]
@@ -19,6 +20,7 @@
       "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
       "https://redlib.cow.rip",
+      "https://redlib.nadeko.net",
       "https://redlib.privadency.com",
       "https://safereddit.com"
     ]
@@ -38,8 +40,7 @@
     "test_url": "/watch?v=eBGIQ7ZuuiU",
     "fallback": "https://invidious.nerdvpn.de",
     "instances": [
-      "https://inv-ygg.nadeko.net",
-      "https://inv.nadeko.ygg",
+      "https://inv.nadeko.net",
       "https://invidious.f5.si",
       "https://invidious.nerdvpn.de",
       "https://invidious.tiekoetter.com",
@@ -55,7 +56,6 @@
       "https://nitter.catsarch.com",
       "https://nitter.kareem.one",
       "https://nitter.net",
-      "https://nitter.poast.org",
       "https://nitter.space",
       "https://nitter.tiekoetter.com",
       "https://nuku.trabun.org",
@@ -68,8 +68,6 @@
     "fallback": "https://scribe.r4fo.com",
     "instances": [
       "https://m.opnxng.com",
-      "https://sc.vern.cc",
-      "https://scribe.nixnet.services",
       "https://scribe.privacyredirect.com",
       "https://scribe.r4fo.com",
       "https://scribe.rawbit.ninja"
@@ -80,20 +78,10 @@
     "test_url": "/?engine=google&text=simplicado",
     "fallback": "https://simplytranslate.org",
     "instances": [
-      "https://simplytranslate.esmailelbob.xyz",
       "https://simplytranslate.leemoon.network",
-      "https://simplytranslate.manerakai.com",
       "https://simplytranslate.org",
-      "https://simplytranslate.pussthecat.org",
       "https://st.odyssey346.dev",
       "https://st.privacydev.net",
-      "https://st.tokhmi.xyz",
-      "https://tl.vern.cc",
-      "https://translate.bus-hit.me",
-      "https://translate.josias.dev",
-      "https://translate.northboot.xyz",
-      "https://translate.priv.pw",
-      "https://translate.riverside.rocks",
       "https://translate.slipfox.xyz",
       "https://translate.tiekoetter.com"
     ]
@@ -106,7 +94,11 @@
       "https://lingva.garudalinux.org",
       "https://lingva.lunar.icu",
       "https://lingva.ml",
-      "https://translate.plausibility.cloud"
+      "https://translate.dr460nf1r3.org",
+      "https://translate.igna.wtf",
+      "https://translate.jae.fi",
+      "https://translate.plausibility.cloud",
+      "https://translate.projectsegfau.lt"
     ]
   },
   {
@@ -121,8 +113,6 @@
       "https://mozhi.catsarch.com",
       "https://mozhi.ducks.party",
       "https://mozhi.pussthecat.org",
-      "https://mzh.dc09.xyz",
-      "https://translate.nerdvpn.de",
       "https://translate.privacyredirect.com",
       "https://translate.projectsegfau.lt"
     ]
@@ -136,7 +126,6 @@
       "https://imgur.artemislena.eu",
       "https://imgur.nerdvpn.de",
       "https://r.opnxng.com",
-      "https://rg.kuuro.net",
       "https://ri.bcow.xyz",
       "https://ri.nadeko.net",
       "https://rimgo.4o1x5.dev",
@@ -145,13 +134,9 @@
       "https://rimgo.bloat.cat",
       "https://rimgo.canine.tools",
       "https://rimgo.catsarch.com",
-      "https://rimgo.darkness.services",
       "https://rimgo.ducks.party",
-      "https://rimgo.hostux.net",
-      "https://rimgo.manerakai.com",
       "https://rimgo.nohost.network",
       "https://rimgo.privacyredirect.com",
-      "https://rimgo.proxik.cloud",
       "https://rimgo.pussthecat.org",
       "https://rimgo.reallyaweso.me",
       "https://rimgo.wuemeli.com",
@@ -209,8 +194,28 @@
     "test_url": "/How-does-the-Z-boson-decay",
     "fallback": "https://q.opnxng.com",
     "instances": [
+      "https://ask.habedieeh.re",
+      "https://ask.sudovanilla.org",
+      "https://q.307200.xyz",
       "https://q.opnxng.com",
-      "https://quetre.r4fo.com"
+      "https://qr.vern.cc",
+      "https://qt.bloat.cat",
+      "https://quetre.blackdrgn.nl",
+      "https://quetre.canine.tools",
+      "https://quetre.drgns.space",
+      "https://quetre.ducks.party",
+      "https://quetre.franklyflawless.org",
+      "https://quetre.iket.me",
+      "https://quetre.jeikobu.net",
+      "https://quetre.lunar.icu",
+      "https://quetre.nadeko.net",
+      "https://quetre.privacydev.net",
+      "https://quetre.privacyredirect.com",
+      "https://quetre.private.coffee",
+      "https://quetre.pussthecat.org",
+      "https://quetre.r4fo.com",
+      "https://quetre.tokhmi.xyz",
+      "https://quora.nerdvpn.de"
     ]
   },
   {
@@ -218,10 +223,29 @@
     "test_url": "/title/tt0133093",
     "fallback": "https://libremdb.pussthecat.org",
     "instances": [
+      "https://binge.whatever.social",
+      "https://binge.whateveritworks.org",
       "https://d.opnxng.com",
+      "https://imdb.nerdvpn.de",
+      "https://ld.ca.zorby.top",
+      "https://ld.vern.cc",
+      "https://libremdb-fly.fly.dev",
+      "https://libremdb.canine.tools",
+      "https://libremdb.darkness.services",
+      "https://libremdb.ducks.party",
+      "https://libremdb.frontendfriendly.xyz",
+      "https://libremdb.hyperreal.coffee",
+      "https://libremdb.iket.me",
+      "https://libremdb.jeikobu.net",
+      "https://libremdb.lunar.icu",
       "https://libremdb.nerdyfam.tech",
+      "https://libremdb.privacydev.net",
       "https://libremdb.pussthecat.org",
-      "https://libremdb.r4fo.com"
+      "https://libremdb.r4fo.com",
+      "https://libremdb.tux.pizza",
+      "https://lmdb.bloat.cat",
+      "https://lmdb.hostux.net",
+      "https://lmdb.ngn.tf"
     ]
   },
   {
@@ -229,9 +253,20 @@
     "test_url": "/Naughty-boy-la-la-la-lyrics",
     "fallback": "https://dumb.ducks.party",
     "instances": [
+      "https://db.kuuro.net",
+      "https://dm.vern.cc",
+      "https://dumb.artemislena.eu",
       "https://dumb.bloat.cat",
+      "https://dumb.canine.tools",
       "https://dumb.ducks.party",
-      "https://genius.fsky.io"
+      "https://dumb.hyperreal.coffee",
+      "https://dumb.jeikobu.net",
+      "https://dumb.lunar.icu",
+      "https://dumb.privacydev.net",
+      "https://dumb.privacyfucking.rocks",
+      "https://genius.fsky.io",
+      "https://lyr.dc09.ru",
+      "https://sing.whatever.social"
     ]
   },
   {
@@ -239,14 +274,10 @@
     "test_url": "/balatrogame/wiki/Abandoned_Deck",
     "fallback": "https://breezewiki.com",
     "instances": [
-      "http://breezewiki.coffee2m3bjsrrqqycx6ghkxrnejl2q6nl7pjw2j4clchjj6uk5zozad.onion",
-      "http://breezewiki.nadekonfkhwlxwwk4ycbvq42zvcjmvo5iakl4tajojjwxd4a5dcetuyd.onion",
-      "http://breezewiki.r4focoma7gu2zdwwcjjad47ysxt634lg73sxmdbkdozanwqslho5ohyd.onion",
       "https://antifandom.com",
       "https://breeze.hostux.net",
       "https://breeze.mint.lgbt",
       "https://breezewiki.com",
-      "https://breezewiki.moonshadow.dev",
       "https://breezewiki.nadeko.net",
       "https://breezewiki.private.coffee",
       "https://breezewiki.pussthecat.org",
@@ -262,9 +293,10 @@
     "test_url": "/benbusby/farside",
     "fallback": "https://gothub.projectsegfau.lt",
     "instances": [
-      "https://gothub.libre.tw",
+      "https://gothub.dev.projectsegfau.lt",
       "https://gothub.lunar.icu",
-      "https://gothub.r4fo.com"
+      "https://gothub.r4fo.com",
+      "https://gothub.wuemeli.com"
     ]
   },
   {
@@ -272,10 +304,40 @@
     "test_url": "/questions/6591213/how-do-i-rename-a-local-git-branch",
     "fallback": "https://anonymousoverflow.catsarch.com",
     "instances": [
+      "https://a.opnxng.com",
+      "https://anonflow.aketawi.space",
+      "https://anonoverflow.frontendfriendly.xyz",
+      "https://anonoverflow.moonshadow.dev",
+      "https://anonymousoverflow.catsarch.com",
+      "https://anonymousoverflow.privacyfucking.rocks",
+      "https://anonymousoverflow.privacyredirect.com",
+      "https://ao.bloat.cat",
+      "https://ao.bunk.lol",
+      "https://ao.ngn.tf",
       "https://ao.owo.si",
+      "https://ao.rootdo.com",
+      "https://ao.vern.cc",
+      "https://code.whatever.social",
+      "https://code.xbdm.fun",
+      "https://exchange.seitan-ayoub.lol",
+      "https://o.iii.st",
+      "https://o.sudovanilla.org",
+      "https://overflow.adminforge.de",
+      "https://overflow.canine.tools",
+      "https://overflow.darkness.services",
+      "https://overflow.datura.network",
       "https://overflow.ducks.party",
+      "https://overflow.einfachzocken.eu",
+      "https://overflow.fascinated.cc",
+      "https://overflow.floppa.cloud",
+      "https://overflow.freedit.eu",
       "https://overflow.hostux.net",
-      "https://overflow.projectsegfau.lt"
+      "https://overflow.lunar.icu",
+      "https://overflow.projectsegfau.lt",
+      "https://overflow.r4fo.com",
+      "https://overflow.smnz.de",
+      "https://overflow.snine.nl",
+      "https://soflow.nerdvpn.de"
     ]
   },
   {
@@ -307,19 +369,10 @@
     "fallback": "https://librex.nohost.network",
     "instances": [
       "https://librex.nohost.network",
-      "https://librey.4o1x5.dev",
-      "https://librey.baczek.me",
       "https://librey.darkness.services",
-      "https://librey.nube-gran.de",
-      "https://librey.org",
-      "https://ly.owo.si",
-      "https://search.blitzw.in",
       "https://search.davidovski.xyz",
-      "https://search.funami.tech",
-      "https://search.liv.town",
       "https://search.revvy.de",
-      "https://search.technicalvoid.dev",
-      "https://serp.catswords.net"
+      "https://search.uwabaki.party"
     ]
   },
   {
@@ -331,13 +384,10 @@
       "https://tent.bloat.cat",
       "https://tent.canine.tools",
       "https://tent.deep-swarm.xyz",
-      "https://tent.lab8.cz",
       "https://tent.nbh.ax",
       "https://tent.private.coffee",
       "https://tent.sny.sh",
-      "https://tn.dc09.ru",
-      "https://tn.maid.zone",
-      "https://tn.vern.cc"
+      "https://tn.maid.zone"
     ]
   },
   {
@@ -345,12 +395,22 @@
     "test_url": "/search?q=dune",
     "fallback": "https://biblioreads.ducks.party",
     "instances": [
+      "https://biblioreads.canine.tools",
       "https://biblioreads.ducks.party",
       "https://biblioreads.eu.org",
+      "https://biblioreads.franklyflawless.org",
       "https://biblioreads.lunar.icu",
       "https://biblioreads.mooo.com",
+      "https://biblioreads.privacyfucking.rocks",
+      "https://biblioreads.privacyredirect.com",
+      "https://biblioreads.snine.nl",
+      "https://biblioreads.vercel.app",
+      "https://bl.vern.cc",
       "https://br.bloat.cat",
-      "https://read.freedit.eu"
+      "https://read.freedit.eu",
+      "https://read.seitan-ayoub.lol",
+      "https://read.whateveritworks.org",
+      "https://reads.nezumi.party"
     ]
   }
 ]
