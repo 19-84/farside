@@ -7,7 +7,7 @@
       "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
       "https://redlib.cow.rip",
-      "https://redlib.nadeko.net",
+      "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
       "https://safereddit.com"
     ]
@@ -20,7 +20,7 @@
       "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
       "https://redlib.cow.rip",
-      "https://redlib.nadeko.net",
+      "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
       "https://safereddit.com"
     ]
@@ -41,10 +41,8 @@
     "fallback": "https://invidious.nerdvpn.de",
     "instances": [
       "https://inv-ygg.nadeko.net",
-      "https://inv.nadeko.net",
       "https://inv.nadeko.ygg",
       "https://invidious.f5.si",
-      "https://invidious.nerdvpn.de",
       "https://invidious.tiekoetter.com",
       "https://yt.chocolatemoo53.com"
     ]
@@ -65,6 +63,7 @@
       "https://m.opnxng.com",
       "https://sc.vern.cc",
       "https://scribe.nixnet.services",
+      "https://scribe.privacyredirect.com",
       "https://scribe.rawbit.ninja"
     ]
   },
@@ -116,10 +115,10 @@
       "https://mozhi.bloat.cat",
       "https://mozhi.canine.tools",
       "https://mozhi.catsarch.com",
-      "https://mozhi.ducks.party",
       "https://mozhi.pussthecat.org",
       "https://mzh.dc09.xyz",
       "https://translate.nerdvpn.de",
+      "https://translate.privacyredirect.com",
       "https://translate.projectsegfau.lt"
     ]
   },
@@ -130,7 +129,6 @@
     "instances": [
       "https://anaimg.starbeamrainbowlabs.com",
       "https://imgur.artemislena.eu",
-      "https://imgur.nerdvpn.de",
       "https://r.opnxng.com",
       "https://rg.kuuro.net",
       "https://ri.bcow.xyz",
@@ -142,6 +140,7 @@
       "https://rimgo.canine.tools",
       "https://rimgo.catsarch.com",
       "https://rimgo.darkness.services",
+      "https://rimgo.ducks.party",
       "https://rimgo.hostux.net",
       "https://rimgo.manerakai.com",
       "https://rimgo.nohost.network",
@@ -149,6 +148,7 @@
       "https://rimgo.proxik.cloud",
       "https://rimgo.pussthecat.org",
       "https://rimgo.reallyaweso.me",
+      "https://rimgo.wuemeli.com",
       "https://rmgur.com"
     ]
   },
@@ -185,6 +185,7 @@
       "https://search.rowie.at",
       "https://search.serpensin.com",
       "https://search.yuri.llc",
+      "https://searx.ankha.ac",
       "https://searx.linxx.net",
       "https://searx.namejeff.xyz",
       "https://searx.oloke.xyz",
@@ -197,6 +198,7 @@
       "https://searxng.gdebest.net",
       "https://searxng.moonshadow.dev",
       "https://searxng.shreven.org",
+      "https://searxng.site",
       "https://searxng.website",
       "https://xka.cz"
     ]
@@ -309,11 +311,9 @@
     "test_url": "/benbusby/farside",
     "fallback": "https://gothub.projectsegfau.lt",
     "instances": [
-      "https://gothub.dev.projectsegfau.lt",
       "https://gothub.libre.tw",
       "https://gothub.lunar.icu",
-      "https://gothub.r4fo.com",
-      "https://gothub.wuemeli.com"
+      "https://gothub.r4fo.com"
     ]
   },
   {
@@ -393,11 +393,11 @@
       "https://librey.org",
       "https://ly.owo.si",
       "https://search.blitzw.in",
+      "https://search.davidovski.xyz",
       "https://search.funami.tech",
       "https://search.liv.town",
       "https://search.revvy.de",
       "https://search.technicalvoid.dev",
-      "https://search.uwabaki.party",
       "https://serp.catswords.net"
     ]
   },
