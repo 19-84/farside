@@ -4,8 +4,8 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.catsarch.com",
     "instances": [
+      "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
-      "https://redlib.nadeko.net",
       "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
       "https://safereddit.com"
@@ -16,8 +16,8 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.catsarch.com",
     "instances": [
+      "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
-      "https://redlib.nadeko.net",
       "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
       "https://safereddit.com"
@@ -131,17 +131,19 @@
       "https://ri.bcow.xyz",
       "https://ri.nadeko.net",
       "https://rimgo.4o1x5.dev",
+      "https://rimgo.astrial.org",
       "https://rimgo.bloat.cat",
       "https://rimgo.canine.tools",
       "https://rimgo.catsarch.com",
       "https://rimgo.darkness.services",
       "https://rimgo.ducks.party",
       "https://rimgo.hostux.net",
-      "https://rimgo.manerakai.com",
       "https://rimgo.nohost.network",
+      "https://rimgo.privacyredirect.com",
       "https://rimgo.proxik.cloud",
       "https://rimgo.pussthecat.org",
       "https://rimgo.reallyaweso.me",
+      "https://rimgo.wuemeli.com",
       "https://rmgur.com"
     ]
   },
@@ -170,14 +172,12 @@
       "https://search.im-in.space",
       "https://search.inetol.net",
       "https://search.liuzj.net",
-      "https://search.lumy.live",
       "https://search.mdosch.de",
       "https://search.mectov.my.id",
       "https://search.minus27315.dev",
       "https://search.rhscz.eu",
       "https://search.rowie.at",
       "https://search.serpensin.com",
-      "https://search.spiralab.org",
       "https://search.yuri.llc",
       "https://searx.linxx.net",
       "https://searx.namejeff.xyz",
@@ -305,8 +305,7 @@
       "https://gothub.libre.tw",
       "https://gothub.lunar.icu",
       "https://gothub.projectsegfau.lt",
-      "https://gothub.r4fo.com",
-      "https://gothub.wuemeli.com"
+      "https://gothub.r4fo.com"
     ]
   },
   {
@@ -383,11 +382,11 @@
       "https://librey.org",
       "https://ly.owo.si",
       "https://search.blitzw.in",
+      "https://search.davidovski.xyz",
       "https://search.funami.tech",
       "https://search.liv.town",
       "https://search.revvy.de",
       "https://search.technicalvoid.dev",
-      "https://search.uwabaki.party",
       "https://serp.catswords.net"
     ]
   },
