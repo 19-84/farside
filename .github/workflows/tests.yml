@@ -4,7 +4,7 @@ jobs:
   test:
     strategy:
       matrix:
-        # go.mod requires go >= 1.26.0, and setup-go@v6 defaults to
+        # go.mod requires go >= 1.26.0, and setup-go (v6+) defaults to
         # GOTOOLCHAIN=local, so older toolchains genuinely cannot build this
         # module. Under setup-go@v5 the 1.21/1.22 cells silently downloaded
         # the go.mod version and tested that instead -- they never exercised 1.21/1.22.
@@ -13,9 +13,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout code
-      uses: actions/checkout@v5
+      uses: actions/checkout@v7
     - name: Install Go
-      uses: actions/setup-go@v6
+      uses: actions/setup-go@v7
       with:
         go-version: ${{ matrix.go-version }}
     - name: Check formatting
@@ -30,3 +30,17 @@ jobs:
     - name: Test
       run: go test -v ./...
 
+  vulncheck:
+    # Dependabot alerts are disabled on this repo, so this is what surfaces
+    # known vulnerabilities in dependencies and the standard library.
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v7
+    - name: Install Go
+      uses: actions/setup-go@v7
+      with:
+        # govulncheck@latest tracks the newest Go release
+        go-version: 'stable'
+    - name: Run govulncheck
+      run: go run golang.org/x/vuln/cmd/govulncheck@latest ./...
