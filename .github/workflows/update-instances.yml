@@ -309,6 +309,22 @@ jobs:
         apply_update
 
         # ==============================================================
+        # Services with no registry of their own. These were static lists that
+        # nothing refreshed, and had drifted far below what LibRedirect tracks
+        # (e.g. quetre 2 vs 22, anonymousoverflow 4 vs 34). This must run
+        # before prune.py: it replaces each list wholesale, so running it
+        # afterwards re-added every instance prune had just removed.
+        # ==============================================================
+        libredirect_update lingva            lingva
+        libredirect_update quetre            quetre
+        libredirect_update libremdb          libremdb
+        libredirect_update dumb              dumb
+        libredirect_update biblioreads       biblioReads
+        libredirect_update anonymousoverflow anonymousOverflow
+
+        rm -f libredirect.json
+
+        # ==============================================================
         # Verify-first discovery for services that only publish their
         # instances in a README/wiki/HTML page (no machine-readable
         # registry). discover.py confirms each candidate is live AND is
@@ -336,7 +352,9 @@ jobs:
         # in-run retries plus a persisted per-instance strike counter
         # (instance-strikes.json) -- a transient outage costs a strike, not
         # an immediate removal, and a live probe resets it to 0. Runs after
-        # discovery so freshly added (live) instances start at zero strikes.
+        # every list refresh (registries, LibRedirect, discovery), so it has
+        # the last word on what gets committed. Strikes persist after removal,
+        # so a registry re-listing a known-dead instance doesn't bring it back.
         # ==============================================================
         python3 tools/prune.py --file services-full.json --state instance-strikes.json --threshold 3
 
@@ -347,21 +365,6 @@ jobs:
         # breakage (scribe) is permanent and should not block all updates.
         # ==============================================================
         python3 tools/check-registries.py || echo "[WARN] one or more registries are dead/broken (see above)"
-
-        # ==============================================================
-        # Services with no registry of their own. These were static lists that
-        # nothing refreshed, and had drifted far below what LibRedirect tracks
-        # (e.g. quetre 2 vs 22, anonymousoverflow 4 vs 34). Dead and walled
-        # entries among them are pruned by the runtime health check.
-        # ==============================================================
-        libredirect_update lingva            lingva
-        libredirect_update quetre            quetre
-        libredirect_update libremdb          libremdb
-        libredirect_update dumb              dumb
-        libredirect_update biblioreads       biblioReads
-        libredirect_update anonymousoverflow anonymousOverflow
-
-        rm -f libredirect.json
 
         # ==============================================================
         # Filter out Cloudflared instances from services-full.json into
