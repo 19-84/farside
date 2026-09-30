@@ -77,7 +77,6 @@
       "https://simplytranslate.leemoon.network",
       "https://simplytranslate.org",
       "https://st.odyssey346.dev",
-      "https://st.privacydev.net",
       "https://translate.slipfox.xyz",
       "https://translate.tiekoetter.com"
     ]
@@ -123,10 +122,7 @@
       "https://rimgo.catsarch.com",
       "https://rimgo.ducks.party",
       "https://rimgo.hostux.net",
-      "https://rimgo.manerakai.com",
-      "https://rimgo.nohost.network",
       "https://rimgo.pussthecat.org",
-      "https://rimgo.wuemeli.com",
       "https://rmgur.com"
     ]
   },
@@ -137,7 +133,6 @@
     "instances": [
       "https://anonsearch.win",
       "https://baresearch.org",
-      "https://failsearx.culturanerd.it",
       "https://find.xenorio.xyz",
       "https://grep.vim.wtf",
       "https://kantan.cat",
@@ -153,8 +148,8 @@
       "https://search.im-in.space",
       "https://search.inetol.net",
       "https://search.liuzj.net",
+      "https://search.lumy.live",
       "https://search.mectov.my.id",
-      "https://search.minus27315.dev",
       "https://search.mizuki.st",
       "https://search.rhscz.eu",
       "https://search.rowie.at",
@@ -165,7 +160,6 @@
       "https://searx.namejeff.xyz",
       "https://searx.oloke.xyz",
       "https://searx.ononoki.org",
-      "https://searx.party",
       "https://searx.perennialte.ch",
       "https://searx.rhscz.eu",
       "https://searx.tiekoetter.com",
@@ -187,7 +181,6 @@
     "instances": [
       "https://q.307200.xyz",
       "https://q.opnxng.com",
-      "https://quetre.drgns.space",
       "https://quetre.r4fo.com"
     ]
   },
@@ -224,7 +217,6 @@
       "https://breeze.mint.lgbt",
       "https://breezewiki.com",
       "https://breezewiki.nadeko.net",
-      "https://breezewiki.private.coffee",
       "https://breezewiki.pussthecat.org",
       "https://breezewiki.woodland.cafe",
       "https://bw.artemislena.eu",
@@ -289,7 +281,6 @@
     "fallback": "https://librey.darkness.services",
     "instances": [
       "https://librey.darkness.services",
-      "https://search.davidovski.xyz",
       "https://search.revvy.de",
       "https://search.uwabaki.party"
     ]
