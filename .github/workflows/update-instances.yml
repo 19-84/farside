@@ -160,7 +160,9 @@ jobs:
         # two live sources: status.d420.de's health-checked hosts, and the
         # instances.json of the active successor fork (codeberg mv12star/shitter).
         # The fork's list also carries meta-redirectors that bounce to other
-        # instances -- drop those; dead entries are left to prune.py.
+        # instances (twiiit, twit.0r.cx) and bitter.st, which is private: it
+        # redirects to /login with a 200 that passes the health check, while
+        # browsers get a 502. Drop those; dead entries are left to prune.py.
         # Either source may fail on its own without emptying the list.
         # ==============================================================
         curl -sf --max-time 60 https://status.d420.de/api/v1/instances | \
@@ -170,7 +172,7 @@ jobs:
           jq '[.[] | .url | select(type == "string")]' \
           > nitter-shitter.json || registry_failed "nitter (shitter)" nitter-shitter.json
 
-        jq -s '[.[][] | rtrimstr("/")] - ["https://twiiit.com", "https://twit.0r.cx"] | unique' \
+        jq -s '[.[][] | rtrimstr("/")] - ["https://twiiit.com", "https://twit.0r.cx", "https://bitter.st"] | unique' \
           nitter-d420.json nitter-shitter.json > nitter-tmp.json
         rm -f nitter-d420.json nitter-shitter.json
 
