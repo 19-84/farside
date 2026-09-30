@@ -12,8 +12,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/benbusby/farside/db"
-	"github.com/benbusby/farside/services"
+	"github.com/19-84/farside/db"
+	"github.com/19-84/farside/services"
 )
 
 //go:embed index.html

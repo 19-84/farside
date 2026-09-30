@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Farside is a Go HTTP service that redirects `farside.link/<service>/<path>` requests to a working,
+Farside is a Go HTTP service that redirects `<host>/<service>/<path>` requests to a working,
 randomly-chosen instance of a privacy-oriented alternative frontend (Nitter, Libreddit/Redlib,
 Invidious, SearXNG, etc.). It distributes traffic across instances and routes around dead ones.
 

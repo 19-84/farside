@@ -1,4 +1,4 @@
-module github.com/benbusby/farside
+module github.com/19-84/farside
 
 go 1.26.0
 

@@ -12,7 +12,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/benbusby/farside/services"
+	"github.com/19-84/farside/services"
 	"github.com/dgraph-io/badger/v4"
 )
 
