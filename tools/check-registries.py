@@ -50,8 +50,6 @@ REGISTRIES = [
      lambda b: len(json.loads(b))),
     ("gothub", "https://codeberg.org/gothub/gothub-instances/raw/branch/master/instances.json",
      lambda b: len(json.loads(b))),
-    ("librey", "https://raw.githubusercontent.com/Ahwxorg/LibreY/main/instances.json",
-     lambda b: len(json.loads(b)["instances"])),
     ("rimgo", "https://rimgo.codeberg.page/api.json",
      lambda b: len(json.loads(b).get("clearnet", []))),
     ("tent", "https://forgejo.sny.sh/sun/Tent/raw/branch/main/instances.json",

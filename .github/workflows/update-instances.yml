@@ -80,8 +80,12 @@ jobs:
 
         function libredirect_update() {
           local type="$1" key="$2"
-
-          jq --arg k "$key" '[.[$k].clearnet[]?] | sort' libredirect.json \
+          shift 2
+          # Any further args are working instances LibRedirect doesn't track.
+          # They are re-added every night but still go through prune.py, whose
+          # persisted strikes drop them again at once if they die.
+          jq --arg k "$key" '[.[$k].clearnet[]?] + $ARGS.positional | unique' \
+            libredirect.json --args "$@" \
             > "$type-tmp.json" || registry_failed "$type (libredirect)" "$type-tmp.json"
 
           jq --slurpfile new "$type-tmp.json" --arg t "$type" \
@@ -283,22 +287,6 @@ jobs:
           apply_update
 
         # ==============================================================
-        # LibreX/LibreY update
-        # ==============================================================
-        curl -sf --max-time 60 https://raw.githubusercontent.com/Ahwxorg/LibreY/main/instances.json | \
-          jq '[
-            .instances |
-            .[] |
-            .clearnet] |
-            sort' > librey-tmp.json || registry_failed librey librey-tmp.json
-
-        jq --slurpfile librey librey-tmp.json \
-          '( .[] | select(.type == "librey") )
-          .instances |= $librey[0]' services-full.json > services-tmp.json
-
-        apply_update
-
-        # ==============================================================
         # Rimgo update
         # ==============================================================
 
@@ -343,7 +331,8 @@ jobs:
         # ==============================================================
         libredirect_update lingva            lingva
         libredirect_update quetre            quetre
-        libredirect_update libremdb          libremdb
+        # libremdb.r4fo.com: the only instance serving title pages (2026-09-30)
+        libredirect_update libremdb          libremdb          https://libremdb.r4fo.com
         libredirect_update dumb              dumb
         libredirect_update biblioreads       biblioReads
         libredirect_update anonymousoverflow anonymousOverflow
