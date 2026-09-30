@@ -95,13 +95,6 @@ var regexMap = []RegexMapping{
 		Targets: []string{"4get"},
 	},
 	{
-		// LibreY
-		// Note: Could be used for redirecting other search engine
-		// requests, but would need special handling
-		Pattern: regexp.MustCompile("librex|librey"),
-		Targets: []string{"librey"},
-	},
-	{
 		// Tent
 		// Note: This is a Bandcamp alternative, but the endpoints are
 		// completely different than Bandcamp, so 1-to-1 mapping of URLs
@@ -120,6 +113,26 @@ var retiredAliases = map[string]string{
 	"whoogle": "searxng", // archived Aug 2026, every known instance dead
 	"searx":   "searxng", // discontinued upstream; SearXNG is the successor
 	"piped":   "invidious",
+	"librey":  "searxng", // no public instance returns results (Sep 2026)
+	"librex":  "searxng", // LibreY's predecessor
+}
+
+// retiredPathRewrites maps the first path segment of a retired frontend onto
+// the equivalent route of its replacement, for aliases whose URLs differ.
+var retiredPathRewrites = map[string]map[string]string{
+	"librey": {"search.php": "search"}, // both take the query as ?q=
+	"librex": {"search.php": "search"},
+}
+
+// RewriteRetiredPath returns segment translated for the replacement of a
+// retired service, or segment unchanged if no rewrite applies.
+func RewriteRetiredPath(service, segment string) string {
+	if rewrites, ok := retiredPathRewrites[strings.ToLower(service)]; ok {
+		if rewritten, ok := rewrites[segment]; ok {
+			return rewritten
+		}
+	}
+	return segment
 }
 
 func MatchRequest(service string) (string, error) {

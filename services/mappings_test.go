@@ -11,6 +11,8 @@ func TestRetiredServicesAlias(t *testing.T) {
 		"whoogle": "searxng",
 		"searx":   "searxng",
 		"piped":   "invidious",
+		"librey":  "searxng",
+		"librex":  "searxng",
 		"Whoogle": "searxng", // case-insensitive
 	}
 
@@ -43,5 +45,21 @@ func TestLiveServicesUnaffected(t *testing.T) {
 	}
 	if got != "searxng" {
 		t.Errorf("MatchRequest(\"google.com\") = %q, want \"searxng\"", got)
+	}
+}
+
+// A retired service's own URLs must land on the replacement's equivalent
+// route: LibreY searches are /search.php?q=, SearXNG's are /search?q=.
+func TestRewriteRetiredPath(t *testing.T) {
+	cases := []struct{ service, segment, want string }{
+		{"librey", "search.php", "search"},
+		{"LibreX", "search.php", "search"},
+		{"librey", "settings.php", "settings.php"},
+		{"searxng", "search.php", "search.php"},
+	}
+	for _, c := range cases {
+		if got := RewriteRetiredPath(c.service, c.segment); got != c.want {
+			t.Errorf("RewriteRetiredPath(%q, %q) = %q, want %q", c.service, c.segment, got, c.want)
+		}
 	}
 }

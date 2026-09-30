@@ -93,6 +93,10 @@ func routing(w http.ResponseWriter, r *http.Request, jsEnabled bool, query strin
 		return
 	}
 
+	if len(segments) > 1 {
+		segments[1] = services.RewriteRetiredPath(segments[0], segments[1])
+	}
+
 	var servicePath string
 	if target == "breezewiki" {
 		// Breezewiki requires the subdomain of the instance to be

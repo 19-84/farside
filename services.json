@@ -62,7 +62,7 @@
   {
     "type": "scribe",
     "test_url": "/@ftrain/big-data-small-effort-b62607a43a8c",
-    "fallback": "https://scribe.rawbit.ninja",
+    "fallback": "https://scribe.privacyredirect.com",
     "instances": [
       "https://m.opnxng.com",
       "https://scribe.privacyredirect.com"
@@ -186,12 +186,13 @@
   {
     "type": "libremdb",
     "test_url": "/title/tt0133093",
-    "fallback": "https://libremdb.darkness.services",
+    "fallback": "https://libremdb.r4fo.com",
     "instances": [
       "https://binge.whatever.social",
       "https://d.opnxng.com",
       "https://libremdb.darkness.services",
-      "https://libremdb.pussthecat.org"
+      "https://libremdb.pussthecat.org",
+      "https://libremdb.r4fo.com"
     ]
   },
   {
@@ -272,16 +273,6 @@
       "https://4get.zzls.xyz",
       "https://search.fischbytes.de",
       "https://search.yonderly.org"
-    ]
-  },
-  {
-    "type": "librey",
-    "test_url": "/search.php?q=<%=query%>",
-    "fallback": "https://librey.darkness.services",
-    "instances": [
-      "https://librey.darkness.services",
-      "https://search.revvy.de",
-      "https://search.uwabaki.party"
     ]
   },
   {
