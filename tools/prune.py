@@ -11,8 +11,18 @@ that with two layers of hysteresis:
             is only removed once it has been dead for >= THRESHOLD consecutive
             runs (default 3, i.e. ~3 days for a daily job).
 
-"Dead" = a hard failure only: DNS/connection errors, timeouts, 404/410, or
-persistent 5xx. Bot-defense responses (429/403/418, anti-bot wall pages) do
+Strikes outlive the prune. Most lists are rebuilt from upstream registries
+every night, and those registries keep listing dead instances. When the state
+was dropped on removal, a pruned instance came back the next night at 0
+strikes, so the committed lists were clean only one day in three (and the
+LibRedirect-sourced ones, refreshed after this step, were never clean). Now a
+pruned instance keeps its count for as long as a registry still lists it. If
+it is still dead when it reappears, it is pruned again straight away. A single
+live probe resets it as usual.
+
+"Dead" = a hard failure only: DNS/connection errors, timeouts, 404/410,
+persistent 5xx, or a 200 whose body is empty or a parked/shut-down notice
+(the frontend itself is gone even though the host answers). Bot-defense responses (429/403/418, anti-bot wall pages) do
 NOT count -- they mean the instance blocks CI's datacenter IP, not real users
 (searxng instances rate-limit every automated query, mirroring the server's
 skipInstanceChecks). The runtime health check still gates what gets served.
@@ -45,8 +55,23 @@ BLOCK = ["error code: 1003", "just a moment...", "attention required!",
          "checking your browser", "ddos-guard", "making sure you",
          "tollbat", "<title>gandalf</title>"]
 
+# "the host answers but the frontend is gone" -- a 200 that is really dead
+GONE = ["this domain is for sale", "domain is parked", "buy this domain",
+        "service has been shutdown", "service has been shut down"]
+
 # "the instance is refusing bots, not down" -- no strike for these
 BOT_STATUS = {401, 403, 406, 418, 429}
+
+# farside redirects clearnet browsers; overlay-network addresses can never be
+# reached by its users (or probed from CI), so they only accumulate strikes
+OVERLAY_TLDS = (".onion", ".i2p", ".ygg", ".loki")
+
+
+def clearnet(url):
+    if not isinstance(url, str) or not url.startswith(("https://", "http://")):
+        return False
+    host = url.split("/")[2].split(":")[0].lower()
+    return not host.endswith(OVERLAY_TLDS)
 
 
 def probe(base, test_url, retries, timeout):
@@ -62,6 +87,9 @@ def probe(base, test_url, retries, timeout):
             # an anti-bot wall is a consistent state, no point retrying
             if any(m in body for m in BLOCK):
                 return "blocked"
+            # so is a parked domain or a shutdown notice
+            if not body.strip() or any(m in body for m in GONE):
+                return "dead"
             return "live"
         except urllib.error.HTTPError as e:
             if e.code in BOT_STATUS:
@@ -86,9 +114,10 @@ def main():
     strikes = json.load(open(args.state)) if os.path.exists(args.state) else {}
 
     # registries can leak non-URL entries (e.g. mozhi's Tor-only instances
-    # have no "link", which jq turns into null) -- drop them up front
+    # have no "link", which jq turns into null) and overlay-network addresses
+    # (breezewiki's .onion mirrors) -- drop them up front
     for s in services:
-        s["instances"] = [i for i in s["instances"] if isinstance(i, str) and i]
+        s["instances"] = [i for i in s["instances"] if clearnet(i)]
 
     # one test_url per instance (services sharing an instance share the path)
     inst_test = {}
@@ -130,8 +159,10 @@ def main():
                     brink.append((s["type"], inst, nstrike[inst]))
         s["instances"] = sorted(kept)
 
-    still = {i for s in services for i in s["instances"]} | set(fb_test)
-    new_state = {i: nstrike[i] for i in still if nstrike[i] > 0}
+    # keep the count for everything probed this run, pruned or not: a registry
+    # that re-lists a pruned instance tomorrow must not hand it a clean slate.
+    # An instance no registry lists any more is not probed, so it ages out.
+    new_state = {i: n for i, n in nstrike.items() if n > 0}
 
     json.dump(services, open(args.file, "w"), indent=2, ensure_ascii=False)
     open(args.file, "a").write("\n")
@@ -143,11 +174,17 @@ def main():
     print(f"probed {len(inst_test)} instances + {len(fb_only)} fallbacks: "
           f"{counts['live']} live, {counts['blocked']} bot-blocked (no strike), "
           f"{counts['dead']} dead")
+    # instances already past the threshold last run are registry re-listings
+    # of known-dead entries -- count them, but only list the newly dead ones
+    relisted = sum(1 for urls in pruned.values() for u in urls
+                   if strikes.get(u, 0) >= args.threshold)
     npruned = sum(len(v) for v in pruned.values())
-    print(f"pruned {npruned} instance(s) dead >= {args.threshold} consecutive runs:")
+    print(f"pruned {npruned} instance(s) dead >= {args.threshold} consecutive runs "
+          f"({relisted} re-listed by a registry but still dead); newly pruned:")
     for t, urls in sorted(pruned.items()):
         for u in urls:
-            print(f"    - {t}: {u}")
+            if strikes.get(u, 0) < args.threshold:
+                print(f"    - {t}: {u}")
     if brink:
         print(f"on brink ({args.threshold-1} strikes, pruned next run if still dead):")
         for t, u, n in sorted(brink):

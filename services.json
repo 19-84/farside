@@ -2,7 +2,7 @@
   {
     "type": "libreddit",
     "test_url": "/r/popular",
-    "fallback": "https://redlib.catsarch.com",
+    "fallback": "https://redlib.privacyredirect.com",
     "instances": [
       "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
@@ -14,7 +14,7 @@
   {
     "type": "redlib",
     "test_url": "/r/popular",
-    "fallback": "https://redlib.catsarch.com",
+    "fallback": "https://redlib.privacyredirect.com",
     "instances": [
       "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
@@ -34,7 +34,7 @@
   {
     "type": "invidious",
     "test_url": "/watch?v=eBGIQ7ZuuiU",
-    "fallback": "https://invidious.nerdvpn.de",
+    "fallback": "https://invidious.tiekoetter.com",
     "instances": [
       "https://inv-ygg.nadeko.net",
       "https://inv.nadeko.net",
@@ -47,7 +47,7 @@
   {
     "type": "nitter",
     "test_url": "/jack/status/20",
-    "fallback": "https://nitter.catsarch.com",
+    "fallback": "https://nitter.jaydenha.uk",
     "instances": [
       "https://nitter.jaydenha.uk",
       "https://nitter.meowing.monster"
@@ -56,7 +56,7 @@
   {
     "type": "scribe",
     "test_url": "/@ftrain/big-data-small-effort-b62607a43a8c",
-    "fallback": "https://scribe.r4fo.com",
+    "fallback": "https://scribe.rawbit.ninja",
     "instances": [
       "https://sc.vern.cc",
       "https://scribe.nixnet.services",
@@ -224,7 +224,7 @@
   {
     "type": "libremdb",
     "test_url": "/title/tt0133093",
-    "fallback": "https://libremdb.pussthecat.org",
+    "fallback": "https://libremdb.darkness.services",
     "instances": [
       "https://binge.whatever.social",
       "https://binge.whateveritworks.org",
@@ -299,7 +299,7 @@
   {
     "type": "anonymousoverflow",
     "test_url": "/questions/6591213/how-do-i-rename-a-local-git-branch",
-    "fallback": "https://anonymousoverflow.catsarch.com",
+    "fallback": "https://overflow.hostux.net",
     "instances": [
       "https://a.opnxng.com",
       "https://anonoverflow.frontendfriendly.xyz",
@@ -359,7 +359,7 @@
   {
     "type": "librey",
     "test_url": "/search.php?q=<%=query%>",
-    "fallback": "https://librex.nohost.network",
+    "fallback": "https://librey.darkness.services",
     "instances": [
       "https://librey.4o1x5.dev",
       "https://librey.baczek.me",
