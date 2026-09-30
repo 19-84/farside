@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/benbusby/farside/services"
+	"github.com/19-84/farside/services"
 	"github.com/robfig/cron/v3"
 )
 

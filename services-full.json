@@ -303,7 +303,7 @@
   },
   {
     "type": "gothub",
-    "test_url": "/benbusby/farside",
+    "test_url": "/19-84/farside",
     "fallback": "https://gothub.projectsegfau.lt",
     "instances": [
       "https://gothub.dev.projectsegfau.lt",

@@ -6,9 +6,9 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/benbusby/farside/db"
-	"github.com/benbusby/farside/server"
-	"github.com/benbusby/farside/services"
+	"github.com/19-84/farside/db"
+	"github.com/19-84/farside/server"
+	"github.com/19-84/farside/services"
 )
 
 func main() {

@@ -59,8 +59,8 @@ distribute traffic more evenly across all instances and avoid performance
 bottlenecks and rate-limiting.
 
 The original public instance, `farside.link`, has been shut down. Run your own
-(see [Development](#development)) and substitute your own host wherever the
-examples below use `farside.link`.
+(see [Development](#development)) and use your own host wherever the
+examples below say `<your-host>`.
 
 Farside also integrates smoothly with basic redirector extensions in most
 browsers. See [docs/browser-extension.md](docs/browser-extension.md) for a
@@ -69,8 +69,7 @@ worked setup.
 ## Demo
 
 Farside's links work with the following structure: `<your-host>/<service>/<path>`.
-The examples below use the original `farside.link` host for illustration; those
-URLs no longer resolve.
+Replace `<your-host>` in the examples below with your own deployment.
 
 For example:
 
@@ -83,37 +82,37 @@ For example:
     <tr>
         <td><a href="https://sr.ht/~edwardloveall/Scribe/">Scribe</a></td>
         <td>View Medium post</td>
-        <td><a href="https://farside.link/scribe/@ftrain/big-data-small-effort-b62607a43a8c">https://farside.link/scribe/@ftrain/big-data-small-effort-b62607a43a8c</a></td>
+        <td><code>&lt;your-host&gt;/scribe/@ftrain/big-data-small-effort-b62607a43a8c</code></td>
     </tr>
     <tr>
         <td><a href="https://github.com/spikecodes/libreddit">Libreddit</a></td>
         <td>/r/popular</td>
-        <td><a href="https://farside.link/libreddit/r/popular">https://farside.link/libreddit/r/popular</a></td>
+        <td><code>&lt;your-host&gt;/libreddit/r/popular</code></td>
     </tr>
     <tr>
         <td><a href="https://gitdab.com/cadence/breezewiki">BreezeWiki</a></td>
         <td>Balatro Wiki</td>
-        <td><a href="https://farside.link/breezewiki/balatrogame">https://farside.link/https://balatrogame.fandom.com</a></td>
+        <td><code>&lt;your-host&gt;/https://balatrogame.fandom.com</code></td>
     </tr>
     <tr>
         <td><a href="https://github.com/searxng/searxng">SearXNG</a></td>
         <td>Search "EFF"</td>
-        <td><a href="https://farside.link/searxng/search?q=EFF">https://farside.link/searxng/search?q=EFF</a></td>
+        <td><code>&lt;your-host&gt;/searxng/search?q=EFF</code></td>
     </tr>
     <tr>
         <td><a href="https://codeberg.org/ManeraKai/simplytranslate">SimplyTranslate</a></td>
         <td>Translate "hola"</td>
-        <td><a href="https://farside.link/simplytranslate/?engine=google&text=hola">https://farside.link/simplytranslate/?engine=google&text=hola</a></td>
+        <td><code>&lt;your-host&gt;/simplytranslate/?engine=google&text=hola</code></td>
     </tr>
     <tr>
         <td><a href="https://github.com/TheDavidDelta/lingva-translate">Lingva</a></td>
         <td>Translate "bonjour"</td>
-        <td><a href="https://farside.link/lingva/auto/en/bonjour">https://farside.link/lingva/auto/en/bonjour</a></td>
+        <td><code>&lt;your-host&gt;/lingva/auto/en/bonjour</code></td>
     </tr>
     <tr>
         <td><a href="https://codeberg.org/video-prize-ranch/rimgo">Rimgo</a></td>
         <td>View photo album</td>
-        <td><a href="https://farside.link/rimgo/a/H8M4rcp">https://farside.link/rimgo/a/H8M4rcp</a></td>
+        <td><code>&lt;your-host&gt;/rimgo/a/H8M4rcp</code></td>
     </tr>
 </table>
 
@@ -121,8 +120,8 @@ For example:
 
 Farside also accepts URLs to "parent" services, and will redirect to an appropriate front end service, for example:
 
-- https://farside.link/https://balatrogame.fandom.com/wiki/Abandoned_Deck will redirect to a [BreezeWiki](https://gitdab.com/cadence/breezewiki) instance
-- https://farside.link/reddit.com/r/popular will redirect to a [Libreddit](https://github.com/spikecodes/libreddit) or [Teddit](https://codeberg.org/teddit/teddit) instance
+- `<your-host>/https://balatrogame.fandom.com/wiki/Abandoned_Deck` will redirect to a [BreezeWiki](https://gitdab.com/cadence/breezewiki) instance
+- `<your-host>/reddit.com/r/popular` will redirect to a [Libreddit](https://github.com/spikecodes/libreddit) or [Teddit](https://codeberg.org/teddit/teddit) instance
 - etc.
 
 ## How It Works
@@ -248,9 +247,9 @@ For example:
 
 ##### Medium -> Scribe
 
-`^https://medium.com/(.*)|https://farside.link/scribe/$1`
+`^https://medium.com/(.*)|https://<your-host>/scribe/$1`
 
 ##### Fandom -> BreezeWiki
 
-`^https://([^/]+).fandom.com/(.*)|https://farside.link/breezewiki/$1/$2`
+`^https://([^/]+).fandom.com/(.*)|https://<your-host>/breezewiki/$1/$2`
 
