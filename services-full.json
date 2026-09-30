@@ -55,7 +55,6 @@
     "test_url": "/jack/status/20",
     "fallback": "https://nitter.jaydenha.uk",
     "instances": [
-      "https://bitter.st",
       "https://nitt.tr",
       "https://nitter.click",
       "https://nitter.jaydenha.uk",
