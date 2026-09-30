@@ -227,16 +227,23 @@ func isBlockPage(body []byte) bool {
 }
 
 // blockPageMarkers identifies anti-bot challenge/block pages served with a 200
-// status. Keep this list in sync with tools/probe.
+// status. Keep this list in sync with tools/probe and tools/prune.py.
+//
+// Prefer markers from the wall's own markup (element IDs, script paths) over
+// vendor names: a bare "ddos-guard" also matched healthy pages whose content
+// merely mentions DDoS-Guard (gothub rendering this repo's README).
 var blockPageMarkers = []string{
-	"error code: 1003",              // Cloudflare direct-IP / proxy block
-	"just a moment...",              // Cloudflare JS challenge
-	"attention required!",           // Cloudflare WAF block
-	"cf-browser-verification",       // Cloudflare challenge asset
-	"enable javascript and cookies", // Cloudflare interstitial
-	"checking your browser",         // DDoS-Guard / generic interstitial
-	"ddos-guard",                    // DDoS-Guard
-	"making sure you",               // Anubis proof-of-work wall ("Making sure you're not a bot!")
-	"tollbat",                       // Tollbat challenge
-	"<title>gandalf</title>",        // Gandalf auth portal
+	"error code: 1003",               // Cloudflare direct-IP / proxy block
+	"just a moment...",               // Cloudflare JS challenge
+	"attention required!",            // Cloudflare WAF block
+	"cf-browser-verification",        // Cloudflare challenge asset
+	"enable javascript and cookies",  // Cloudflare interstitial
+	"checking your browser",          // DDoS-Guard / generic interstitial
+	"<title>ddos-guard</title>",      // DDoS-Guard challenge page
+	"/.well-known/ddos-guard/",       // DDoS-Guard challenge script
+	"making sure you",                // Anubis proof-of-work wall ("Making sure you're not a bot!")
+	`id="anubis_challenge"`,          // Anubis wall with a custom title ("Verifying your browser…")
+	"/.within.website/x/cmd/anubis/", // Anubis challenge script
+	"tollbat",                        // Tollbat challenge
+	"<title>gandalf</title>",         // Gandalf auth portal
 }

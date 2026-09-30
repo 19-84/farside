@@ -65,7 +65,7 @@ var contentMarkers = map[string][]string{
 
 // blockMarkers identify an anti-bot challenge/block page served with 200,
 // mapping each marker to the wall software it belongs to. The marker set is
-// kept in sync with db.blockPageMarkers in the server. HTML-entity-safe.
+// kept in sync with db.blockPageMarkers in the server and tools/prune.py. HTML-entity-safe.
 var blockMarkers = []struct {
 	marker string
 	wall   string
@@ -76,8 +76,11 @@ var blockMarkers = []struct {
 	{"cf-browser-verification", "cloudflare"},       // challenge asset
 	{"enable javascript and cookies", "cloudflare"}, // interstitial
 	{"checking your browser", "ddos-guard"},         // DDoS-Guard / generic interstitial
-	{"ddos-guard", "ddos-guard"},
-	{"making sure you", "anubis"}, // Anubis proof-of-work wall
+	{"<title>ddos-guard</title>", "ddos-guard"},
+	{"/.well-known/ddos-guard/", "ddos-guard"}, // challenge script
+	{"making sure you", "anubis"},              // Anubis proof-of-work wall
+	{`id="anubis_challenge"`, "anubis"},        // custom-titled Anubis wall
+	{"/.within.website/x/cmd/anubis/", "anubis"},
 	{"tollbat", "tollbat"},
 	{"<title>gandalf</title>", "gandalf"}, // auth portal
 }

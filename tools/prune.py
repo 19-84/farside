@@ -52,7 +52,9 @@ CTX = ssl.create_default_context()
 # kept in sync with db.blockPageMarkers / tools/probe
 BLOCK = ["error code: 1003", "just a moment...", "attention required!",
          "cf-browser-verification", "enable javascript and cookies",
-         "checking your browser", "ddos-guard", "making sure you",
+         "checking your browser", "<title>ddos-guard</title>",
+         "/.well-known/ddos-guard/", "making sure you",
+         'id="anubis_challenge"', "/.within.website/x/cmd/anubis/",
          "tollbat", "<title>gandalf</title>"]
 
 # "the host answers but the frontend is gone" -- a 200 that is really dead
