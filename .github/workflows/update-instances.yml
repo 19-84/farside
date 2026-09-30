@@ -67,11 +67,22 @@ jobs:
         # upstream registry of their own (or theirs has died, as Tent's did),
         # so this is their instance source. Fetched once and reused.
         #   libredirect_update <farside type> <libredirect key>
+        # A registry that is down or starts serving HTML (an error page, a
+        # bot wall) makes its jq exit non-zero, and under `bash -e` that
+        # aborted the whole run -- so one dead registry blocked every other
+        # service's update and the prune. Each fetch below ends in
+        # `|| registry_failed <name> <file>`: warn, write an empty list, and
+        # let apply_update keep that service's existing instances.
+        function registry_failed() {
+          echo "::warning::$1: registry fetch failed or returned invalid JSON; keeping existing instances"
+          echo '[]' > "$2"
+        }
+
         function libredirect_update() {
           local type="$1" key="$2"
 
-          jq --arg k "$key" '[.[$k].clearnet[]] | sort' libredirect.json \
-            > "$type-tmp.json"
+          jq --arg k "$key" '[.[$k].clearnet[]?] | sort' libredirect.json \
+            > "$type-tmp.json" || registry_failed "$type (libredirect)" "$type-tmp.json"
 
           jq --slurpfile new "$type-tmp.json" --arg t "$type" \
             '(.[] | select(.type == $t)).instances |= $new[0]' \
@@ -80,8 +91,9 @@ jobs:
           apply_update
         }
 
-        curl -s https://raw.githubusercontent.com/libredirect/instances/main/data.json \
-          > libredirect.json
+        curl -sf --max-time 60 https://raw.githubusercontent.com/libredirect/instances/main/data.json \
+          > libredirect.json || true
+        jq -e 'type == "object"' libredirect.json >/dev/null 2>&1 || echo '{}' > libredirect.json
 
         # ==============================================================
         # Git config
@@ -112,7 +124,7 @@ jobs:
         # ==============================================================
         # SearXNG update
         # ==============================================================
-        curl -s https://searx.space/data/instances.json | \
+        curl -sf --max-time 60 https://searx.space/data/instances.json | \
           jq '[
             .instances |
             to_entries[] |
@@ -130,7 +142,7 @@ jobs:
             select(.value.html.grade == "V" or .value.html.grade == "F") |
             select(.key | contains(".i2p") | not) |
             .key
-          ] | sort' > searxng-tmp.json
+          ] | sort' > searxng-tmp.json || registry_failed searxng searxng-tmp.json
 
         cat searxng-tmp.json | jq .
 
@@ -151,12 +163,12 @@ jobs:
         # instances -- drop those; dead entries are left to prune.py.
         # Either source may fail on its own without emptying the list.
         # ==============================================================
-        curl -sf https://status.d420.de/api/v1/instances | \
+        curl -sf --max-time 60 https://status.d420.de/api/v1/instances | \
           jq '[.hosts | to_entries[] | select(.value.healthy == true) | .value.url]' \
-          > nitter-d420.json || echo '[]' > nitter-d420.json
-        curl -sf https://codeberg.org/mv12star/shitter/raw/branch/master/instances.json | \
+          > nitter-d420.json || registry_failed "nitter (d420)" nitter-d420.json
+        curl -sf --max-time 60 https://codeberg.org/mv12star/shitter/raw/branch/master/instances.json | \
           jq '[.[] | .url | select(type == "string")]' \
-          > nitter-shitter.json || echo '[]' > nitter-shitter.json
+          > nitter-shitter.json || registry_failed "nitter (shitter)" nitter-shitter.json
 
         jq -s '[.[][] | rtrimstr("/")] - ["https://twiiit.com", "https://twit.0r.cx"] | unique' \
           nitter-d420.json nitter-shitter.json > nitter-tmp.json
@@ -171,9 +183,9 @@ jobs:
         # ==============================================================
         # SimplyTranslate update
         # ==============================================================
-        curl -s https://codeberg.org/SimpleWeb/Website/raw/branch/master/config.json | jq -r '.projects | map(select(.id == "simplytranslate"))[0].instances | .[]' > st-out
+        curl -sf --max-time 60 https://codeberg.org/SimpleWeb/Website/raw/branch/master/config.json | jq -r '.projects | map(select(.id == "simplytranslate"))[0].instances | .[]' > st-out || : > st-out
         sed -i -e 's/^/https:\/\//' st-out
-        jq -ncR '[inputs]' <<< "$(cat st-out | sort)" > st-tmp.json
+        jq -ncR '[inputs | select(length > 0)]' <<< "$(sort st-out)" > st-tmp.json
 
         jq --slurpfile simplytranslate st-tmp.json \
           '( .[] | select(.type == "simplytranslate") )
@@ -184,12 +196,12 @@ jobs:
         # ==============================================================
         # Invidious update
         # ==============================================================
-        curl -s https://api.invidious.io/instances.json | \
+        curl -sf --max-time 60 https://api.invidious.io/instances.json | \
           jq '[
             .[] |
             select(.[1].type | contains("https")) ] |
             [.[][1].uri] |
-            sort' > invidious-tmp.json
+            sort' > invidious-tmp.json || registry_failed invidious invidious-tmp.json
         jq --slurpfile invidious invidious-tmp.json \
           '( .[] | select(.type == "invidious") )
           .instances |= $invidious[0]' services-full.json > services-tmp.json
@@ -199,7 +211,8 @@ jobs:
         # ==============================================================
         # Scribe update
         # ==============================================================
-        curl -s https://git.sr.ht/~edwardloveall/scribe/blob/main/docs/instances.json > scribe-tmp.json
+        curl -sf --max-time 60 https://git.sr.ht/~edwardloveall/scribe/blob/main/docs/instances.json > scribe-tmp.json || true
+        jq -e 'type == "array"' scribe-tmp.json >/dev/null 2>&1 || registry_failed scribe scribe-tmp.json
         jq --slurpfile scribe scribe-tmp.json \
           '( .[] | select(.type == "scribe") )
           .instances |= $scribe[0]' services-full.json > services-tmp.json
@@ -225,12 +238,12 @@ jobs:
         # ==============================================================
         # libreddit + redlib update
         # ==============================================================
-        curl -s https://raw.githubusercontent.com/redlib-org/redlib-instances/main/instances.json | \
+        curl -sf --max-time 60 https://raw.githubusercontent.com/redlib-org/redlib-instances/main/instances.json | \
           jq '[
             .instances[] |
             select(.url) |
             .url ] |
-            sort' > libreddit-tmp.json
+            sort' > libreddit-tmp.json || registry_failed libreddit libreddit-tmp.json
 
         jq --slurpfile libreddit libreddit-tmp.json \
           '( .[] | select(.type == "libreddit") )
@@ -247,8 +260,8 @@ jobs:
         # ==============================================================
         # BreezeWiki update
         # ==============================================================
-        curl -s https://docs.breezewiki.com/files/instances.json | \
-          jq '[.[] | .instance]' > breezewiki-tmp.json
+        curl -sf --max-time 60 https://docs.breezewiki.com/files/instances.json | \
+          jq '[.[] | .instance]' > breezewiki-tmp.json || registry_failed breezewiki breezewiki-tmp.json
         jq --slurpfile breezewiki breezewiki-tmp.json \
           '(.[] | select(.type == "breezewiki") )
           .instances |= $breezewiki[0]' services-full.json > services-tmp.json
@@ -259,8 +272,8 @@ jobs:
         # GotHub update
         # ==============================================================
 
-        curl -s https://codeberg.org/gothub/gothub-instances/raw/branch/master/instances.json | \
-          jq '[.[] | .link]' > gothub-tmp.json
+        curl -sf --max-time 60 https://codeberg.org/gothub/gothub-instances/raw/branch/master/instances.json | \
+          jq '[.[] | .link]' > gothub-tmp.json || registry_failed gothub gothub-tmp.json
         jq --slurpfile gothub gothub-tmp.json \
           '(.[] | select(.type == "gothub") )
           .instances |= $gothub[0]' services-full.json > services-tmp.json
@@ -270,12 +283,12 @@ jobs:
         # ==============================================================
         # LibreX/LibreY update
         # ==============================================================
-        curl -s https://raw.githubusercontent.com/Ahwxorg/LibreY/main/instances.json | \
+        curl -sf --max-time 60 https://raw.githubusercontent.com/Ahwxorg/LibreY/main/instances.json | \
           jq '[
             .instances |
             .[] |
             .clearnet] |
-            sort' > librey-tmp.json
+            sort' > librey-tmp.json || registry_failed librey librey-tmp.json
 
         jq --slurpfile librey librey-tmp.json \
           '( .[] | select(.type == "librey") )
@@ -287,11 +300,11 @@ jobs:
         # Rimgo update
         # ==============================================================
 
-        curl -s https://rimgo.codeberg.page/api.json | \
+        curl -sf --max-time 60 https://rimgo.codeberg.page/api.json | \
           jq '[
             .clearnet[] |
             .url] |
-            sort' > rimgo-tmp.json
+            sort' > rimgo-tmp.json || registry_failed rimgo rimgo-tmp.json
 
         jq --slurpfile rimgo rimgo-tmp.json \
           '(.[] | select(.type == "rimgo") )
@@ -312,8 +325,8 @@ jobs:
         # Mozhi update (translate frontend; clean JSON registry)
         # Tor/I2P-only entries have no "link" key -> skip them
         # ==============================================================
-        curl -s https://codeberg.org/aryak/mozhi/raw/branch/master/instances.json | \
-          jq '[.[] | .link // empty]' > mozhi-tmp.json
+        curl -sf --max-time 60 https://codeberg.org/aryak/mozhi/raw/branch/master/instances.json | \
+          jq '[.[] | .link // empty]' > mozhi-tmp.json || registry_failed mozhi mozhi-tmp.json
         jq --slurpfile mozhi mozhi-tmp.json \
           '( .[] | select(.type == "mozhi") )
           .instances |= $mozhi[0]' services-full.json > services-tmp.json
