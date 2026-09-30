@@ -46,7 +46,8 @@ import os
 import ssl
 import urllib.request
 
-UA = {"User-Agent": "Mozilla/5.0 (compatible; Farside/1.0.0; +https://github.com/19-84/farside)"}
+# same UA as db/cron.go -- no "Mozilla", so Anubis walls let the probe through
+UA = {"User-Agent": "Farside/1.0 (+https://github.com/19-84/farside)"}
 CTX = ssl.create_default_context()
 
 # kept in sync with db.blockPageMarkers / tools/probe

@@ -142,14 +142,25 @@ jobs:
 
         # ==============================================================
         # Nitter update
+        #
+        # zedeus/nitter was archived after X's Aug 2026 cease-and-desist, and
+        # its wiki instance list (which LibRedirect scrapes) went stale. Union
+        # two live sources: status.d420.de's health-checked hosts, and the
+        # instances.json of the active successor fork (codeberg mv12star/shitter).
+        # The fork's list also carries meta-redirectors that bounce to other
+        # instances -- drop those; dead entries are left to prune.py.
+        # Either source may fail on its own without emptying the list.
         # ==============================================================
-        curl -s https://status.d420.de/api/v1/instances | \
-          jq '[
-            .hosts |
-            to_entries[] |
-            select(.value.healthy == true) |
-            .value.url ] |
-            sort' > nitter-tmp.json
+        curl -sf https://status.d420.de/api/v1/instances | \
+          jq '[.hosts | to_entries[] | select(.value.healthy == true) | .value.url]' \
+          > nitter-d420.json || echo '[]' > nitter-d420.json
+        curl -sf https://codeberg.org/mv12star/shitter/raw/branch/master/instances.json | \
+          jq '[.[] | .url | select(type == "string")]' \
+          > nitter-shitter.json || echo '[]' > nitter-shitter.json
+
+        jq -s '[.[][] | rtrimstr("/")] - ["https://twiiit.com", "https://twit.0r.cx"] | unique' \
+          nitter-d420.json nitter-shitter.json > nitter-tmp.json
+        rm -f nitter-d420.json nitter-shitter.json
 
         jq --slurpfile nitter nitter-tmp.json \
           '( .[] | select(.type == "nitter") )

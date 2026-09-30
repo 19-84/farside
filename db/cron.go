@@ -171,7 +171,13 @@ func queryServiceInstance(instance, testURL string, canSkipCheck bool) bool {
 		return true
 	}
 
-	ua := "Mozilla/5.0 (compatible; Farside/1.0.0; +https://github.com/19-84/farside)"
+	// Deliberately not a "Mozilla/..." UA: Anubis's default policy only
+	// challenges browser-looking clients, so this lets the check reach the
+	// frontend behind an Anubis wall (which real browsers clear on their own)
+	// instead of rejecting the instance. Instances that challenge every client
+	// still serve the wall here and are rejected by isBlockPage. Keep in sync
+	// with tools/probe and tools/prune.py.
+	ua := "Farside/1.0 (+https://github.com/19-84/farside)"
 	url := instance + testURL
 
 	req, err := http.NewRequest(http.MethodGet, url, nil)

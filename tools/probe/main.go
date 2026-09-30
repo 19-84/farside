@@ -85,7 +85,9 @@ var blockMarkers = []struct {
 	{"<title>gandalf</title>", "gandalf"}, // auth portal
 }
 
-const userAgent = "Mozilla/5.0 (compatible; Farside/1.0.0; +https://github.com/19-84/farside)"
+// Same UA as the server's health check (db/cron.go): no "Mozilla", so Anubis
+// lets the probe through to the frontend.
+const userAgent = "Farside/1.0 (+https://github.com/19-84/farside)"
 
 type result struct {
 	svcType     string

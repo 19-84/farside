@@ -36,6 +36,8 @@ REGISTRIES = [
      lambda b: len(json.loads(b).get("instances", {}))),
     ("nitter", "https://status.d420.de/api/v1/instances",
      lambda b: sum(1 for v in _hosts(b) if v.get("healthy"))),
+    ("nitter", "https://codeberg.org/mv12star/shitter/raw/branch/master/instances.json",
+     lambda b: len(json.loads(b))),
     ("simplytranslate", "https://codeberg.org/SimpleWeb/Website/raw/branch/master/config.json",
      lambda b: len(next(p for p in json.loads(b)["projects"] if p["id"] == "simplytranslate")["instances"])),
     ("invidious", "https://api.invidious.io/instances.json",
