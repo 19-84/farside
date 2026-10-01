@@ -6,7 +6,6 @@
     "instances": [
       "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
-      "https://redlib.nadeko.net",
       "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
       "https://safereddit.com"
@@ -19,7 +18,6 @@
     "instances": [
       "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
-      "https://redlib.nadeko.net",
       "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
       "https://safereddit.com"
@@ -29,16 +27,13 @@
     "type": "teddit",
     "test_url": "/r/popular",
     "fallback": "https://teddit.no-logs.com",
-    "instances": [
-      "https://teddit.projectsegfau.lt"
-    ]
+    "instances": []
   },
   {
     "type": "invidious",
     "test_url": "/watch?v=eBGIQ7ZuuiU",
     "fallback": "https://invidious.tiekoetter.com",
     "instances": [
-      "https://inv.miningtcup.me",
       "https://inv.nadeko.net",
       "https://invidious.nerdvpn.de",
       "https://invidious.tiekoetter.com",
@@ -50,11 +45,9 @@
     "test_url": "/jack/status/20",
     "fallback": "https://nitter.jaydenha.uk",
     "instances": [
-      "https://nitt.tr",
       "https://nitter.click",
       "https://nitter.jaydenha.uk",
       "https://nitter.meowing.monster",
-      "https://nitter.miningtcup.me",
       "https://tw.eir-nya.gay",
       "https://x.n0g.xyz"
     ]
@@ -64,7 +57,6 @@
     "test_url": "/@ftrain/big-data-small-effort-b62607a43a8c",
     "fallback": "https://scribe.privacyredirect.com",
     "instances": [
-      "https://m.opnxng.com",
       "https://scribe.privacyredirect.com"
     ]
   },
@@ -113,15 +105,21 @@
       "https://imgur.artemislena.eu",
       "https://imgur.nerdvpn.de",
       "https://r.opnxng.com",
+      "https://rg.kuuro.net",
       "https://ri.bcow.xyz",
       "https://ri.nadeko.net",
       "https://rimgo.4o1x5.dev",
+      "https://rimgo.astrial.org",
       "https://rimgo.bloat.cat",
       "https://rimgo.canine.tools",
       "https://rimgo.catsarch.com",
+      "https://rimgo.darkness.services",
       "https://rimgo.ducks.party",
       "https://rimgo.hostux.net",
+      "https://rimgo.privacyredirect.com",
+      "https://rimgo.proxik.cloud",
       "https://rimgo.pussthecat.org",
+      "https://rimgo.reallyaweso.me",
       "https://rmgur.com"
     ]
   },
@@ -150,6 +148,7 @@
       "https://search.lumy.live",
       "https://search.mectov.my.id",
       "https://search.mizuki.st",
+      "https://search.pereira.is",
       "https://search.rhscz.eu",
       "https://search.rowie.at",
       "https://search.serpensin.com",
@@ -165,7 +164,6 @@
       "https://searxng.deggo.fyi",
       "https://searxng.eshnetwork.space",
       "https://searxng.gdebest.net",
-      "https://searxng.moonshadow.dev",
       "https://searxng.shreven.org",
       "https://searxng.site",
       "https://searxng.website",
@@ -188,11 +186,9 @@
     "test_url": "/title/tt0133093",
     "fallback": "https://libremdb.r4fo.com",
     "instances": [
-      "https://binge.whatever.social",
       "https://d.opnxng.com",
-      "https://libremdb.darkness.services",
-      "https://libremdb.pussthecat.org",
-      "https://libremdb.r4fo.com"
+      "https://libremdb.nerdyfam.tech",
+      "https://libremdb.pussthecat.org"
     ]
   },
   {
@@ -217,6 +213,7 @@
       "https://breeze.mint.lgbt",
       "https://breezewiki.com",
       "https://breezewiki.nadeko.net",
+      "https://breezewiki.private.coffee",
       "https://breezewiki.pussthecat.org",
       "https://breezewiki.woodland.cafe",
       "https://bw.artemislena.eu",
@@ -231,8 +228,7 @@
     "instances": [
       "https://gothub.dev.projectsegfau.lt",
       "https://gothub.lunar.icu",
-      "https://gothub.projectsegfau.lt",
-      "https://gothub.wuemeli.com"
+      "https://gothub.projectsegfau.lt"
     ]
   },
   {
@@ -241,12 +237,8 @@
     "fallback": "https://overflow.hostux.net",
     "instances": [
       "https://ao.bloat.cat",
-      "https://code.whatever.social",
       "https://o.sudovanilla.org",
       "https://overflow.canine.tools",
-      "https://overflow.ducks.party",
-      "https://overflow.hostux.net",
-      "https://overflow.projectsegfau.lt",
       "https://soflow.nerdvpn.de"
     ]
   },
