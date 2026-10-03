@@ -106,21 +106,15 @@
       "https://imgur.artemislena.eu",
       "https://imgur.nerdvpn.de",
       "https://r.opnxng.com",
-      "https://rg.kuuro.net",
       "https://ri.bcow.xyz",
       "https://ri.nadeko.net",
       "https://rimgo.4o1x5.dev",
-      "https://rimgo.astrial.org",
       "https://rimgo.bloat.cat",
       "https://rimgo.canine.tools",
       "https://rimgo.catsarch.com",
-      "https://rimgo.darkness.services",
       "https://rimgo.ducks.party",
       "https://rimgo.hostux.net",
-      "https://rimgo.privacyredirect.com",
-      "https://rimgo.proxik.cloud",
       "https://rimgo.pussthecat.org",
-      "https://rimgo.reallyaweso.me",
       "https://rmgur.com"
     ]
   },
@@ -146,6 +140,7 @@
       "https://search.im-in.space",
       "https://search.inetol.net",
       "https://search.liuzj.net",
+      "https://search.lumy.live",
       "https://search.mectov.my.id",
       "https://search.minus27315.dev",
       "https://search.mizuki.st",
@@ -189,7 +184,6 @@
     "fallback": "https://libremdb.r4fo.com",
     "instances": [
       "https://d.opnxng.com",
-      "https://libremdb.nerdyfam.tech",
       "https://libremdb.pussthecat.org"
     ]
   },
@@ -265,6 +259,7 @@
       "https://4get.nigga.pt",
       "https://4get.privadency.com",
       "https://4get.sny.sh",
+      "https://4get.sudovanilla.org",
       "https://4get.zzls.xyz",
       "https://search.fischbytes.de",
       "https://search.yonderly.org"
