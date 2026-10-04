@@ -4,7 +4,6 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.privacyredirect.com",
     "instances": [
-      "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
       "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
@@ -16,7 +15,6 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.privacyredirect.com",
     "instances": [
-      "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
       "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
@@ -125,13 +123,12 @@
     "instances": [
       "https://anonsearch.win",
       "https://baresearch.org",
+      "https://failsearx.culturanerd.it",
       "https://find.xenorio.xyz",
       "https://grep.vim.wtf",
       "https://kantan.cat",
-      "https://libresearch.space",
       "https://paulgo.io",
       "https://priv.au",
-      "https://sear.lurx.net",
       "https://search.bladerunn.in",
       "https://search.catboy.house",
       "https://search.ctq.ro",
@@ -153,14 +150,11 @@
       "https://searx.namejeff.xyz",
       "https://searx.oloke.xyz",
       "https://searx.ononoki.org",
-      "https://searx.party",
       "https://searx.perennialte.ch",
       "https://searx.rhscz.eu",
       "https://searx.tiekoetter.com",
-      "https://searxng.deggo.fyi",
       "https://searxng.eshnetwork.space",
       "https://searxng.gdebest.net",
-      "https://searxng.moonshadow.dev",
       "https://searxng.shreven.org",
       "https://searxng.site",
       "https://searxng.website",
@@ -210,7 +204,6 @@
       "https://breezewiki.com",
       "https://breezewiki.moonshadow.dev",
       "https://breezewiki.nadeko.net",
-      "https://breezewiki.private.coffee",
       "https://breezewiki.pussthecat.org",
       "https://breezewiki.woodland.cafe",
       "https://bw.artemislena.eu",
@@ -235,7 +228,6 @@
     "instances": [
       "https://ao.bloat.cat",
       "https://o.sudovanilla.org",
-      "https://overflow.canine.tools",
       "https://soflow.nerdvpn.de"
     ]
   },
