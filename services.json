@@ -55,7 +55,6 @@
     "test_url": "/@ftrain/big-data-small-effort-b62607a43a8c",
     "fallback": "https://scribe.privacyredirect.com",
     "instances": [
-      "https://m.opnxng.com",
       "https://scribe.privacyredirect.com"
     ]
   },
@@ -104,15 +103,23 @@
       "https://imgur.artemislena.eu",
       "https://imgur.nerdvpn.de",
       "https://r.opnxng.com",
+      "https://rg.kuuro.net",
       "https://ri.bcow.xyz",
       "https://ri.nadeko.net",
       "https://rimgo.4o1x5.dev",
       "https://rimgo.bloat.cat",
       "https://rimgo.canine.tools",
       "https://rimgo.catsarch.com",
+      "https://rimgo.darkness.services",
       "https://rimgo.ducks.party",
       "https://rimgo.hostux.net",
+      "https://rimgo.manerakai.com",
+      "https://rimgo.nohost.network",
+      "https://rimgo.privacyredirect.com",
+      "https://rimgo.proxik.cloud",
       "https://rimgo.pussthecat.org",
+      "https://rimgo.reallyaweso.me",
+      "https://rimgo.wuemeli.com",
       "https://rmgur.com"
     ]
   },
@@ -127,8 +134,10 @@
       "https://find.xenorio.xyz",
       "https://grep.vim.wtf",
       "https://kantan.cat",
+      "https://libresearch.space",
       "https://paulgo.io",
       "https://priv.au",
+      "https://sear.lurx.net",
       "https://search.bladerunn.in",
       "https://search.catboy.house",
       "https://search.ctq.ro",
@@ -137,10 +146,10 @@
       "https://search.im-in.space",
       "https://search.inetol.net",
       "https://search.liuzj.net",
-      "https://search.lumy.live",
       "https://search.mectov.my.id",
       "https://search.minus27315.dev",
       "https://search.mizuki.st",
+      "https://search.pereira.is",
       "https://search.rhscz.eu",
       "https://search.rowie.at",
       "https://search.serpensin.com",
@@ -150,13 +159,14 @@
       "https://searx.namejeff.xyz",
       "https://searx.oloke.xyz",
       "https://searx.ononoki.org",
+      "https://searx.party",
       "https://searx.perennialte.ch",
       "https://searx.rhscz.eu",
       "https://searx.tiekoetter.com",
+      "https://searxng.deggo.fyi",
       "https://searxng.eshnetwork.space",
       "https://searxng.gdebest.net",
       "https://searxng.shreven.org",
-      "https://searxng.site",
       "https://searxng.website",
       "https://sx.xo.st",
       "https://xka.cz"
@@ -228,6 +238,7 @@
     "instances": [
       "https://ao.bloat.cat",
       "https://o.sudovanilla.org",
+      "https://overflow.canine.tools",
       "https://soflow.nerdvpn.de"
     ]
   },
