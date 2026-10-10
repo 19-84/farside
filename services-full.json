@@ -7,6 +7,7 @@
       "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
       "https://redlib.cow.rip",
+      "https://redlib.nohost.network",
       "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
       "https://safereddit.com"
@@ -20,6 +21,7 @@
       "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
       "https://redlib.cow.rip",
+      "https://redlib.nohost.network",
       "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
       "https://safereddit.com"
@@ -52,11 +54,12 @@
     "fallback": "https://nitter.jaydenha.uk",
     "instances": [
       "https://nitter.click",
+      "https://nitter.jaydenha.uk",
       "https://nitter.kareem.one",
       "https://nitter.meowing.monster",
       "https://nitter.netbub.com",
       "https://nitter.pp.ua",
-      "https://nitter.xitter.cc",
+      "https://nitter.tiekoetter.com",
       "https://shitter.thepixora.com"
     ]
   },
@@ -128,6 +131,7 @@
       "https://rimgo.manerakai.com",
       "https://rimgo.nohost.network",
       "https://rimgo.pussthecat.org",
+      "https://rimgo.reallyaweso.me",
       "https://rmgur.com"
     ]
   },
@@ -138,6 +142,7 @@
     "instances": [
       "https://anonsearch.win",
       "https://baresearch.org",
+      "https://failsearx.culturanerd.it",
       "https://find.xenorio.xyz",
       "https://grep.vim.wtf",
       "https://kantan.cat",
@@ -152,7 +157,6 @@
       "https://search.femboy.ad",
       "https://search.im-in.space",
       "https://search.inetol.net",
-      "https://search.jeremyh.xyz",
       "https://search.liuzj.net",
       "https://search.lumy.live",
       "https://search.mectov.my.id",
@@ -178,6 +182,7 @@
       "https://searxng.shreven.org",
       "https://searxng.site",
       "https://searxng.website",
+      "https://sx.xo.st",
       "https://xka.cz"
     ]
   },
