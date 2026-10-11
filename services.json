@@ -49,7 +49,6 @@
     "instances": [
       "https://nitter.click",
       "https://nitter.jaydenha.uk",
-      "https://nitter.meowing.monster",
       "https://nitter.tiekoetter.com"
     ]
   },
@@ -58,6 +57,7 @@
     "test_url": "/@ftrain/big-data-small-effort-b62607a43a8c",
     "fallback": "https://scribe.privacyredirect.com",
     "instances": [
+      "https://m.opnxng.com",
       "https://scribe.privacyredirect.com"
     ]
   },
@@ -142,12 +142,12 @@
       "https://search.femboy.ad",
       "https://search.im-in.space",
       "https://search.inetol.net",
+      "https://search.jeremyh.xyz",
       "https://search.liuzj.net",
       "https://search.lumy.live",
       "https://search.mectov.my.id",
       "https://search.minus27315.dev",
       "https://search.mizuki.st",
-      "https://search.pereira.is",
       "https://search.rhscz.eu",
       "https://search.rowie.at",
       "https://search.serpensin.com",
