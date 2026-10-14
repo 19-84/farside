@@ -8,7 +8,6 @@
       "https://redlib.catsarch.com",
       "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
-      "https://redlib.reallyaweso.me",
       "https://safereddit.com"
     ]
   },
@@ -21,7 +20,6 @@
       "https://redlib.catsarch.com",
       "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
-      "https://redlib.reallyaweso.me",
       "https://safereddit.com"
     ]
   },
@@ -248,7 +246,6 @@
     "test_url": "/ami4get",
     "fallback": "https://4get.ca",
     "instances": [
-      "https://4.nboeck.de",
       "https://4g.opnxng.com",
       "https://4get.ca",
       "https://4get.canine.tools",
@@ -257,13 +254,11 @@
       "https://4get.hbubli.cc",
       "https://4get.lunar.icu",
       "https://4get.lurx.net",
-      "https://4get.nadeko.net",
       "https://4get.neco.lol",
       "https://4get.nigga.pt",
       "https://4get.privadency.com",
       "https://4get.sny.sh",
       "https://4get.sudovanilla.org",
-      "https://4get.zzls.xyz",
       "https://search.fischbytes.de",
       "https://search.yonderly.org"
     ]
