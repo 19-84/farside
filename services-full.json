@@ -9,6 +9,7 @@
       "https://redlib.cow.rip",
       "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
+      "https://redlib.reallyaweso.me",
       "https://safereddit.com"
     ]
   },
@@ -22,6 +23,7 @@
       "https://redlib.cow.rip",
       "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
+      "https://redlib.reallyaweso.me",
       "https://safereddit.com"
     ]
   },
@@ -52,7 +54,6 @@
     "fallback": "https://nitter.jaydenha.uk",
     "instances": [
       "https://nitter.click",
-      "https://nitter.jaydenha.uk",
       "https://nitter.kareem.one",
       "https://nitter.meowing.monster",
       "https://nitter.netbub.com",
@@ -144,7 +145,6 @@
       "https://failsearx.culturanerd.it",
       "https://find.xenorio.xyz",
       "https://grep.vim.wtf",
-      "https://kantan.cat",
       "https://libresearch.space",
       "https://paulgo.io",
       "https://priv.au",
@@ -158,13 +158,16 @@
       "https://search.inetol.net",
       "https://search.jeremyh.xyz",
       "https://search.liuzj.net",
+      "https://search.lumy.live",
       "https://search.mectov.my.id",
       "https://search.minus27315.dev",
       "https://search.mizuki.st",
+      "https://search.pereira.is",
       "https://search.rhscz.eu",
       "https://search.rowie.at",
       "https://search.serpensin.com",
       "https://search.spiralab.org",
+      "https://search.yuri.llc",
       "https://searx.linxx.net",
       "https://searx.namejeff.xyz",
       "https://searx.oloke.xyz",
@@ -174,9 +177,7 @@
       "https://searx.rhscz.eu",
       "https://searx.tiekoetter.com",
       "https://searxng.deggo.fyi",
-      "https://searxng.eshnetwork.space",
       "https://searxng.gdebest.net",
-      "https://searxng.shreven.org",
       "https://searxng.site",
       "https://searxng.website",
       "https://xka.cz"
@@ -227,6 +228,7 @@
       "https://breezewiki.com",
       "https://breezewiki.moonshadow.dev",
       "https://breezewiki.nadeko.net",
+      "https://breezewiki.private.coffee",
       "https://breezewiki.pussthecat.org",
       "https://breezewiki.woodland.cafe",
       "https://bw.artemislena.eu",
@@ -269,14 +271,12 @@
       "https://4get.edmateo.site",
       "https://4get.hbubli.cc",
       "https://4get.lunar.icu",
-      "https://4get.lurx.net",
       "https://4get.neco.lol",
       "https://4get.nigga.pt",
       "https://4get.privadency.com",
       "https://4get.sijh.net",
       "https://4get.sny.sh",
       "https://4get.sudovanilla.org",
-      "https://search.fischbytes.de",
       "https://search.yonderly.org"
     ]
   },
