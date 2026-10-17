@@ -48,6 +48,7 @@
     "fallback": "https://nitter.jaydenha.uk",
     "instances": [
       "https://nitter.click",
+      "https://nitter.jaydenha.uk",
       "https://nitter.meowing.monster",
       "https://nitter.tiekoetter.com"
     ]
@@ -130,6 +131,7 @@
       "https://failsearx.culturanerd.it",
       "https://find.xenorio.xyz",
       "https://grep.vim.wtf",
+      "https://kantan.cat",
       "https://libresearch.space",
       "https://paulgo.io",
       "https://priv.au",
@@ -147,7 +149,6 @@
       "https://search.mectov.my.id",
       "https://search.minus27315.dev",
       "https://search.mizuki.st",
-      "https://search.pereira.is",
       "https://search.rhscz.eu",
       "https://search.rowie.at",
       "https://search.serpensin.com",
@@ -157,12 +158,12 @@
       "https://searx.namejeff.xyz",
       "https://searx.oloke.xyz",
       "https://searx.ononoki.org",
-      "https://searx.party",
       "https://searx.perennialte.ch",
       "https://searx.rhscz.eu",
       "https://searx.tiekoetter.com",
       "https://searxng.deggo.fyi",
       "https://searxng.gdebest.net",
+      "https://searxng.shreven.org",
       "https://searxng.site",
       "https://searxng.website",
       "https://xka.cz"
