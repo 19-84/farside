@@ -33,7 +33,6 @@
     "fallback": "https://invidious.tiekoetter.com",
     "instances": [
       "https://inv.nadeko.net",
-      "https://invidious.nerdvpn.de",
       "https://invidious.tiekoetter.com",
       "https://yt.chocolatemoo53.com"
     ]
@@ -43,7 +42,6 @@
     "test_url": "/jack/status/20",
     "fallback": "https://nitter.jaydenha.uk",
     "instances": [
-      "https://nitter.click",
       "https://nitter.jaydenha.uk",
       "https://nitter.meowing.monster",
       "https://nitter.tiekoetter.com"
@@ -101,7 +99,6 @@
     "instances": [
       "https://anaimg.starbeamrainbowlabs.com",
       "https://imgur.artemislena.eu",
-      "https://imgur.nerdvpn.de",
       "https://r.opnxng.com",
       "https://ri.bcow.xyz",
       "https://ri.nadeko.net",
@@ -111,7 +108,9 @@
       "https://rimgo.catsarch.com",
       "https://rimgo.ducks.party",
       "https://rimgo.hostux.net",
+      "https://rimgo.manerakai.com",
       "https://rimgo.nohost.network",
+      "https://rimgo.privacyredirect.com",
       "https://rimgo.pussthecat.org",
       "https://rmgur.com"
     ]
@@ -140,20 +139,20 @@
       "https://search.inetol.net",
       "https://search.jeremyh.xyz",
       "https://search.liuzj.net",
-      "https://search.lumy.live",
       "https://search.mectov.my.id",
       "https://search.minus27315.dev",
       "https://search.mizuki.st",
       "https://search.rhscz.eu",
       "https://search.rowie.at",
       "https://search.serpensin.com",
+      "https://search.spiralab.org",
       "https://search.yuri.llc",
       "https://searx.linxx.net",
       "https://searx.namejeff.xyz",
       "https://searx.oloke.xyz",
       "https://searx.ononoki.org",
+      "https://searx.party",
       "https://searx.perennialte.ch",
-      "https://searx.rhscz.eu",
       "https://searx.tiekoetter.com",
       "https://searxng.deggo.fyi",
       "https://searxng.eshnetwork.space",
@@ -231,8 +230,7 @@
     "instances": [
       "https://ao.bloat.cat",
       "https://o.sudovanilla.org",
-      "https://overflow.canine.tools",
-      "https://soflow.nerdvpn.de"
+      "https://overflow.canine.tools"
     ]
   },
   {
@@ -250,7 +248,6 @@
       "https://4get.neco.lol",
       "https://4get.nigga.pt",
       "https://4get.privadency.com",
-      "https://4get.sny.sh",
       "https://4get.sudovanilla.org",
       "https://search.yonderly.org"
     ]
