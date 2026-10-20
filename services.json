@@ -4,6 +4,7 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.privacyredirect.com",
     "instances": [
+      "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
       "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
@@ -15,6 +16,7 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.privacyredirect.com",
     "instances": [
+      "https://red.artemislena.eu",
       "https://redlib.catsarch.com",
       "https://redlib.privacyredirect.com",
       "https://redlib.privadency.com",
@@ -42,6 +44,7 @@
     "test_url": "/jack/status/20",
     "fallback": "https://nitter.jaydenha.uk",
     "instances": [
+      "https://nitter.click",
       "https://nitter.jaydenha.uk",
       "https://nitter.meowing.monster",
       "https://nitter.tiekoetter.com"
@@ -137,9 +140,8 @@
       "https://search.femboy.ad",
       "https://search.im-in.space",
       "https://search.inetol.net",
-      "https://search.jeremyh.xyz",
       "https://search.liuzj.net",
-      "https://search.mectov.my.id",
+      "https://search.lumy.live",
       "https://search.minus27315.dev",
       "https://search.mizuki.st",
       "https://search.rhscz.eu",
@@ -153,9 +155,9 @@
       "https://searx.ononoki.org",
       "https://searx.party",
       "https://searx.perennialte.ch",
+      "https://searx.rhscz.eu",
       "https://searx.tiekoetter.com",
       "https://searxng.deggo.fyi",
-      "https://searxng.eshnetwork.space",
       "https://searxng.gdebest.net",
       "https://searxng.shreven.org",
       "https://searxng.site",
@@ -238,7 +240,6 @@
     "test_url": "/ami4get",
     "fallback": "https://4get.ca",
     "instances": [
-      "https://4g.opnxng.com",
       "https://4get.ca",
       "https://4get.canine.tools",
       "https://4get.dcs0.hu",
