@@ -47,6 +47,7 @@
       "https://nitter.click",
       "https://nitter.jaydenha.uk",
       "https://nitter.meowing.monster",
+      "https://nitter.mie.foundation",
       "https://nitter.tiekoetter.com"
     ]
   },
@@ -140,10 +141,12 @@
       "https://search.femboy.ad",
       "https://search.im-in.space",
       "https://search.inetol.net",
+      "https://search.jeremyh.xyz",
       "https://search.liuzj.net",
       "https://search.lumy.live",
       "https://search.minus27315.dev",
       "https://search.mizuki.st",
+      "https://search.pereira.is",
       "https://search.rhscz.eu",
       "https://search.rowie.at",
       "https://search.serpensin.com",
@@ -158,6 +161,7 @@
       "https://searx.rhscz.eu",
       "https://searx.tiekoetter.com",
       "https://searxng.deggo.fyi",
+      "https://searxng.eshnetwork.space",
       "https://searxng.gdebest.net",
       "https://searxng.shreven.org",
       "https://searxng.site",
@@ -242,7 +246,6 @@
     "instances": [
       "https://4get.ca",
       "https://4get.canine.tools",
-      "https://4get.dcs0.hu",
       "https://4get.edmateo.site",
       "https://4get.hbubli.cc",
       "https://4get.lunar.icu",
