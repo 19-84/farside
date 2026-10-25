@@ -44,7 +44,6 @@
     "fallback": "https://invidious.tiekoetter.com",
     "instances": [
       "https://inv.nadeko.net",
-      "https://invidious.f5.si",
       "https://invidious.tiekoetter.com",
       "https://yt.chocolatemoo53.com"
     ]
@@ -56,12 +55,10 @@
     "instances": [
       "https://nitter.click",
       "https://nitter.jaydenha.uk",
-      "https://nitter.kareem.one",
       "https://nitter.meowing.monster",
       "https://nitter.mie.foundation",
       "https://nitter.netbub.com",
       "https://nitter.pp.ua",
-      "https://nitter.tiekoetter.com",
       "https://shitter.thepixora.com"
     ]
   },
@@ -156,11 +153,13 @@
       "https://search.ctq.ro",
       "https://search.ethibox.fr",
       "https://search.femboy.ad",
+      "https://search.im-in.space",
       "https://search.inetol.net",
       "https://search.liuzj.net",
       "https://search.minus27315.dev",
       "https://search.rhscz.eu",
       "https://search.rowie.at",
+      "https://search.serpensin.com",
       "https://search.spiralab.org",
       "https://search.yuri.llc",
       "https://searx.linxx.net",
@@ -224,7 +223,6 @@
       "https://breezewiki.com",
       "https://breezewiki.moonshadow.dev",
       "https://breezewiki.nadeko.net",
-      "https://breezewiki.private.coffee",
       "https://breezewiki.pussthecat.org",
       "https://breezewiki.woodland.cafe",
       "https://bw.artemislena.eu",
@@ -261,7 +259,6 @@
     "instances": [
       "https://4get.ca",
       "https://4get.canine.tools",
-      "https://4get.edmateo.site",
       "https://4get.hbubli.cc",
       "https://4get.lunar.icu",
       "https://4get.neco.lol",
