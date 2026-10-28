@@ -4,12 +4,10 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.privacyredirect.com",
     "instances": [
-      "https://red.artemislena.eu",
       "https://reddit.rtrace.io",
       "https://redlib.catsarch.com",
       "https://redlib.cow.rip",
       "https://redlib.privadency.com",
-      "https://redlib.reallyaweso.me",
       "https://safereddit.com"
     ]
   },
@@ -18,12 +16,10 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.privacyredirect.com",
     "instances": [
-      "https://red.artemislena.eu",
       "https://reddit.rtrace.io",
       "https://redlib.catsarch.com",
       "https://redlib.cow.rip",
       "https://redlib.privadency.com",
-      "https://redlib.reallyaweso.me",
       "https://safereddit.com"
     ]
   },
@@ -58,6 +54,7 @@
       "https://nitter.netbub.com",
       "https://nitter.pp.ua",
       "https://nitter.tiekoetter.com",
+      "https://nitter.xitter.cc",
       "https://shitter.thepixora.com"
     ]
   },
@@ -67,10 +64,7 @@
     "fallback": "https://scribe.privacyredirect.com",
     "instances": [
       "https://m.opnxng.com",
-      "https://sc.vern.cc",
-      "https://scribe.nixnet.services",
       "https://scribe.privacyredirect.com",
-      "https://scribe.r4fo.com",
       "https://scribe.rawbit.ninja"
     ]
   },
@@ -181,6 +175,7 @@
       "https://searxng.shreven.org",
       "https://searxng.site",
       "https://searxng.website",
+      "https://sx.xo.st",
       "https://xka.cz"
     ]
   },
@@ -270,6 +265,7 @@
       "https://4get.neco.lol",
       "https://4get.nigga.pt",
       "https://4get.sudovanilla.org",
+      "https://search.mint.lgbt",
       "https://search.yonderly.org"
     ]
   },
