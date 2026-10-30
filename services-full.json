@@ -4,10 +4,7 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.privacyredirect.com",
     "instances": [
-      "https://redlib.catsarch.com",
-      "https://redlib.cow.rip",
-      "https://redlib.privadency.com",
-      "https://safereddit.com"
+      "https://redlib.privadency.com"
     ]
   },
   {
@@ -15,10 +12,7 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.privacyredirect.com",
     "instances": [
-      "https://redlib.catsarch.com",
-      "https://redlib.cow.rip",
-      "https://redlib.privadency.com",
-      "https://safereddit.com"
+      "https://redlib.privadency.com"
     ]
   },
   {
@@ -45,14 +39,15 @@
     "test_url": "/jack/status/20",
     "fallback": "https://nitter.jaydenha.uk",
     "instances": [
+      "https://nitter.click",
       "https://nitter.jaydenha.uk",
       "https://nitter.kareem.one",
       "https://nitter.mie.foundation",
       "https://nitter.mizuki.st",
       "https://nitter.netbub.com",
       "https://nitter.pp.ua",
+      "https://nitter.r4fo.com",
       "https://nitter.tiekoetter.com",
-      "https://nitter.xitter.cc",
       "https://shitter.thepixora.com"
     ]
   },
@@ -149,7 +144,6 @@
       "https://search.femboy.ad",
       "https://search.im-in.space",
       "https://search.inetol.net",
-      "https://search.jeremyh.xyz",
       "https://search.liuzj.net",
       "https://search.lumy.live",
       "https://search.minus27315.dev",
@@ -173,6 +167,7 @@
       "https://searxng.gdebest.net",
       "https://searxng.jaydenha.uk",
       "https://searxng.shreven.org",
+      "https://searxng.site",
       "https://searxng.website",
       "https://sx.xo.st",
       "https://xka.cz"
@@ -234,10 +229,7 @@
     "type": "gothub",
     "test_url": "/19-84/farside",
     "fallback": "https://gothub.projectsegfau.lt",
-    "instances": [
-      "https://gothub.dev.projectsegfau.lt",
-      "https://gothub.projectsegfau.lt"
-    ]
+    "instances": []
   },
   {
     "type": "anonymousoverflow",
