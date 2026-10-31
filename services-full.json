@@ -39,7 +39,6 @@
     "test_url": "/jack/status/20",
     "fallback": "https://nitter.jaydenha.uk",
     "instances": [
-      "https://nitter.click",
       "https://nitter.jaydenha.uk",
       "https://nitter.kareem.one",
       "https://nitter.mie.foundation",
@@ -48,6 +47,7 @@
       "https://nitter.pp.ua",
       "https://nitter.r4fo.com",
       "https://nitter.tiekoetter.com",
+      "https://nitter.xitter.cc",
       "https://shitter.thepixora.com"
     ]
   },
@@ -158,12 +158,10 @@
       "https://searx.namejeff.xyz",
       "https://searx.oloke.xyz",
       "https://searx.ononoki.org",
-      "https://searx.party",
       "https://searx.perennialte.ch",
       "https://searx.rhscz.eu",
       "https://searx.tiekoetter.com",
       "https://searxng.deggo.fyi",
-      "https://searxng.eshnetwork.space",
       "https://searxng.gdebest.net",
       "https://searxng.jaydenha.uk",
       "https://searxng.shreven.org",
@@ -229,7 +227,10 @@
     "type": "gothub",
     "test_url": "/19-84/farside",
     "fallback": "https://gothub.projectsegfau.lt",
-    "instances": []
+    "instances": [
+      "https://gothub.dev.projectsegfau.lt",
+      "https://gothub.projectsegfau.lt"
+    ]
   },
   {
     "type": "anonymousoverflow",
