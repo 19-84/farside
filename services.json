@@ -38,7 +38,7 @@
     "instances": [
       "https://nitter.click",
       "https://nitter.jaydenha.uk",
-      "https://nitter.mie.foundation",
+      "https://nitter.mizuki.st",
       "https://nitter.tiekoetter.com"
     ]
   },
@@ -114,7 +114,6 @@
     "instances": [
       "https://anonsearch.win",
       "https://baresearch.org",
-      "https://failsearx.culturanerd.it",
       "https://find.xenorio.xyz",
       "https://grep.vim.wtf",
       "https://kantan.cat",
@@ -143,12 +142,14 @@
       "https://searx.namejeff.xyz",
       "https://searx.oloke.xyz",
       "https://searx.ononoki.org",
+      "https://searx.party",
       "https://searx.perennialte.ch",
       "https://searx.rhscz.eu",
       "https://searx.tiekoetter.com",
       "https://searxng.deggo.fyi",
       "https://searxng.eshnetwork.space",
       "https://searxng.gdebest.net",
+      "https://searxng.jaydenha.uk",
       "https://searxng.shreven.org",
       "https://searxng.site",
       "https://searxng.website",
@@ -229,13 +230,18 @@
     "test_url": "/ami4get",
     "fallback": "https://4get.ca",
     "instances": [
+      "https://4.nboeck.de",
       "https://4get.ca",
       "https://4get.canine.tools",
+      "https://4get.dcs0.hu",
       "https://4get.edmateo.site",
       "https://4get.hbubli.cc",
       "https://4get.lunar.icu",
+      "https://4get.lurx.net",
+      "https://4get.nadeko.net",
       "https://4get.neco.lol",
       "https://4get.nigga.pt",
+      "https://4get.privadency.com",
       "https://4get.sudovanilla.org",
       "https://search.mint.lgbt",
       "https://search.yonderly.org"
