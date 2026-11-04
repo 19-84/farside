@@ -4,8 +4,7 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.privacyredirect.com",
     "instances": [
-      "https://redlib.cow.rip",
-      "https://redlib.privadency.com"
+      "https://redlib.cow.rip"
     ]
   },
   {
@@ -13,8 +12,7 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.privacyredirect.com",
     "instances": [
-      "https://redlib.cow.rip",
-      "https://redlib.privadency.com"
+      "https://redlib.cow.rip"
     ]
   },
   {
@@ -49,6 +47,7 @@
       "https://nitter.netbub.com",
       "https://nitter.pp.ua",
       "https://nitter.tiekoetter.com",
+      "https://nitter.xitter.cc",
       "https://shitter.thepixora.com"
     ]
   },
@@ -129,7 +128,6 @@
     "fallback": "https://searxng.shreven.org",
     "instances": [
       "https://anonsearch.win",
-      "https://baresearch.org",
       "https://failsearx.culturanerd.it",
       "https://find.xenorio.xyz",
       "https://grep.vim.wtf",
@@ -147,8 +145,8 @@
       "https://search.inetol.net",
       "https://search.jeremyh.xyz",
       "https://search.liuzj.net",
-      "https://search.lumy.live",
       "https://search.minus27315.dev",
+      "https://search.pereira.is",
       "https://search.rhscz.eu",
       "https://search.rowie.at",
       "https://search.serpensin.com",
