@@ -97,7 +97,8 @@
       "https://mozhi.ducks.party",
       "https://mozhi.pussthecat.org",
       "https://mzh.dc09.xyz",
-      "https://translate.privacyredirect.com"
+      "https://translate.privacyredirect.com",
+      "https://translate.projectsegfau.lt"
     ]
   },
   {
@@ -128,7 +129,7 @@
     "fallback": "https://searxng.shreven.org",
     "instances": [
       "https://anonsearch.win",
-      "https://failsearx.culturanerd.it",
+      "https://baresearch.org",
       "https://find.xenorio.xyz",
       "https://grep.vim.wtf",
       "https://kantan.cat",
@@ -145,11 +146,10 @@
       "https://search.inetol.net",
       "https://search.jeremyh.xyz",
       "https://search.liuzj.net",
+      "https://search.lumy.live",
       "https://search.minus27315.dev",
-      "https://search.pereira.is",
       "https://search.rhscz.eu",
       "https://search.rowie.at",
-      "https://search.serpensin.com",
       "https://search.spiralab.org",
       "https://search.utilibre.org",
       "https://search.yuri.llc",
@@ -229,8 +229,7 @@
     "test_url": "/19-84/farside",
     "fallback": "https://gothub.projectsegfau.lt",
     "instances": [
-      "https://gothub.dev.projectsegfau.lt",
-      "https://gothub.projectsegfau.lt"
+      "https://gothub.dev.projectsegfau.lt"
     ]
   },
   {
@@ -261,6 +260,7 @@
       "https://4get.neco.lol",
       "https://4get.nigga.pt",
       "https://4get.privadency.com",
+      "https://4get.sny.sh",
       "https://4get.sudovanilla.org",
       "https://search.mint.lgbt",
       "https://search.yonderly.org"
