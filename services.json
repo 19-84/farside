@@ -3,13 +3,17 @@
     "type": "libreddit",
     "test_url": "/r/popular",
     "fallback": "https://redlib.privacyredirect.com",
-    "instances": []
+    "instances": [
+      "https://redlib.privadency.com"
+    ]
   },
   {
     "type": "redlib",
     "test_url": "/r/popular",
     "fallback": "https://redlib.privacyredirect.com",
-    "instances": []
+    "instances": [
+      "https://redlib.privadency.com"
+    ]
   },
   {
     "type": "teddit",
@@ -102,6 +106,7 @@
       "https://rimgo.ducks.party",
       "https://rimgo.hostux.net",
       "https://rimgo.privacyredirect.com",
+      "https://rimgo.reallyaweso.me",
       "https://rmgur.com"
     ]
   },
@@ -112,6 +117,7 @@
     "instances": [
       "https://anonsearch.win",
       "https://baresearch.org",
+      "https://failsearx.culturanerd.it",
       "https://find.xenorio.xyz",
       "https://grep.vim.wtf",
       "https://kantan.cat",
@@ -128,10 +134,11 @@
       "https://search.inetol.net",
       "https://search.jeremyh.xyz",
       "https://search.liuzj.net",
-      "https://search.lumy.live",
       "https://search.minus27315.dev",
+      "https://search.pereira.is",
       "https://search.rhscz.eu",
       "https://search.rowie.at",
+      "https://search.serpensin.com",
       "https://search.spiralab.org",
       "https://search.utilibre.org",
       "https://search.yuri.llc",
@@ -208,7 +215,8 @@
     "test_url": "/19-84/farside",
     "fallback": "https://gothub.projectsegfau.lt",
     "instances": [
-      "https://gothub.dev.projectsegfau.lt"
+      "https://gothub.dev.projectsegfau.lt",
+      "https://gothub.projectsegfau.lt"
     ]
   },
   {
