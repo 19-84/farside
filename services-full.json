@@ -49,7 +49,7 @@
       "https://nitter.netbub.com",
       "https://nitter.pp.ua",
       "https://nitter.privacyredirect.com",
-      "https://nitter.xitter.cc",
+      "https://nitter.tiekoetter.com",
       "https://shitter.thepixora.com"
     ]
   },
@@ -147,11 +147,12 @@
       "https://search.ethibox.fr",
       "https://search.femboy.ad",
       "https://search.im-in.space",
-      "https://search.inetol.net",
       "https://search.jeremyh.xyz",
       "https://search.liuzj.net",
+      "https://search.lumy.live",
       "https://search.minus27315.dev",
       "https://search.pereira.is",
+      "https://search.rhscz.eu",
       "https://search.rowie.at",
       "https://search.serpensin.com",
       "https://search.spiralab.org",
@@ -162,7 +163,6 @@
       "https://searx.oloke.xyz",
       "https://searx.ononoki.org",
       "https://searx.party",
-      "https://searx.perennialte.ch",
       "https://searx.rhscz.eu",
       "https://searx.tiekoetter.com",
       "https://searxng.deggo.fyi",
@@ -170,6 +170,7 @@
       "https://searxng.gdebest.net",
       "https://searxng.jaydenha.uk",
       "https://searxng.shreven.org",
+      "https://searxng.site",
       "https://searxng.website",
       "https://shrt.win",
       "https://sx.xo.st",
@@ -234,6 +235,7 @@
     "fallback": "https://gothub.projectsegfau.lt",
     "instances": [
       "https://gothub.dev.projectsegfau.lt",
+      "https://gothub.lunar.icu",
       "https://gothub.projectsegfau.lt"
     ]
   },
