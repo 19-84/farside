@@ -36,6 +36,7 @@
     "test_url": "/jack/status/20",
     "fallback": "https://nitter.jaydenha.uk",
     "instances": [
+      "https://nitter.catsarch.com",
       "https://nitter.click",
       "https://nitter.jaydenha.uk",
       "https://nitter.mie.foundation",
@@ -106,8 +107,8 @@
       "https://rimgo.catsarch.com",
       "https://rimgo.ducks.party",
       "https://rimgo.hostux.net",
+      "https://rimgo.manerakai.com",
       "https://rimgo.privacyredirect.com",
-      "https://rimgo.reallyaweso.me",
       "https://rmgur.com"
     ]
   },
@@ -132,9 +133,7 @@
       "https://search.ethibox.fr",
       "https://search.femboy.ad",
       "https://search.im-in.space",
-      "https://search.jeremyh.xyz",
       "https://search.liuzj.net",
-      "https://search.lumy.live",
       "https://search.minus27315.dev",
       "https://search.pereira.is",
       "https://search.rhscz.eu",
@@ -143,6 +142,7 @@
       "https://search.spiralab.org",
       "https://search.utilibre.org",
       "https://search.yuri.llc",
+      "https://search.zina.dev",
       "https://searx.linxx.net",
       "https://searx.namejeff.xyz",
       "https://searx.oloke.xyz",
@@ -155,7 +155,6 @@
       "https://searxng.gdebest.net",
       "https://searxng.jaydenha.uk",
       "https://searxng.shreven.org",
-      "https://searxng.site",
       "https://searxng.website",
       "https://shrt.win",
       "https://sx.xo.st",
