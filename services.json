@@ -4,7 +4,10 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.privacyredirect.com",
     "instances": [
-      "https://redlib.privadency.com"
+      "https://reddit.jeremyh.xyz",
+      "https://redlib.privadency.com",
+      "https://redlib.tiekoetter.com",
+      "https://redlib.zanity.net"
     ]
   },
   {
@@ -12,7 +15,10 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.privacyredirect.com",
     "instances": [
-      "https://redlib.privadency.com"
+      "https://reddit.jeremyh.xyz",
+      "https://redlib.privadency.com",
+      "https://redlib.tiekoetter.com",
+      "https://redlib.zanity.net"
     ]
   },
   {
@@ -37,6 +43,8 @@
     "fallback": "https://nitter.jaydenha.uk",
     "instances": [
       "https://nitter.catsarch.com",
+      "https://nitter.click",
+      "https://nitter.jaydenha.uk",
       "https://nitter.mie.foundation",
       "https://nitter.mizuki.st",
       "https://nitter.privacyredirect.com",
@@ -105,7 +113,6 @@
       "https://rimgo.catsarch.com",
       "https://rimgo.ducks.party",
       "https://rimgo.hostux.net",
-      "https://rimgo.manerakai.com",
       "https://rimgo.privacyredirect.com",
       "https://rmgur.com"
     ]
@@ -117,6 +124,7 @@
     "instances": [
       "https://anonsearch.win",
       "https://baresearch.org",
+      "https://failsearx.culturanerd.it",
       "https://find.xenorio.xyz",
       "https://grep.vim.wtf",
       "https://kantan.cat",
@@ -133,7 +141,9 @@
       "https://search.inetol.net",
       "https://search.jeremyh.xyz",
       "https://search.liuzj.net",
+      "https://search.lumy.live",
       "https://search.minus27315.dev",
+      "https://search.pereira.is",
       "https://search.rhscz.eu",
       "https://search.rowie.at",
       "https://search.serpensin.com",
@@ -152,11 +162,9 @@
       "https://searxng.gdebest.net",
       "https://searxng.jaydenha.uk",
       "https://searxng.shreven.org",
-      "https://searxng.site",
       "https://searxng.website",
       "https://shrt.win",
-      "https://sx.xo.st",
-      "https://xka.cz"
+      "https://sx.xo.st"
     ]
   },
   {
@@ -214,6 +222,7 @@
     "fallback": "https://gothub.projectsegfau.lt",
     "instances": [
       "https://gothub.dev.projectsegfau.lt",
+      "https://gothub.lunar.icu",
       "https://gothub.projectsegfau.lt"
     ]
   },
