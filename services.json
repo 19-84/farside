@@ -5,8 +5,11 @@
     "fallback": "https://redlib.privacyredirect.com",
     "instances": [
       "https://reddit.jeremyh.xyz",
+      "https://redlib.catsarch.com",
+      "https://redlib.hbubli.cc",
+      "https://redlib.nadeko.net",
       "https://redlib.privadency.com",
-      "https://redlib.tiekoetter.com",
+      "https://redlib.r4fo.com",
       "https://redlib.zanity.net"
     ]
   },
@@ -16,8 +19,11 @@
     "fallback": "https://redlib.privacyredirect.com",
     "instances": [
       "https://reddit.jeremyh.xyz",
+      "https://redlib.catsarch.com",
+      "https://redlib.hbubli.cc",
+      "https://redlib.nadeko.net",
       "https://redlib.privadency.com",
-      "https://redlib.tiekoetter.com",
+      "https://redlib.r4fo.com",
       "https://redlib.zanity.net"
     ]
   },
@@ -48,7 +54,8 @@
       "https://nitter.mie.foundation",
       "https://nitter.mizuki.st",
       "https://nitter.privacyredirect.com",
-      "https://nitter.tiekoetter.com"
+      "https://nitter.tiekoetter.com",
+      "https://nohup.cz"
     ]
   },
   {
@@ -113,6 +120,7 @@
       "https://rimgo.catsarch.com",
       "https://rimgo.ducks.party",
       "https://rimgo.hostux.net",
+      "https://rimgo.manerakai.com",
       "https://rimgo.privacyredirect.com",
       "https://rmgur.com"
     ]
@@ -158,6 +166,7 @@
       "https://searx.party",
       "https://searx.rhscz.eu",
       "https://searx.tiekoetter.com",
+      "https://searxng.deggo.fyi",
       "https://searxng.eshnetwork.space",
       "https://searxng.gdebest.net",
       "https://searxng.jaydenha.uk",

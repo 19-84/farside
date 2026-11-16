@@ -5,10 +5,14 @@
     "fallback": "https://redlib.privacyredirect.com",
     "instances": [
       "https://reddit.jeremyh.xyz",
+      "https://redlib.catsarch.com",
       "https://redlib.cow.rip",
       "https://redlib.freedit.eu",
+      "https://redlib.hbubli.cc",
+      "https://redlib.nadeko.net",
       "https://redlib.privadency.com",
-      "https://redlib.tiekoetter.com",
+      "https://redlib.r4fo.com",
+      "https://redlib.thepixora.com",
       "https://redlib.utilibre.org",
       "https://redlib.zanity.net"
     ]
@@ -19,10 +23,14 @@
     "fallback": "https://redlib.privacyredirect.com",
     "instances": [
       "https://reddit.jeremyh.xyz",
+      "https://redlib.catsarch.com",
       "https://redlib.cow.rip",
       "https://redlib.freedit.eu",
+      "https://redlib.hbubli.cc",
+      "https://redlib.nadeko.net",
       "https://redlib.privadency.com",
-      "https://redlib.tiekoetter.com",
+      "https://redlib.r4fo.com",
+      "https://redlib.thepixora.com",
       "https://redlib.utilibre.org",
       "https://redlib.zanity.net"
     ]
@@ -55,12 +63,14 @@
       "https://nitter.click",
       "https://nitter.ip6arpa.uk",
       "https://nitter.jaydenha.uk",
+      "https://nitter.kareem.one",
       "https://nitter.mie.foundation",
       "https://nitter.mizuki.st",
       "https://nitter.netbub.com",
       "https://nitter.privacyredirect.com",
       "https://nitter.tiekoetter.com",
       "https://nitterts.pages.dev",
+      "https://nohup.cz",
       "https://shitter.thepixora.com"
     ]
   },
@@ -131,6 +141,7 @@
       "https://rimgo.catsarch.com",
       "https://rimgo.ducks.party",
       "https://rimgo.hostux.net",
+      "https://rimgo.manerakai.com",
       "https://rimgo.nohost.network",
       "https://rimgo.privacyredirect.com",
       "https://rmgur.com"
@@ -177,6 +188,7 @@
       "https://searx.party",
       "https://searx.rhscz.eu",
       "https://searx.tiekoetter.com",
+      "https://searxng.deggo.fyi",
       "https://searxng.eshnetwork.space",
       "https://searxng.gdebest.net",
       "https://searxng.jaydenha.uk",
