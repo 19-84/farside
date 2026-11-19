@@ -45,11 +45,12 @@
     "fallback": "https://nitter.jaydenha.uk",
     "instances": [
       "https://nitter.catsarch.com",
+      "https://nitter.click",
       "https://nitter.jaydenha.uk",
       "https://nitter.mie.foundation",
-      "https://nitter.mizuki.st",
       "https://nitter.privacyredirect.com",
-      "https://nitter.tiekoetter.com"
+      "https://nitter.tiekoetter.com",
+      "https://nohup.cz"
     ]
   },
   {
@@ -160,12 +161,13 @@
       "https://searx.rhscz.eu",
       "https://searx.tiekoetter.com",
       "https://searxng.deggo.fyi",
+      "https://searxng.eshnetwork.space",
       "https://searxng.gdebest.net",
-      "https://searxng.jaydenha.uk",
       "https://searxng.shreven.org",
       "https://searxng.website",
       "https://shrt.win",
-      "https://sx.xo.st"
+      "https://sx.xo.st",
+      "https://xka.cz"
     ]
   },
   {
