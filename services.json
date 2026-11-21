@@ -48,7 +48,6 @@
       "https://nitter.click",
       "https://nitter.jaydenha.uk",
       "https://nitter.mie.foundation",
-      "https://nitter.mizuki.st",
       "https://nitter.privacyredirect.com",
       "https://nitter.tiekoetter.com"
     ]
@@ -127,7 +126,6 @@
     "instances": [
       "https://anonsearch.win",
       "https://baresearch.org",
-      "https://failsearx.culturanerd.it",
       "https://find.xenorio.xyz",
       "https://grep.vim.wtf",
       "https://kantan.cat",
@@ -145,6 +143,7 @@
       "https://search.jeremyh.xyz",
       "https://search.liuzj.net",
       "https://search.minus27315.dev",
+      "https://search.pereira.is",
       "https://search.rhscz.eu",
       "https://search.rowie.at",
       "https://search.serpensin.com",
@@ -205,7 +204,6 @@
     "test_url": "/balatrogame/wiki/Abandoned_Deck",
     "fallback": "https://breezewiki.com",
     "instances": [
-      "https://antifandom.com",
       "https://breeze.hostux.net",
       "https://breeze.mint.lgbt",
       "https://breezewiki.com",
