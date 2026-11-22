@@ -48,8 +48,10 @@
       "https://nitter.click",
       "https://nitter.jaydenha.uk",
       "https://nitter.mie.foundation",
+      "https://nitter.mizuki.st",
       "https://nitter.privacyredirect.com",
-      "https://nitter.tiekoetter.com"
+      "https://nitter.tiekoetter.com",
+      "https://nohup.cz"
     ]
   },
   {
@@ -58,7 +60,10 @@
     "fallback": "https://scribe.privacyredirect.com",
     "instances": [
       "https://m.opnxng.com",
-      "https://scribe.privacyredirect.com"
+      "https://sc.vern.cc",
+      "https://scribe.nixnet.services",
+      "https://scribe.privacyredirect.com",
+      "https://scribe.r4fo.com"
     ]
   },
   {
@@ -142,6 +147,7 @@
       "https://search.inetol.net",
       "https://search.jeremyh.xyz",
       "https://search.liuzj.net",
+      "https://search.lumy.live",
       "https://search.minus27315.dev",
       "https://search.pereira.is",
       "https://search.rhscz.eu",
