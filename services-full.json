@@ -57,8 +57,8 @@
     "instances": [
       "https://nitter.catsarch.com",
       "https://nitter.click",
+      "https://nitter.femboy.delivery",
       "https://nitter.ip6arpa.uk",
-      "https://nitter.jaydenha.uk",
       "https://nitter.kareem.one",
       "https://nitter.mie.foundation",
       "https://nitter.mizuki.st",
@@ -77,10 +77,7 @@
     "fallback": "https://scribe.privacyredirect.com",
     "instances": [
       "https://m.opnxng.com",
-      "https://sc.vern.cc",
-      "https://scribe.nixnet.services",
       "https://scribe.privacyredirect.com",
-      "https://scribe.r4fo.com",
       "https://scribe.rawbit.ninja"
     ]
   },
@@ -102,7 +99,6 @@
     "fallback": "https://lingva.ml",
     "instances": [
       "https://lingva.garudalinux.org",
-      "https://lingva.lunar.icu",
       "https://lingva.ml"
     ]
   },
@@ -160,6 +156,7 @@
       "https://libresearch.space",
       "https://priv.au",
       "https://sear.lurx.net",
+      "https://search.bladerunn.in",
       "https://search.catboy.house",
       "https://search.ctq.ro",
       "https://search.ethibox.fr",
@@ -249,7 +246,8 @@
     "test_url": "/19-84/farside",
     "fallback": "https://gothub.projectsegfau.lt",
     "instances": [
-      "https://gothub.lunar.icu"
+      "https://gothub.dev.projectsegfau.lt",
+      "https://gothub.projectsegfau.lt"
     ]
   },
   {
@@ -274,7 +272,6 @@
       "https://4get.dcs0.hu",
       "https://4get.edmateo.site",
       "https://4get.hbubli.cc",
-      "https://4get.lunar.icu",
       "https://4get.lurx.net",
       "https://4get.nadeko.net",
       "https://4get.neco.lol",
@@ -295,7 +292,6 @@
       "https://bandcamp.lurkmore.com",
       "https://tent.bloat.cat",
       "https://tent.canine.tools",
-      "https://tent.deep-swarm.xyz",
       "https://tent.private.coffee",
       "https://tent.sny.sh",
       "https://tent.xnand.xyz",
@@ -311,7 +307,6 @@
       "https://biblioreads.canine.tools",
       "https://biblioreads.ducks.party",
       "https://biblioreads.eu.org",
-      "https://biblioreads.lunar.icu",
       "https://biblioreads.mooo.com",
       "https://biblioreads.privacyredirect.com",
       "https://biblioreads.utilibre.org",
