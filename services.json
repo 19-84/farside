@@ -4,11 +4,10 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.privacyredirect.com",
     "instances": [
-      "https://reddit.jeremyh.xyz",
-      "https://redlib.catsarch.com",
       "https://redlib.hbubli.cc",
-      "https://redlib.privadency.com",
-      "https://redlib.zanity.net"
+      "https://redlib.reallyaweso.me",
+      "https://redlib.zanity.net",
+      "https://safereddit.com"
     ]
   },
   {
@@ -16,11 +15,10 @@
     "test_url": "/r/popular",
     "fallback": "https://redlib.privacyredirect.com",
     "instances": [
-      "https://reddit.jeremyh.xyz",
-      "https://redlib.catsarch.com",
       "https://redlib.hbubli.cc",
-      "https://redlib.privadency.com",
-      "https://redlib.zanity.net"
+      "https://redlib.reallyaweso.me",
+      "https://redlib.zanity.net",
+      "https://safereddit.com"
     ]
   },
   {
@@ -153,7 +151,6 @@
       "https://searx.linxx.net",
       "https://searx.namejeff.xyz",
       "https://searx.oloke.xyz",
-      "https://searx.ononoki.org",
       "https://searx.party",
       "https://searx.rhscz.eu",
       "https://searx.ro",
