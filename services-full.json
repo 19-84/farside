@@ -41,7 +41,9 @@
     "test_url": "/watch?v=eBGIQ7ZuuiU",
     "fallback": "https://invidious.tiekoetter.com",
     "instances": [
+      "https://inv-ygg.nadeko.net",
       "https://inv.nadeko.net",
+      "https://invidious.nerdvpn.de",
       "https://invidious.tiekoetter.com",
       "https://yt.chocolatemoo53.com"
     ]
@@ -159,6 +161,7 @@
       "https://search.im-in.space",
       "https://search.inetol.net",
       "https://search.liuzj.net",
+      "https://search.lumy.live",
       "https://search.minus27315.dev",
       "https://search.pereira.is",
       "https://search.rhscz.eu",
@@ -171,6 +174,7 @@
       "https://searx.linxx.net",
       "https://searx.namejeff.xyz",
       "https://searx.oloke.xyz",
+      "https://searx.ononoki.org",
       "https://searx.party",
       "https://searx.rhscz.eu",
       "https://searx.ro",
@@ -287,6 +291,7 @@
       "https://bandcamp.lurkmore.com",
       "https://tent.bloat.cat",
       "https://tent.canine.tools",
+      "https://tent.notbig.business",
       "https://tent.private.coffee",
       "https://tent.sny.sh",
       "https://tent.xnand.xyz",
